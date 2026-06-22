@@ -1,0 +1,155 @@
+{
+  "tournament": {
+    "name": "FIFA World Cup 2026",
+    "year": 2026,
+    "timezone": "Europe/Kyiv",
+    "hosts": [
+      "Canada",
+      "Mexico",
+      "United States"
+    ],
+    "lastUpdated": "2026-06-22T18:20:00Z",
+    "note": "Initial local starter data. Edit this JSON file manually as official groups, fixtures, and results are maintained."
+  },
+  "groups": [
+    {
+      "id": "A",
+      "name": "Group A",
+      "teamIds": [
+        "a1",
+        "a2",
+        "a3",
+        "a4"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Group B",
+      "teamIds": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "id": "a1",
+      "name": "Group A Team 1",
+      "code": "A1",
+      "group": "A"
+    },
+    {
+      "id": "a2",
+      "name": "Group A Team 2",
+      "code": "A2",
+      "group": "A"
+    },
+    {
+      "id": "a3",
+      "name": "Group A Team 3",
+      "code": "A3",
+      "group": "A"
+    },
+    {
+      "id": "a4",
+      "name": "Group A Team 4",
+      "code": "A4",
+      "group": "A"
+    },
+    {
+      "id": "b1",
+      "name": "Group B Team 1",
+      "code": "B1",
+      "group": "B"
+    },
+    {
+      "id": "b2",
+      "name": "Group B Team 2",
+      "code": "B2",
+      "group": "B"
+    },
+    {
+      "id": "b3",
+      "name": "Group B Team 3",
+      "code": "B3",
+      "group": "B"
+    },
+    {
+      "id": "b4",
+      "name": "Group B Team 4",
+      "code": "B4",
+      "group": "B"
+    }
+  ],
+  "matches": [
+    {
+      "id": "match-1",
+      "stage": "group",
+      "groupId": "A",
+      "homeTeamId": "a1",
+      "awayTeamId": "a2",
+      "kickoffUtc": "2026-06-11T19:00:00Z",
+      "venue": "Estadio Azteca",
+      "city": "Mexico City",
+      "status": "scheduled"
+    },
+    {
+      "id": "match-2",
+      "stage": "group",
+      "groupId": "B",
+      "homeTeamId": "b1",
+      "awayTeamId": "b2",
+      "kickoffUtc": "2026-06-12T01:00:00Z",
+      "venue": "BMO Field",
+      "city": "Toronto",
+      "status": "scheduled"
+    },
+    {
+      "id": "round-32-1",
+      "stage": "round-of-32",
+      "homePlaceholder": "Winner Group A",
+      "awayPlaceholder": "Best 3rd Group C/D/E",
+      "kickoffUtc": "2026-06-28T20:00:00Z",
+      "venue": "MetLife Stadium",
+      "city": "New York/New Jersey",
+      "status": "scheduled"
+    },
+    {
+      "id": "round-32-2",
+      "stage": "round-of-32",
+      "homePlaceholder": "Runner-up Group B",
+      "awayPlaceholder": "Winner Group C",
+      "kickoffUtc": "2026-06-29T00:00:00Z",
+      "venue": "Mercedes-Benz Stadium",
+      "city": "Atlanta",
+      "status": "scheduled"
+    },
+    {
+      "id": "third-place",
+      "stage": "third-place",
+      "homePlaceholder": "Loser Semi-final 1",
+      "awayPlaceholder": "Loser Semi-final 2",
+      "kickoffUtc": "2026-07-18T20:00:00Z",
+      "venue": "Hard Rock Stadium",
+      "city": "Miami",
+      "status": "scheduled"
+    },
+    {
+      "id": "final",
+      "stage": "final",
+      "homePlaceholder": "Winner Semi-final 1",
+      "awayPlaceholder": "Winner Semi-final 2",
+      "kickoffUtc": "2026-07-19T22:00:00Z",
+      "venue": "MetLife Stadium",
+      "city": "New York/New Jersey",
+      "status": "scheduled"
+    }
+  ],
+  "importMeta": {
+    "importedAt": "2026-06-22T15:34:15.392Z",
+    "source": "D:\\OTHER Proj\\Креатив +\\Сайт ЧС FIFA 26\\public\\data\\worldcup-2026.json",
+    "note": "Optional import only. Compare this file with worldcup-2026.json and copy updates manually."
+  }
+}
