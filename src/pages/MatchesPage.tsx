@@ -2,24 +2,26 @@ import { useState } from "react";
 import { EmptyState } from "../components/EmptyState";
 import { MatchCard } from "../components/MatchCard";
 import { isTodayKyiv, sortMatchesByDate } from "../lib/dates";
+import { getStageLabel, type Translate } from "../lib/i18n";
 import type { Match, Team, TournamentData } from "../lib/types";
 
 interface MatchesPageProps {
   data: TournamentData;
+  t: Translate;
 }
 
 type MatchFilterId = "all" | "today" | "upcoming" | "finished" | "group" | "knockout";
 
-const matchFilters: Array<{ id: MatchFilterId; label: string }> = [
-  { id: "all", label: "All" },
-  { id: "today", label: "Today" },
-  { id: "upcoming", label: "Upcoming" },
-  { id: "finished", label: "Finished" },
-  { id: "group", label: "Group stage" },
-  { id: "knockout", label: "Knockout" }
+const matchFilters: Array<{ id: MatchFilterId; labelKey: Parameters<Translate>[0] }> = [
+  { id: "all", labelKey: "matches.all" },
+  { id: "today", labelKey: "matches.today" },
+  { id: "upcoming", labelKey: "matches.upcoming" },
+  { id: "finished", labelKey: "matches.finished" },
+  { id: "group", labelKey: "matches.groupStage" },
+  { id: "knockout", labelKey: "matches.knockout" }
 ];
 
-export function MatchesPage({ data }: MatchesPageProps) {
+export function MatchesPage({ data, t }: MatchesPageProps) {
   const [activeFilter, setActiveFilter] = useState<MatchFilterId>("all");
   const [selectedGroup, setSelectedGroup] = useState("all");
   const [selectedTeam, setSelectedTeam] = useState("all");
@@ -77,17 +79,15 @@ export function MatchesPage({ data }: MatchesPageProps) {
   return (
     <section aria-labelledby="matches-title">
       <div className="page-heading">
-        <p className="eyebrow">Fixtures</p>
-        <h1 id="matches-title">Matches</h1>
-        <p className="section-copy">
-          Filters use only local JSON data, with no external APIs and no backend.
-        </p>
+        <p className="eyebrow">{t("matches.eyebrow")}</p>
+        <h1 id="matches-title">{t("matches.title")}</h1>
+        <p className="section-copy">{t("matches.copy")}</p>
       </div>
 
       {data.matches.length === 0 ? (
         <EmptyState
-          message="Add matches to the local tournament JSON to start tracking fixtures and results."
-          title="No matches available"
+          message={t("matches.noMatchesMessage")}
+          title={t("matches.noMatchesTitle")}
         />
       ) : (
         <>
@@ -100,7 +100,7 @@ export function MatchesPage({ data }: MatchesPageProps) {
                   onClick={() => setActiveFilter(filter.id)}
                   type="button"
                 >
-                  {filter.label}
+                  {t(filter.labelKey)}
                 </button>
               ))}
             </div>
@@ -108,12 +108,12 @@ export function MatchesPage({ data }: MatchesPageProps) {
             <div className="select-filter-row">
               {availableGroups.length > 0 ? (
                 <label className="select-filter">
-                  <span>Group</span>
+                  <span>{t("matches.group")}</span>
                   <select
                     onChange={(event) => setSelectedGroup(event.target.value)}
                     value={selectedGroup}
                   >
-                    <option value="all">All groups</option>
+                    <option value="all">{t("matches.allGroups")}</option>
                     {availableGroups.map((groupId) => (
                       <option key={groupId} value={groupId}>
                         {groupNameById.get(groupId) ?? `Group ${groupId}`}
@@ -125,12 +125,12 @@ export function MatchesPage({ data }: MatchesPageProps) {
 
               {availableTeams.length > 0 ? (
                 <label className="select-filter">
-                  <span>Team</span>
+                  <span>{t("matches.team")}</span>
                   <select
                     onChange={(event) => setSelectedTeam(event.target.value)}
                     value={selectedTeam}
                   >
-                    <option value="all">All teams</option>
+                    <option value="all">{t("matches.allTeams")}</option>
                     {availableTeams.map((team) => (
                       <option key={team.id} value={team.id}>
                         {team.name}
@@ -146,8 +146,8 @@ export function MatchesPage({ data }: MatchesPageProps) {
             {filteredMatches.length === 0 ? (
               <EmptyState
                 compact
-                message="Try a different filter to see more fixtures."
-                title="No matches found"
+                message={t("matches.noFilteredMessage")}
+                title={t("matches.noFilteredTitle")}
               />
             ) : (
               filteredMatches.map((match) => {
@@ -167,7 +167,8 @@ export function MatchesPage({ data }: MatchesPageProps) {
                     onToggle={(matchId) =>
                       setOpenMatchId((current) => (current === matchId ? null : matchId))
                     }
-                    stageLabel={formatStageLabel(match.stage)}
+                    stageLabel={getStageLabel(match.stage, t)}
+                    t={t}
                   />
                 );
               })
@@ -204,14 +205,4 @@ function resolveMatchGroupId(match: Match, teamsById: Map<string, Team>) {
   const awayGroup = teamsById.get(match.awayTeamId)?.group;
 
   return homeGroup && homeGroup === awayGroup ? homeGroup : null;
-}
-
-function formatStageLabel(stage: Match["stage"]) {
-  if (stage === "group") return "Group stage";
-  if (stage === "round-of-32") return "Round of 32";
-  if (stage === "round-of-16") return "Round of 16";
-  if (stage === "quarter-final") return "Quarter-final";
-  if (stage === "semi-final") return "Semi-final";
-  if (stage === "third-place") return "Third-place";
-  return "Final";
 }

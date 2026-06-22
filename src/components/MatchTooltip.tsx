@@ -1,47 +1,49 @@
 import type { Match } from "../lib/types";
 import { formatDateKyiv, formatTimeKyiv, formatTimeUtc } from "../lib/dates";
+import type { Translate } from "../lib/i18n";
 
 interface MatchTooltipProps {
   match: Match;
   groupLabel?: string | null;
   stageLabel: string;
+  t: Translate;
 }
 
-export function MatchTooltip({ match, groupLabel, stageLabel }: MatchTooltipProps) {
+export function MatchTooltip({ match, groupLabel, stageLabel, t }: MatchTooltipProps) {
   return (
     <div className="match-tooltip" role="dialog" aria-label="Match details">
       <dl className="match-tooltip-grid">
         <div>
-          <dt>Date</dt>
+          <dt>{t("matches.date")}</dt>
           <dd>{formatDateKyiv(match.kickoffUtc)}</dd>
         </div>
         <div>
-          <dt>Kyiv time</dt>
+          <dt>{t("matches.kyivTime")}</dt>
           <dd>{formatTimeKyiv(match.kickoffUtc)}</dd>
         </div>
         <div>
-          <dt>UTC time</dt>
+          <dt>{t("matches.utcTime")}</dt>
           <dd>{formatTimeUtc(match.kickoffUtc)}</dd>
         </div>
         <div>
-          <dt>Stage</dt>
+          <dt>{t("matches.stage")}</dt>
           <dd>{stageLabel}</dd>
         </div>
         {groupLabel ? (
           <div>
-            <dt>Group</dt>
+            <dt>{t("matches.group")}</dt>
             <dd>{groupLabel}</dd>
           </div>
         ) : null}
         {match.venue ? (
           <div>
-            <dt>Venue</dt>
+            <dt>{t("matches.venue")}</dt>
             <dd>{match.venue}</dd>
           </div>
         ) : null}
         {match.city ? (
           <div>
-            <dt>City</dt>
+            <dt>{t("matches.city")}</dt>
             <dd>{match.city}</dd>
           </div>
         ) : null}

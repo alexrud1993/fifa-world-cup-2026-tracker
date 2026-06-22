@@ -1,20 +1,20 @@
 :root {
-  --color-bg: #07100c;
-  --color-surface: #0f1814;
-  --color-surface-strong: #16241d;
-  --color-surface-raised: #1b2e25;
-  --color-border: #2f4c3e;
-  --color-border-strong: #4f7a64;
-  --color-text: #f5fff7;
+  --color-bg: #050806;
+  --color-surface: #0d1411;
+  --color-surface-strong: #121f18;
+  --color-surface-raised: #193326;
+  --color-border: #294237;
+  --color-border-strong: #48a36f;
+  --color-text: #eef8f1;
   --color-text-strong: #ffffff;
-  --color-muted: #b4c5bb;
-  --color-pitch: #29cf72;
-  --color-pitch-strong: #45e287;
-  --color-pitch-soft: #d9ff7a;
+  --color-muted: #a9bdb1;
+  --color-pitch: #23c96b;
+  --color-pitch-strong: #55e58f;
+  --color-pitch-soft: #c9ff78;
   --color-warning: #ffb84d;
-  --color-shadow: rgba(0, 0, 0, 0.42);
+  --color-shadow: rgba(0, 0, 0, 0.55);
   --color-focus-ring: rgba(217, 255, 122, 0.92);
-  --shadow-panel: 0 18px 60px var(--color-shadow);
+  --shadow-panel: 0 22px 70px var(--color-shadow);
   --radius: 8px;
   --touch-target: 44px;
   --font-body:

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { MatchCard } from "../components/MatchCard";
 import { formatDateTimeKyiv, sortMatchesByDate } from "../lib/dates";
+import { getStageLabel, type Translate } from "../lib/i18n";
 import type { Match, Team, TournamentData, ViewId } from "../lib/types";
 
 interface HomePageProps {
   data: TournamentData;
   onNavigate: (view: ViewId) => void;
+  t: Translate;
 }
 
-export function HomePage({ data, onNavigate }: HomePageProps) {
+export function HomePage({ data, onNavigate, t }: HomePageProps) {
   const [openMatchId, setOpenMatchId] = useState<string | null>(null);
 
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
@@ -22,51 +24,50 @@ export function HomePage({ data, onNavigate }: HomePageProps) {
     .reverse()
     .slice(0, 3);
   const finishedMatchesCount = data.matches.filter((match) => match.status === "finished").length;
-  const upcomingMatchesCount = data.matches.filter((match) => match.status === "scheduled").length;
+  const nextMatch = upcomingMatches[0];
 
   return (
     <section className="home-dashboard" aria-labelledby="home-title">
       <section className="home-hero">
         <div className="home-hero-copy">
-          <p className="eyebrow">Tournament dashboard</p>
-          <h1 id="home-title">{data.tournament.name}</h1>
-          <p className="hero-copy">
-            Local tournament tracking with editable JSON data, readable match views, and a clean
-            football-first dashboard.
-          </p>
+          <p className="eyebrow">{t("hero.eyebrow")}</p>
+          <h1 id="home-title">{t("hero.title")}</h1>
+          <p className="hero-copy">{t("hero.subtitle")}</p>
+          <div className="home-quick-actions" aria-label="Quick navigation">
+            <button className="home-quick-button" onClick={() => onNavigate("groups")} type="button">
+              {t("home.quick.groups")}
+            </button>
+            <button className="home-quick-button" onClick={() => onNavigate("matches")} type="button">
+              {t("home.quick.matches")}
+            </button>
+            <button className="home-quick-button" onClick={() => onNavigate("knockout")} type="button">
+              {t("home.quick.knockout")}
+            </button>
+          </div>
         </div>
 
         <div className="home-updated-card">
-          <span>Last updated</span>
+          <span>{t("about.lastUpdated")}</span>
           <strong>{formatDateTimeKyiv(data.tournament.lastUpdated)}</strong>
           <p>{data.tournament.note}</p>
         </div>
       </section>
 
       <section className="home-summary-grid" aria-label="Tournament summary">
-        <SummaryCard label="Total teams" value={String(data.teams.length)} />
-        <SummaryCard label="Total groups" value={String(data.groups.length)} />
-        <SummaryCard label="Finished matches" value={String(finishedMatchesCount)} />
-        <SummaryCard label="Upcoming matches" value={String(upcomingMatchesCount)} />
-      </section>
-
-      <section className="home-quick-actions" aria-label="Quick navigation">
-        <button className="home-quick-button" onClick={() => onNavigate("groups")} type="button">
-          View Groups
-        </button>
-        <button className="home-quick-button" onClick={() => onNavigate("matches")} type="button">
-          View Matches
-        </button>
-        <button className="home-quick-button" onClick={() => onNavigate("knockout")} type="button">
-          View Knockout
-        </button>
+        <SummaryCard label={t("stats.teams")} value={String(data.teams.length)} />
+        <SummaryCard label={t("stats.groups")} value={String(data.groups.length)} />
+        <SummaryCard label={t("stats.playedMatches")} value={String(finishedMatchesCount)} />
+        <SummaryCard
+          label={t("stats.nextMatch")}
+          value={nextMatch ? formatDateTimeKyiv(nextMatch.kickoffUtc) : "-"}
+        />
       </section>
 
       <section className="home-match-sections">
         <div className="home-match-column">
           <div className="home-section-heading">
-            <p className="eyebrow">Ahead</p>
-            <h2>Next 3 Upcoming Matches</h2>
+            <p className="eyebrow">{t("status.upcoming")}</p>
+            <h2>{t("home.upcoming")}</h2>
           </div>
           <div className="match-stack">
             {upcomingMatches.length > 0 ? (
@@ -81,19 +82,20 @@ export function HomePage({ data, onNavigate }: HomePageProps) {
                   onToggle={(matchId) =>
                     setOpenMatchId((current) => (current === matchId ? null : matchId))
                   }
-                  stageLabel={formatStageLabel(match.stage)}
+                  stageLabel={getStageLabel(match.stage, t)}
+                  t={t}
                 />
               ))
             ) : (
-              <div className="state-panel state-panel--compact">No upcoming matches yet.</div>
+              <div className="state-panel state-panel--compact">{t("home.noUpcoming")}</div>
             )}
           </div>
         </div>
 
         <div className="home-match-column">
           <div className="home-section-heading">
-            <p className="eyebrow">Latest</p>
-            <h2>Latest 3 Finished Matches</h2>
+            <p className="eyebrow">{t("status.finished")}</p>
+            <h2>{t("home.finished")}</h2>
           </div>
           <div className="match-stack">
             {latestFinishedMatches.length > 0 ? (
@@ -106,11 +108,12 @@ export function HomePage({ data, onNavigate }: HomePageProps) {
                   key={match.id}
                   match={match}
                   onToggle={() => undefined}
-                  stageLabel={formatStageLabel(match.stage)}
+                  stageLabel={getStageLabel(match.stage, t)}
+                  t={t}
                 />
               ))
             ) : (
-              <div className="state-panel state-panel--compact">No finished matches yet.</div>
+              <div className="state-panel state-panel--compact">{t("home.noFinished")}</div>
             )}
           </div>
         </div>
@@ -132,7 +135,6 @@ function SummaryCard({ label, value }: SummaryCardProps) {
     </article>
   );
 }
-
 function resolveTeamLabel(
   teamId: string | undefined,
   placeholder: string | undefined,
@@ -166,14 +168,4 @@ function resolveGroupLabel(
   }
 
   return null;
-}
-
-function formatStageLabel(stage: Match["stage"]) {
-  if (stage === "group") return "Group stage";
-  if (stage === "round-of-32") return "Round of 32";
-  if (stage === "round-of-16") return "Round of 16";
-  if (stage === "quarter-final") return "Quarter-final";
-  if (stage === "semi-final") return "Semi-final";
-  if (stage === "third-place") return "Third-place";
-  return "Final";
 }

@@ -1,5 +1,6 @@
 import type { Match } from "../lib/types";
 import { formatDateCardKyiv, formatTimeKyiv } from "../lib/dates";
+import { getStatusLabel, type Translate } from "../lib/i18n";
 import { MatchTooltip } from "./MatchTooltip";
 
 interface MatchCardProps {
@@ -10,6 +11,7 @@ interface MatchCardProps {
   awayLabel: string;
   onToggle: (matchId: string) => void;
   stageLabel: string;
+  t: Translate;
 }
 
 export function MatchCard({
@@ -19,7 +21,8 @@ export function MatchCard({
   homeLabel,
   awayLabel,
   onToggle,
-  stageLabel
+  stageLabel,
+  t
 }: MatchCardProps) {
   const isScheduled = match.status === "scheduled";
   const content = (
@@ -30,7 +33,7 @@ export function MatchCard({
           {groupLabel ? <span className="match-group-chip">{groupLabel}</span> : null}
         </div>
         <span className={`match-status-badge match-status-badge--${match.status}`}>
-          {getStatusLabel(match.status)}
+          {getStatusLabel(match.status, t)}
         </span>
       </div>
 
@@ -59,13 +62,13 @@ export function MatchCard({
         {match.venue || match.city ? (
           <span>{[match.venue, match.city].filter(Boolean).join(", ")}</span>
         ) : (
-          <span>Venue to be confirmed</span>
+          <span>{t("matches.venueTbc")}</span>
         )}
-        {isScheduled ? <span className="match-card-action">Tap for details</span> : null}
+        {isScheduled ? <span className="match-card-action">{t("matches.tapDetails")}</span> : null}
       </div>
 
       {isScheduled && isOpen ? (
-        <MatchTooltip groupLabel={groupLabel} match={match} stageLabel={stageLabel} />
+        <MatchTooltip groupLabel={groupLabel} match={match} stageLabel={stageLabel} t={t} />
       ) : null}
     </>
   );
@@ -84,12 +87,4 @@ export function MatchCard({
       {content}
     </button>
   );
-}
-
-function getStatusLabel(status: Match["status"]) {
-  if (status === "finished") return "Finished";
-  if (status === "live") return "Live";
-  if (status === "postponed") return "Postponed";
-  if (status === "cancelled") return "Cancelled";
-  return "Scheduled";
 }

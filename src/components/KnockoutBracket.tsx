@@ -3,16 +3,17 @@ import {
   getMatchParticipant,
   getWinnerTeamId,
   groupKnockoutMatchesByStage,
-  knockoutStageLabels,
   knockoutStages
 } from "../lib/knockout";
+import { getStageLabel, getStatusLabel, type Translate } from "../lib/i18n";
 import type { Match, Team, TournamentData } from "../lib/types";
 
 interface KnockoutBracketProps {
   data: TournamentData;
+  t: Translate;
 }
 
-export function KnockoutBracket({ data }: KnockoutBracketProps) {
+export function KnockoutBracket({ data, t }: KnockoutBracketProps) {
   const matchesByStage = groupKnockoutMatchesByStage(data);
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
 
@@ -21,17 +22,17 @@ export function KnockoutBracket({ data }: KnockoutBracketProps) {
       {knockoutStages.map((stage) => (
         <section className="knockout-stage" key={stage}>
           <div className="knockout-stage-header">
-            <p className="eyebrow">Bracket</p>
-            <h2>{knockoutStageLabels[stage]}</h2>
+            <p className="eyebrow">{t("knockout.bracket")}</p>
+            <h2>{getStageLabel(stage, t)}</h2>
           </div>
 
           <div className="knockout-match-list">
             {matchesByStage[stage].length > 0 ? (
               matchesByStage[stage].map((match) => (
-                <KnockoutMatchCard key={match.id} match={match} teamsById={teamsById} />
+                <KnockoutMatchCard key={match.id} match={match} teamsById={teamsById} t={t} />
               ))
             ) : (
-              <div className="knockout-empty">No fixture slot yet</div>
+              <div className="knockout-empty">{t("knockout.noSlot")}</div>
             )}
           </div>
         </section>
@@ -43,9 +44,10 @@ export function KnockoutBracket({ data }: KnockoutBracketProps) {
 interface KnockoutMatchCardProps {
   match: Match;
   teamsById: Map<string, Team>;
+  t: Translate;
 }
 
-function KnockoutMatchCard({ match, teamsById }: KnockoutMatchCardProps) {
+function KnockoutMatchCard({ match, teamsById, t }: KnockoutMatchCardProps) {
   const home = getMatchParticipant(match, "home", teamsById);
   const away = getMatchParticipant(match, "away", teamsById);
   const winnerTeamId = getWinnerTeamId(match);
@@ -55,7 +57,7 @@ function KnockoutMatchCard({ match, teamsById }: KnockoutMatchCardProps) {
     <article className="knockout-match-card">
       <div className="knockout-match-meta">
         <span className={`match-status-badge match-status-badge--${match.status}`}>
-          {getStatusLabel(match.status)}
+          {getStatusLabel(match.status, t)}
         </span>
         {match.status === "scheduled" ? (
           <span>{formatDateTimeKyiv(match.kickoffUtc)}</span>
@@ -99,12 +101,4 @@ function ParticipantRow({ isWinner, participant, score }: ParticipantRowProps) {
       {score !== undefined ? <strong>{score}</strong> : null}
     </div>
   );
-}
-
-function getStatusLabel(status: Match["status"]) {
-  if (status === "finished") return "Finished";
-  if (status === "live") return "Live";
-  if (status === "postponed") return "Postponed";
-  if (status === "cancelled") return "Cancelled";
-  return "Scheduled";
 }

@@ -1,4 +1,5 @@
 import { calculateGroupStandings } from "../lib/standings";
+import type { Translate, TranslationKey } from "../lib/i18n";
 import type { Group, TournamentData } from "../lib/types";
 import { StatusBadge } from "./StatusBadge";
 import { TeamBadge } from "./TeamBadge";
@@ -6,21 +7,22 @@ import { TeamBadge } from "./TeamBadge";
 interface GroupTableProps {
   data: TournamentData;
   group: Group;
+  t: Translate;
 }
 
 const desktopColumns = [
-  { key: "team", label: "Team", compact: "Team" },
-  { key: "played", label: "Played", compact: "P" },
-  { key: "wins", label: "Wins", compact: "W" },
-  { key: "draws", label: "Draws", compact: "D" },
-  { key: "losses", label: "Losses", compact: "L" },
-  { key: "goalsFor", label: "Goals For", compact: "GF" },
-  { key: "goalsAgainst", label: "Goals Against", compact: "GA" },
-  { key: "goalDifference", label: "Goal Difference", compact: "GD" },
-  { key: "points", label: "Points", compact: "Pts" }
+  { key: "team", labelKey: "groups.team", compact: "Team" },
+  { key: "played", labelKey: "groups.played", compact: "P" },
+  { key: "wins", labelKey: "groups.wins", compact: "W" },
+  { key: "draws", labelKey: "groups.draws", compact: "D" },
+  { key: "losses", labelKey: "groups.losses", compact: "L" },
+  { key: "goalsFor", labelKey: "groups.goalsFor", compact: "GF" },
+  { key: "goalsAgainst", labelKey: "groups.goalsAgainst", compact: "GA" },
+  { key: "goalDifference", labelKey: "groups.goalDifference", compact: "GD" },
+  { key: "points", labelKey: "groups.points", compact: "Pts" }
 ] as const;
 
-export function GroupTable({ data, group }: GroupTableProps) {
+export function GroupTable({ data, group, t }: GroupTableProps) {
   const standings = calculateGroupStandings(data)[group.id] ?? [];
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
 
@@ -28,12 +30,8 @@ export function GroupTable({ data, group }: GroupTableProps) {
     <article className="group-table-card">
       <div className="group-table-header">
         <div>
-          <p className="eyebrow">Standings</p>
+          <p className="eyebrow">{t("groups.standings")}</p>
           <h2>{group.name}</h2>
-        </div>
-        <div className="group-table-legend" aria-label="Qualification legend">
-          <StatusBadge tone="qualified" label="Top 2" />
-          <StatusBadge tone="third" label="Best 3rd" />
         </div>
       </div>
 
@@ -43,7 +41,7 @@ export function GroupTable({ data, group }: GroupTableProps) {
             <tr>
               {desktopColumns.map((column) => (
                 <th key={column.key} scope="col">
-                  <span className="desktop-label">{column.label}</span>
+                  <span className="desktop-label">{t(column.labelKey as TranslationKey)}</span>
                   <span className="mobile-label">{column.compact}</span>
                 </th>
               ))}
@@ -70,10 +68,10 @@ export function GroupTable({ data, group }: GroupTableProps) {
                       <span className="team-rank">{row.rank}</span>
                       <TeamBadge team={team} />
                       {row.qualificationStatus === "qualified-zone" ? (
-                        <StatusBadge tone="qualified" label="Top 2" />
+                        <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
                       ) : null}
                       {row.qualificationStatus === "third-place-zone" ? (
-                        <StatusBadge tone="third" label="Best 3rd" />
+                        <StatusBadge tone="third" label={t("groups.thirdZone")} />
                       ) : null}
                     </div>
                   </td>
@@ -92,6 +90,10 @@ export function GroupTable({ data, group }: GroupTableProps) {
             })}
           </tbody>
         </table>
+      </div>
+      <div className="group-table-legend group-table-legend--footer" aria-label="Qualification legend">
+        <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
+        <StatusBadge tone="third" label={t("groups.thirdZone")} />
       </div>
     </article>
   );
