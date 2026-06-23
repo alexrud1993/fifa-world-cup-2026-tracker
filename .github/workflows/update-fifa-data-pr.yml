@@ -1,4 +1,4 @@
-name: Update FIFA data PR
+name: Update FIFA data
 
 on:
   workflow_dispatch:
@@ -17,7 +17,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: fifa-data-update
@@ -41,15 +40,8 @@ jobs:
             update_mode="live"
           fi
 
-          if [ "$update_mode" = "live" ]; then
-            delivery="direct"
-          else
-            delivery="pr"
-          fi
-
           echo "update_mode=$update_mode" >> "$GITHUB_OUTPUT"
-          echo "delivery=$delivery" >> "$GITHUB_OUTPUT"
-          echo "Selected $update_mode update with $delivery delivery."
+          echo "Selected $update_mode direct data update."
 
       - name: Check tournament update window
         id: window
@@ -101,33 +93,17 @@ jobs:
         if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
         run: npm test
 
-      - name: Commit live data update
-        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true' && steps.mode.outputs.delivery == 'direct'
+      - name: Commit data update
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
         shell: bash
         run: |
           if git diff --quiet -- public/data/worldcup-2026.json; then
-            echo "No live data changes to commit."
+            echo "No data changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/worldcup-2026.json
-          git commit -m "Update live World Cup 2026 data"
+          git commit -m "Update World Cup 2026 data"
           git push
-
-      - name: Create or update pull request
-        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true' && steps.mode.outputs.delivery == 'pr'
-        uses: peter-evans/create-pull-request@v7
-        with:
-          branch: chore/update-fifa-data
-          delete-branch: true
-          title: Update World Cup 2026 data from FIFA API
-          commit-message: Update World Cup 2026 data from FIFA API
-          body: |
-            Automated FIFA calendar import.
-
-            Source:
-            `${{ env.PUBLIC_DATA_URL }}`
-
-            The app still uses local JSON as the source of truth. Review this PR before merging.
