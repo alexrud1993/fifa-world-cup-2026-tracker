@@ -31,19 +31,15 @@ export function UpdateMonitor({ language, lastUpdated, matches, status, t }: Upd
           <p>{isLive ? t("updateMonitor.liveCadence") : t("updateMonitor.hourlyCadence")}</p>
         </div>
 
-        <div className="update-radar" aria-hidden="true">
-          <span className="update-radar-grid" />
-          <span className="update-radar-pitch" />
-          <span className="update-radar-ring update-radar-ring--outer" />
-          <span className="update-radar-ring update-radar-ring--middle" />
-          <span className="update-radar-ring update-radar-ring--inner" />
-          <span className="update-radar-sweep" />
-          <span className="update-radar-core" />
-          <span className="update-radar-blip update-radar-blip--one" />
-          <span className="update-radar-blip update-radar-blip--two" />
-          <span className="update-radar-blip update-radar-blip--three" />
-          <span className="update-radar-blip update-radar-blip--four" />
-          <span className="update-radar-blip update-radar-blip--five" />
+        <div className="update-ball-stage" aria-hidden="true">
+          <span className="update-ball-shadow" />
+          <span className="update-football">
+            <span className="football-panel football-panel--center" />
+            <span className="football-panel football-panel--top" />
+            <span className="football-panel football-panel--right" />
+            <span className="football-panel football-panel--bottom" />
+            <span className="football-panel football-panel--left" />
+          </span>
         </div>
       </div>
 
