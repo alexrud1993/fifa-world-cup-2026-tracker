@@ -57,7 +57,7 @@ export function MatchCard({
       <div className="match-card-main">
         <div className="match-side">
           <MatchTeamFlag team={homeTeam} label={homeLabel} />
-          <strong>{homeLabel}</strong>
+          <strong title={homeLabel}>{homeLabel}</strong>
         </div>
         <div className="match-score-block">
           <span className="match-score">
@@ -71,7 +71,7 @@ export function MatchCard({
         </div>
         <div className="match-side match-side--away">
           <MatchTeamFlag team={awayTeam} label={awayLabel} />
-          <strong>{awayLabel}</strong>
+          <strong title={awayLabel}>{awayLabel}</strong>
         </div>
       </div>
 

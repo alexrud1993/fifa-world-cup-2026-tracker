@@ -68,13 +68,7 @@ export function GroupTable({ compact = false, data, group, language, t }: GroupT
                   <td data-label="Team">
                     <div className="team-cell">
                       <span className="team-rank">{row.rank}</span>
-                      <TeamBadge team={team} />
-                      {!compact && row.qualificationStatus === "qualified-zone" ? (
-                        <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
-                      ) : null}
-                      {!compact && row.qualificationStatus === "third-place-zone" ? (
-                        <StatusBadge tone="third" label={t("groups.thirdZone")} />
-                      ) : null}
+                      <TeamBadge display={compact ? "code" : "full"} team={team} />
                     </div>
                   </td>
                   <td data-label="P">{row.played}</td>

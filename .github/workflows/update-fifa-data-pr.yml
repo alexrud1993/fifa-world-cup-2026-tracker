@@ -2,12 +2,26 @@ name: Update FIFA data PR
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Update mode to run
+        required: true
+        default: hourly
+        type: choice
+        options:
+          - hourly
+          - live
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "17 * * * *"
+    - cron: "3-58/5 * * * *"
 
 permissions:
   contents: write
   pull-requests: write
+
+concurrency:
+  group: fifa-data-update
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -15,6 +29,28 @@ jobs:
     env:
       PUBLIC_DATA_URL: ${{ vars.PUBLIC_DATA_URL || 'https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=200' }}
     steps:
+      - name: Determine update mode
+        id: mode
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            update_mode="${{ inputs.mode }}"
+          elif [ "${{ github.event.schedule }}" = "17 * * * *" ]; then
+            update_mode="hourly"
+          else
+            update_mode="live"
+          fi
+
+          if [ "$update_mode" = "live" ]; then
+            delivery="direct"
+          else
+            delivery="pr"
+          fi
+
+          echo "update_mode=$update_mode" >> "$GITHUB_OUTPUT"
+          echo "delivery=$delivery" >> "$GITHUB_OUTPUT"
+          echo "Selected $update_mode update with $delivery delivery."
+
       - name: Check tournament update window
         id: window
         shell: bash
@@ -48,20 +84,40 @@ jobs:
         if: steps.window.outputs.should_run == 'true'
         run: npm ci
 
-      - name: Import FIFA data
+      - name: Check live update window
         if: steps.window.outputs.should_run == 'true'
+        id: live_window
+        run: npm run data:should-import-fifa -- ${{ steps.mode.outputs.update_mode }}
+
+      - name: Import FIFA data
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
         run: npm run data:import-fifa
 
       - name: Validate local data
-        if: steps.window.outputs.should_run == 'true'
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
         run: npm run data:validate
 
       - name: Test
-        if: steps.window.outputs.should_run == 'true'
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
         run: npm test
 
+      - name: Commit live data update
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true' && steps.mode.outputs.delivery == 'direct'
+        shell: bash
+        run: |
+          if git diff --quiet -- public/data/worldcup-2026.json; then
+            echo "No live data changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/worldcup-2026.json
+          git commit -m "Update live World Cup 2026 data"
+          git push
+
       - name: Create or update pull request
-        if: steps.window.outputs.should_run == 'true'
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true' && steps.mode.outputs.delivery == 'pr'
         uses: peter-evans/create-pull-request@v7
         with:
           branch: chore/update-fifa-data

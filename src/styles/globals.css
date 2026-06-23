@@ -1082,6 +1082,10 @@ button {
   min-width: 0;
 }
 
+.team-badge--code {
+  gap: 6px;
+}
+
 .team-flag {
   display: block;
   width: 30px;
@@ -1117,6 +1121,11 @@ button {
 
 .team-copy strong {
   font-size: 0.88rem;
+}
+
+.team-badge--code .team-copy strong {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .team-copy small {
@@ -1404,10 +1413,14 @@ button {
   align-items: center;
   gap: 8px;
   min-width: 0;
+  max-width: 100%;
 }
 
 .match-side strong {
   display: block;
+  width: 100%;
+  max-width: 11ch;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1417,6 +1430,10 @@ button {
 .match-side--away {
   justify-items: end;
   text-align: right;
+}
+
+.match-card--compact .match-side strong {
+  max-width: 9ch;
 }
 
 .match-team-token {
