@@ -13,30 +13,20 @@ interface GroupTableProps {
 }
 
 const desktopColumns = [
-  { key: "team", labelKey: "groups.team", compact: "Team" },
-  { key: "played", labelKey: "groups.played", compact: "P" },
-  { key: "wins", labelKey: "groups.wins", compact: "W" },
-  { key: "draws", labelKey: "groups.draws", compact: "D" },
-  { key: "losses", labelKey: "groups.losses", compact: "L" },
-  { key: "goalsFor", labelKey: "groups.goalsFor", compact: "GF" },
-  { key: "goalsAgainst", labelKey: "groups.goalsAgainst", compact: "GA" },
-  { key: "goalDifference", labelKey: "groups.goalDifference", compact: "GD" },
-  { key: "points", labelKey: "groups.points", compact: "Pts" }
+  { key: "team", labelKey: "groups.team", compactEn: "Team", compactUk: "Команда" },
+  { key: "played", labelKey: "groups.played", compactEn: "P", compactUk: "І" },
+  { key: "wins", labelKey: "groups.wins", compactEn: "W", compactUk: "В" },
+  { key: "draws", labelKey: "groups.draws", compactEn: "D", compactUk: "Н" },
+  { key: "losses", labelKey: "groups.losses", compactEn: "L", compactUk: "П" },
+  { key: "goalsFor", labelKey: "groups.goalsFor", compactEn: "GF", compactUk: "ЗМ" },
+  { key: "goalsAgainst", labelKey: "groups.goalsAgainst", compactEn: "GA", compactUk: "ПМ" },
+  { key: "goalDifference", labelKey: "groups.goalDifference", compactEn: "GD", compactUk: "РМ" },
+  { key: "points", labelKey: "groups.points", compactEn: "Pts", compactUk: "О" }
 ] as const;
-
-const compactColumnKeys = new Set<(typeof desktopColumns)[number]["key"]>([
-  "team",
-  "played",
-  "goalDifference",
-  "points"
-]);
 
 export function GroupTable({ compact = false, data, group, language, t }: GroupTableProps) {
   const standings = calculateGroupStandings(data)[group.id] ?? [];
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
-  const columns = compact
-    ? desktopColumns.filter((column) => compactColumnKeys.has(column.key))
-    : desktopColumns;
 
   return (
     <article className={compact ? "group-table-card group-table-card--compact" : "group-table-card"}>
@@ -51,10 +41,10 @@ export function GroupTable({ compact = false, data, group, language, t }: GroupT
         <table className="group-table">
           <thead>
             <tr>
-              {columns.map((column) => (
+              {desktopColumns.map((column) => (
                 <th key={column.key} scope="col">
                   <span className="desktop-label">{t(column.labelKey as TranslationKey)}</span>
-                  <span className="mobile-label">{column.compact}</span>
+                  <span className="mobile-label">{language === "uk" ? column.compactUk : column.compactEn}</span>
                 </th>
               ))}
             </tr>
@@ -88,11 +78,11 @@ export function GroupTable({ compact = false, data, group, language, t }: GroupT
                     </div>
                   </td>
                   <td data-label="P">{row.played}</td>
-                  {!compact ? <td data-label="W">{row.won}</td> : null}
-                  {!compact ? <td data-label="D">{row.drawn}</td> : null}
-                  {!compact ? <td data-label="L">{row.lost}</td> : null}
-                  {!compact ? <td data-label="GF">{row.goalsFor}</td> : null}
-                  {!compact ? <td data-label="GA">{row.goalsAgainst}</td> : null}
+                  <td data-label="W">{row.won}</td>
+                  <td data-label="D">{row.drawn}</td>
+                  <td data-label="L">{row.lost}</td>
+                  <td data-label="GF">{row.goalsFor}</td>
+                  <td data-label="GA">{row.goalsAgainst}</td>
                   <td data-label="GD">{row.goalDifference > 0 ? `+${row.goalDifference}` : row.goalDifference}</td>
                   <td className="points-cell" data-label="Pts">
                     {row.points}

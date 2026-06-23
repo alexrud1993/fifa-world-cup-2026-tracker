@@ -173,10 +173,15 @@ src/
   styles/
 
 public/
+  flags/
   data/
 
 tests/
 ```
+
+## Local Assets
+
+Country flags in `public/flags/` are a local subset of the open-source `flag-icons` SVG set. They are served as static GitHub Pages assets and are not fetched from an external football API at runtime.
 
 ## GitHub Pages Deployment
 

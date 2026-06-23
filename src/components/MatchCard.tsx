@@ -1,5 +1,6 @@
-import type { Match } from "../lib/types";
+import type { Match, Team } from "../lib/types";
 import { formatDateCardKyiv, formatTimeKyiv } from "../lib/dates";
+import { getFlagUrlForTeamCode } from "../lib/flags";
 import { getStatusLabel, type Language, type Translate } from "../lib/i18n";
 import { MatchTooltip } from "./MatchTooltip";
 
@@ -9,6 +10,8 @@ interface MatchCardProps {
   language: Language;
   match: Match;
   groupLabel?: string | null;
+  homeTeam?: Team | null;
+  awayTeam?: Team | null;
   homeLabel: string;
   awayLabel: string;
   onToggle: (matchId: string) => void;
@@ -22,6 +25,8 @@ export function MatchCard({
   language,
   match,
   groupLabel,
+  homeTeam,
+  awayTeam,
   homeLabel,
   awayLabel,
   onToggle,
@@ -51,7 +56,7 @@ export function MatchCard({
 
       <div className="match-card-main">
         <div className="match-side">
-          <span className="match-team-token" aria-hidden="true">{getTeamInitials(homeLabel)}</span>
+          <MatchTeamFlag team={homeTeam} label={homeLabel} />
           <strong>{homeLabel}</strong>
         </div>
         <div className="match-score-block">
@@ -65,7 +70,7 @@ export function MatchCard({
           </small>
         </div>
         <div className="match-side match-side--away">
-          <span className="match-team-token" aria-hidden="true">{getTeamInitials(awayLabel)}</span>
+          <MatchTeamFlag team={awayTeam} label={awayLabel} />
           <strong>{awayLabel}</strong>
         </div>
       </div>
@@ -105,6 +110,16 @@ export function MatchCard({
       {content}
     </button>
   );
+}
+
+function MatchTeamFlag({ label, team }: { label: string; team?: Team | null }) {
+  const flagUrl = team ? getFlagUrlForTeamCode(team.code) : null;
+
+  if (flagUrl) {
+    return <img className="match-team-flag" src={flagUrl} alt="" loading="lazy" aria-hidden="true" />;
+  }
+
+  return <span className="match-team-token" aria-hidden="true">{getTeamInitials(label)}</span>;
 }
 
 function getTeamInitials(label: string) {

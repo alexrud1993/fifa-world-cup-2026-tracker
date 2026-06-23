@@ -166,8 +166,10 @@ export function MatchesPage({ data, language, t }: MatchesPageProps) {
                 return (
                   <MatchCard
                     awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
+                    awayTeam={resolveTeam(match.awayTeamId, teamsById)}
                     groupLabel={groupLabel}
                     homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
+                    homeTeam={resolveTeam(match.homeTeamId, teamsById)}
                     isOpen={openMatchId === match.id}
                     language={language}
                     key={match.id}
@@ -199,6 +201,10 @@ function resolveTeamLabel(
   }
 
   return translatePlaceholderLabel(placeholder, language);
+}
+
+function resolveTeam(teamId: string | undefined, teamsById: Map<string, Team>) {
+  return teamId ? teamsById.get(teamId) ?? null : null;
 }
 
 function resolveMatchGroupId(match: Match, teamsById: Map<string, Team>) {
