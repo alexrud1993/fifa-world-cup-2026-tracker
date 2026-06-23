@@ -1,5 +1,5 @@
 import type { Match, Team } from "../lib/types";
-import { formatDateCardKyiv, formatTimeKyiv } from "../lib/dates";
+import { formatDateCardKyiv, formatDateTimeKyiv, formatTimeKyiv } from "../lib/dates";
 import { getFlagUrlForTeamCode } from "../lib/flags";
 import { getStatusLabel, type Language, type Translate } from "../lib/i18n";
 import { MatchTooltip } from "./MatchTooltip";
@@ -8,6 +8,7 @@ interface MatchCardProps {
   variant?: "default" | "compact";
   isOpen: boolean;
   language: Language;
+  lastUpdated?: string;
   match: Match;
   groupLabel?: string | null;
   homeTeam?: Team | null;
@@ -23,6 +24,7 @@ export function MatchCard({
   variant = "default",
   isOpen,
   language,
+  lastUpdated,
   match,
   groupLabel,
   homeTeam,
@@ -38,6 +40,7 @@ export function MatchCard({
   const className = [
     "match-card",
     isInteractive ? "match-card--interactive" : "match-card--static",
+    match.status === "live" ? "match-card--live" : "",
     variant === "compact" ? "match-card--compact" : ""
   ]
     .filter(Boolean)
@@ -50,6 +53,7 @@ export function MatchCard({
           {groupLabel ? <span className="match-group-chip">{groupLabel}</span> : null}
         </div>
         <span className={`match-status-badge match-status-badge--${match.status}`}>
+          {match.status === "live" ? <span className="match-status-dot" aria-hidden="true" /> : null}
           {getStatusLabel(match.status, t)}
         </span>
       </div>
@@ -83,6 +87,12 @@ export function MatchCard({
         )}
         {isInteractive ? <span className="match-card-action">{t("matches.tapDetails")}</span> : null}
       </div>
+
+      {match.status === "live" && lastUpdated ? (
+        <div className="match-live-sync">
+          {t("liveUpdate.synced")}: {formatDateTimeKyiv(lastUpdated, language)}
+        </div>
+      ) : null}
 
       {isInteractive && isOpen ? (
         <MatchTooltip

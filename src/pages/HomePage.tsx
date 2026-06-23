@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GroupTable } from "../components/GroupTable";
 import { KnockoutBracket } from "../components/KnockoutBracket";
 import { MatchCard } from "../components/MatchCard";
+import { UpdateMonitor } from "../components/UpdateMonitor";
 import { formatDateTimeKyiv, sortMatchesByDate } from "../lib/dates";
 import {
   getStageLabel,
@@ -70,11 +71,12 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
             />
           </section>
 
-          <div className="home-updated-card">
-            <span>{t("about.lastUpdated")}</span>
-            <strong>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</strong>
-            <p>{data.tournament.note}</p>
-          </div>
+          <UpdateMonitor
+            language={language}
+            lastUpdated={data.tournament.lastUpdated}
+            matches={data.matches}
+            t={t}
+          />
         </div>
       </section>
 
@@ -123,6 +125,7 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
                   homeTeam={resolveTeam(match.homeTeamId, teamsById)}
                   isOpen={openMatchId === match.id}
                 language={language}
+                lastUpdated={data.tournament.lastUpdated}
                 key={match.id}
                 match={match}
                 onToggle={(matchId) =>
