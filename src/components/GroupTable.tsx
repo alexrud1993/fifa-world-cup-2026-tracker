@@ -1,5 +1,5 @@
 import { calculateGroupStandings } from "../lib/standings";
-import type { Translate, TranslationKey } from "../lib/i18n";
+import { translateGroupLabel, type Language, type Translate, type TranslationKey } from "../lib/i18n";
 import type { Group, TournamentData } from "../lib/types";
 import { StatusBadge } from "./StatusBadge";
 import { TeamBadge } from "./TeamBadge";
@@ -7,6 +7,7 @@ import { TeamBadge } from "./TeamBadge";
 interface GroupTableProps {
   data: TournamentData;
   group: Group;
+  language: Language;
   t: Translate;
 }
 
@@ -22,7 +23,7 @@ const desktopColumns = [
   { key: "points", labelKey: "groups.points", compact: "Pts" }
 ] as const;
 
-export function GroupTable({ data, group, t }: GroupTableProps) {
+export function GroupTable({ data, group, language, t }: GroupTableProps) {
   const standings = calculateGroupStandings(data)[group.id] ?? [];
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
 
@@ -31,7 +32,7 @@ export function GroupTable({ data, group, t }: GroupTableProps) {
       <div className="group-table-header">
         <div>
           <p className="eyebrow">{t("groups.standings")}</p>
-          <h2>{group.name}</h2>
+          <h2>{translateGroupLabel(group.name, language)}</h2>
         </div>
       </div>
 

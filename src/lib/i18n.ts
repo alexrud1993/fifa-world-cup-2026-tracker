@@ -188,7 +188,7 @@ const translations = {
     "status.cancelled": "Скасовано",
     "knockout.eyebrow": "Раунди на виліт",
     "knockout.title": "Плей-оф",
-    "knockout.copy": "Сітка використовує placeholder-и з локального JSON, доки команди не визначені.",
+    "knockout.copy": "Сітка використовує плейсхолдери з локального JSON, доки команди не визначені.",
     "knockout.emptyTitle": "Матчів плей-оф немає",
     "knockout.emptyMessage": "Додайте матчі плей-оф у локальний JSON, щоб показати сітку.",
     "knockout.bracket": "Сітка",
@@ -256,4 +256,46 @@ export function getStatusLabel(status: string, t: Translate) {
   if (status === "postponed") return t("status.postponed");
   if (status === "cancelled") return t("status.cancelled");
   return t("status.scheduled");
+}
+
+export function translateGroupLabel(value: string, language: Language) {
+  const groupId = value.replace(/^Group\s+/i, "").trim();
+  return language === "uk" ? `Група ${groupId}` : `Group ${groupId}`;
+}
+
+export function translatePlaceholderLabel(value: string | undefined, language: Language) {
+  if (!value) {
+    return language === "uk" ? "Буде визначено" : "TBD";
+  }
+
+  if (language === "en") {
+    return value;
+  }
+
+  if (/^To be decided$/i.test(value) || /^TBD$/i.test(value)) {
+    return "Буде визначено";
+  }
+
+  const winnerGroup = value.match(/^Winner Group\s+(.+)$/i);
+  if (winnerGroup) return `Переможець групи ${winnerGroup[1]}`;
+
+  const runnerUpGroup = value.match(/^Runner-up Group\s+(.+)$/i);
+  if (runnerUpGroup) return `2 місце групи ${runnerUpGroup[1]}`;
+
+  const bestThird = value.match(/^Best 3rd Group\s+(.+)$/i);
+  if (bestThird) return `Найкраща 3-тя команда груп ${bestThird[1]}`;
+
+  const winnerMatch = value.match(/^Winner Match\s+(.+)$/i);
+  if (winnerMatch) return `Переможець матчу ${winnerMatch[1]}`;
+
+  const winnerSemi = value.match(/^Winner Semi-final\s+(.+)$/i);
+  if (winnerSemi) return `Переможець півфіналу ${winnerSemi[1]}`;
+
+  const loserSemi = value.match(/^Loser Semi-final\s+(.+)$/i);
+  if (loserSemi) return `Переможений півфіналу ${loserSemi[1]}`;
+
+  const group = value.match(/^Group\s+(.+)$/i);
+  if (group) return `Група ${group[1]}`;
+
+  return value;
 }

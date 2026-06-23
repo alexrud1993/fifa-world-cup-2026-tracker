@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { MatchCard } from "../components/MatchCard";
 import { formatDateTimeKyiv, sortMatchesByDate } from "../lib/dates";
-import { getStageLabel, type Translate } from "../lib/i18n";
+import {
+  getStageLabel,
+  translateGroupLabel,
+  translatePlaceholderLabel,
+  type Language,
+  type Translate
+} from "../lib/i18n";
 import type { Match, Team, TournamentData, ViewId } from "../lib/types";
 
 interface HomePageProps {
   data: TournamentData;
+  language: Language;
   onNavigate: (view: ViewId) => void;
   t: Translate;
 }
 
-export function HomePage({ data, onNavigate, t }: HomePageProps) {
+export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
   const [openMatchId, setOpenMatchId] = useState<string | null>(null);
 
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
@@ -48,7 +55,7 @@ export function HomePage({ data, onNavigate, t }: HomePageProps) {
 
         <div className="home-updated-card">
           <span>{t("about.lastUpdated")}</span>
-          <strong>{formatDateTimeKyiv(data.tournament.lastUpdated)}</strong>
+          <strong>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</strong>
           <p>{data.tournament.note}</p>
         </div>
       </section>
@@ -59,7 +66,7 @@ export function HomePage({ data, onNavigate, t }: HomePageProps) {
         <SummaryCard label={t("stats.playedMatches")} value={String(finishedMatchesCount)} />
         <SummaryCard
           label={t("stats.nextMatch")}
-          value={nextMatch ? formatDateTimeKyiv(nextMatch.kickoffUtc) : "-"}
+          value={nextMatch ? formatDateTimeKyiv(nextMatch.kickoffUtc, language) : "-"}
         />
       </section>
 
@@ -73,10 +80,11 @@ export function HomePage({ data, onNavigate, t }: HomePageProps) {
             {upcomingMatches.length > 0 ? (
               upcomingMatches.map((match) => (
                 <MatchCard
-                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById)}
-                  groupLabel={resolveGroupLabel(match, groupsById, teamsById)}
-                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById)}
+                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
+                  groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
+                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
                   isOpen={openMatchId === match.id}
+                  language={language}
                   key={match.id}
                   match={match}
                   onToggle={(matchId) =>
@@ -101,10 +109,11 @@ export function HomePage({ data, onNavigate, t }: HomePageProps) {
             {latestFinishedMatches.length > 0 ? (
               latestFinishedMatches.map((match) => (
                 <MatchCard
-                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById)}
-                  groupLabel={resolveGroupLabel(match, groupsById, teamsById)}
-                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById)}
+                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
+                  groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
+                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
                   isOpen={false}
+                  language={language}
                   key={match.id}
                   match={match}
                   onToggle={() => undefined}
@@ -138,22 +147,24 @@ function SummaryCard({ label, value }: SummaryCardProps) {
 function resolveTeamLabel(
   teamId: string | undefined,
   placeholder: string | undefined,
-  teamsById: Map<string, Team>
+  teamsById: Map<string, Team>,
+  language: Language
 ) {
   if (teamId) {
-    return teamsById.get(teamId)?.name ?? placeholder ?? teamId;
+    return teamsById.get(teamId)?.name ?? (placeholder ? translatePlaceholderLabel(placeholder, language) : teamId);
   }
 
-  return placeholder ?? "TBD";
+  return translatePlaceholderLabel(placeholder, language);
 }
 
 function resolveGroupLabel(
   match: Match,
   groupsById: Map<string, string>,
-  teamsById: Map<string, Team>
+  teamsById: Map<string, Team>,
+  language: Language
 ) {
   if (match.groupId) {
-    return groupsById.get(match.groupId) ?? `Group ${match.groupId}`;
+    return translateGroupLabel(groupsById.get(match.groupId) ?? match.groupId, language);
   }
 
   if (!match.homeTeamId || !match.awayTeamId) {
@@ -164,7 +175,7 @@ function resolveGroupLabel(
   const awayGroup = teamsById.get(match.awayTeamId)?.group;
 
   if (homeGroup && homeGroup === awayGroup) {
-    return groupsById.get(homeGroup) ?? `Group ${homeGroup}`;
+    return translateGroupLabel(groupsById.get(homeGroup) ?? homeGroup, language);
   }
 
   return null;

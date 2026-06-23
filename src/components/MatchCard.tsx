@@ -1,10 +1,11 @@
 import type { Match } from "../lib/types";
 import { formatDateCardKyiv, formatTimeKyiv } from "../lib/dates";
-import { getStatusLabel, type Translate } from "../lib/i18n";
+import { getStatusLabel, type Language, type Translate } from "../lib/i18n";
 import { MatchTooltip } from "./MatchTooltip";
 
 interface MatchCardProps {
   isOpen: boolean;
+  language: Language;
   match: Match;
   groupLabel?: string | null;
   homeLabel: string;
@@ -16,6 +17,7 @@ interface MatchCardProps {
 
 export function MatchCard({
   isOpen,
+  language,
   match,
   groupLabel,
   homeLabel,
@@ -50,7 +52,7 @@ export function MatchCard({
               : "vs"}
           </span>
           <small>
-            {formatDateCardKyiv(match.kickoffUtc)} | {formatTimeKyiv(match.kickoffUtc)}
+            {formatDateCardKyiv(match.kickoffUtc, language)} | {formatTimeKyiv(match.kickoffUtc, language)}
           </small>
         </div>
         <div className="match-side match-side--away">
@@ -68,7 +70,13 @@ export function MatchCard({
       </div>
 
       {isScheduled && isOpen ? (
-        <MatchTooltip groupLabel={groupLabel} match={match} stageLabel={stageLabel} t={t} />
+        <MatchTooltip
+          groupLabel={groupLabel}
+          language={language}
+          match={match}
+          stageLabel={stageLabel}
+          t={t}
+        />
       ) : null}
     </>
   );

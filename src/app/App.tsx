@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { ErrorState } from "../components/ErrorState";
 import { Header } from "../components/Header";
 import { loadTournamentData } from "../lib/data";
-import { useLanguage, type Translate } from "../lib/i18n";
+import { formatDateTimeKyiv } from "../lib/dates";
+import { useLanguage, type Language, type Translate } from "../lib/i18n";
 import { GroupsPage } from "../pages/GroupsPage";
 import { HomePage } from "../pages/HomePage";
 import { KnockoutPage } from "../pages/KnockoutPage";
@@ -68,9 +69,9 @@ function App() {
           <ErrorState message={error} title={t("error.title")} />
         ) : null}
         {!error && isLoading ? <div className="state-panel">{t("loading")}</div> : null}
-        {data ? renderView(activeView, data, handleNavigate, t) : null}
+        {data ? renderView(activeView, data, handleNavigate, language, t) : null}
       </main>
-      {data ? <Footer lastUpdated={data.tournament.lastUpdated} t={t} /> : null}
+      {data ? <Footer language={language} lastUpdated={data.tournament.lastUpdated} t={t} /> : null}
     </div>
   );
 }
@@ -79,17 +80,18 @@ function renderView(
   activeView: ViewId,
   data: TournamentData,
   onNavigate: (view: ViewId) => void,
+  language: Language,
   t: Translate
 ) {
-  if (activeView === "groups") return <GroupsPage data={data} t={t} />;
-  if (activeView === "matches") return <MatchesPage data={data} t={t} />;
-  if (activeView === "knockout") return <KnockoutPage data={data} t={t} />;
-  if (activeView === "about") return <AboutPage data={data} t={t} />;
+  if (activeView === "groups") return <GroupsPage data={data} language={language} t={t} />;
+  if (activeView === "matches") return <MatchesPage data={data} language={language} t={t} />;
+  if (activeView === "knockout") return <KnockoutPage data={data} language={language} t={t} />;
+  if (activeView === "about") return <AboutPage data={data} language={language} t={t} />;
 
-  return <HomePage data={data} onNavigate={onNavigate} t={t} />;
+  return <HomePage data={data} language={language} onNavigate={onNavigate} t={t} />;
 }
 
-function Footer({ lastUpdated, t }: { lastUpdated: string; t: Translate }) {
+function Footer({ language, lastUpdated, t }: { language: Language; lastUpdated: string; t: Translate }) {
   return (
     <footer className="site-footer">
       <div>
@@ -98,7 +100,7 @@ function Footer({ lastUpdated, t }: { lastUpdated: string; t: Translate }) {
       </div>
       <div className="footer-links">
         <span>
-          {t("about.lastUpdated")}: {lastUpdated}
+          {t("about.lastUpdated")}: {formatDateTimeKyiv(lastUpdated, language)}
         </span>
         <a href="#about">{t("footer.about")}</a>
         <a href="https://github.com/alexrud1993/fifa-world-cup-2026-tracker">

@@ -17,6 +17,7 @@
   --shadow-panel: 0 22px 70px var(--color-shadow);
   --radius: 8px;
   --touch-target: 44px;
+  --container: 1240px;
   --font-body:
     "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
   --font-display:

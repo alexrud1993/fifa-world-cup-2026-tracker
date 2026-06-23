@@ -2,11 +2,18 @@ import { useState } from "react";
 import { EmptyState } from "../components/EmptyState";
 import { MatchCard } from "../components/MatchCard";
 import { isTodayKyiv, sortMatchesByDate } from "../lib/dates";
-import { getStageLabel, type Translate } from "../lib/i18n";
+import {
+  getStageLabel,
+  translateGroupLabel,
+  translatePlaceholderLabel,
+  type Language,
+  type Translate
+} from "../lib/i18n";
 import type { Match, Team, TournamentData } from "../lib/types";
 
 interface MatchesPageProps {
   data: TournamentData;
+  language: Language;
   t: Translate;
 }
 
@@ -21,7 +28,7 @@ const matchFilters: Array<{ id: MatchFilterId; labelKey: Parameters<Translate>[0
   { id: "knockout", labelKey: "matches.knockout" }
 ];
 
-export function MatchesPage({ data, t }: MatchesPageProps) {
+export function MatchesPage({ data, language, t }: MatchesPageProps) {
   const [activeFilter, setActiveFilter] = useState<MatchFilterId>("all");
   const [selectedGroup, setSelectedGroup] = useState("all");
   const [selectedTeam, setSelectedTeam] = useState("all");
@@ -116,7 +123,7 @@ export function MatchesPage({ data, t }: MatchesPageProps) {
                     <option value="all">{t("matches.allGroups")}</option>
                     {availableGroups.map((groupId) => (
                       <option key={groupId} value={groupId}>
-                        {groupNameById.get(groupId) ?? `Group ${groupId}`}
+                        {translateGroupLabel(groupNameById.get(groupId) ?? groupId, language)}
                       </option>
                     ))}
                   </select>
@@ -153,15 +160,16 @@ export function MatchesPage({ data, t }: MatchesPageProps) {
               filteredMatches.map((match) => {
                 const groupId = resolveMatchGroupId(match, teamsById);
                 const groupLabel = groupId
-                  ? groupNameById.get(groupId) ?? `Group ${groupId}`
+                  ? translateGroupLabel(groupNameById.get(groupId) ?? groupId, language)
                   : null;
 
                 return (
                   <MatchCard
-                    awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById)}
+                    awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
                     groupLabel={groupLabel}
-                    homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById)}
+                    homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
                     isOpen={openMatchId === match.id}
+                    language={language}
                     key={match.id}
                     match={match}
                     onToggle={(matchId) =>
@@ -183,13 +191,14 @@ export function MatchesPage({ data, t }: MatchesPageProps) {
 function resolveTeamLabel(
   teamId: string | undefined,
   placeholder: string | undefined,
-  teamsById: Map<string, Team>
+  teamsById: Map<string, Team>,
+  language: Language
 ) {
   if (teamId) {
-    return teamsById.get(teamId)?.name ?? placeholder ?? teamId;
+    return teamsById.get(teamId)?.name ?? (placeholder ? translatePlaceholderLabel(placeholder, language) : teamId);
   }
 
-  return placeholder ?? "TBD";
+  return translatePlaceholderLabel(placeholder, language);
 }
 
 function resolveMatchGroupId(match: Match, teamsById: Map<string, Team>) {

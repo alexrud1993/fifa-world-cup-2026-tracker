@@ -1,25 +1,26 @@
 import type { Match } from "../lib/types";
 import { formatDateKyiv, formatTimeKyiv, formatTimeUtc } from "../lib/dates";
-import type { Translate } from "../lib/i18n";
+import type { Language, Translate } from "../lib/i18n";
 
 interface MatchTooltipProps {
   match: Match;
   groupLabel?: string | null;
+  language: Language;
   stageLabel: string;
   t: Translate;
 }
 
-export function MatchTooltip({ match, groupLabel, stageLabel, t }: MatchTooltipProps) {
+export function MatchTooltip({ match, groupLabel, language, stageLabel, t }: MatchTooltipProps) {
   return (
     <div className="match-tooltip" role="dialog" aria-label="Match details">
       <dl className="match-tooltip-grid">
         <div>
           <dt>{t("matches.date")}</dt>
-          <dd>{formatDateKyiv(match.kickoffUtc)}</dd>
+          <dd>{formatDateKyiv(match.kickoffUtc, language)}</dd>
         </div>
         <div>
           <dt>{t("matches.kyivTime")}</dt>
-          <dd>{formatTimeKyiv(match.kickoffUtc)}</dd>
+          <dd>{formatTimeKyiv(match.kickoffUtc, language)}</dd>
         </div>
         <div>
           <dt>{t("matches.utcTime")}</dt>

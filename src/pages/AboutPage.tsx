@@ -1,12 +1,14 @@
-import type { Translate } from "../lib/i18n";
+import { formatDateTimeKyiv } from "../lib/dates";
+import type { Language, Translate } from "../lib/i18n";
 import type { TournamentData } from "../lib/types";
 
 interface AboutPageProps {
   data: TournamentData;
+  language: Language;
   t: Translate;
 }
 
-export function AboutPage({ data, t }: AboutPageProps) {
+export function AboutPage({ data, language, t }: AboutPageProps) {
   return (
     <section className="about-page" aria-labelledby="about-title">
       <div className="page-heading">
@@ -32,7 +34,7 @@ export function AboutPage({ data, t }: AboutPageProps) {
             </div>
             <div>
               <dt>{t("about.lastUpdated")}</dt>
-              <dd>{data.tournament.lastUpdated}</dd>
+              <dd>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</dd>
             </div>
             <div>
               <dt>{t("about.sourceNote")}</dt>
