@@ -1292,12 +1292,39 @@ button {
 
 .select-filter select {
   min-height: var(--touch-target);
-  padding: 10px 12px;
-  border: 1px solid rgba(158, 178, 165, 0.18);
+  padding: 10px 36px 10px 12px;
+  border: 1px solid rgba(158, 178, 165, 0.24);
   border-radius: 8px;
   color: var(--color-text-strong);
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    linear-gradient(180deg, rgba(22, 37, 30, 0.98), rgba(10, 18, 15, 0.98));
+  color-scheme: dark;
   font: inherit;
+  font-weight: 700;
+}
+
+.select-filter select:hover {
+  border-color: rgba(41, 207, 114, 0.42);
+  background:
+    linear-gradient(180deg, rgba(26, 48, 38, 0.98), rgba(12, 24, 18, 0.98));
+}
+
+.select-filter select:focus-visible {
+  border-color: rgba(126, 242, 75, 0.68);
+  outline: 2px solid rgba(41, 207, 114, 0.26);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(41, 207, 114, 0.1);
+}
+
+.select-filter select option {
+  color: #f5fff6;
+  background: #08120e;
+  font-weight: 700;
+}
+
+.select-filter select option:checked {
+  color: #f7fff5;
+  background: #176b32;
 }
 
 .match-card-topline,
