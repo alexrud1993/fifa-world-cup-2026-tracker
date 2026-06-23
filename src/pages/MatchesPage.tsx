@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { EmptyState } from "../components/EmptyState";
+import { LiveUpdateIndicator } from "../components/LiveUpdateIndicator";
 import { MatchCard } from "../components/MatchCard";
 import { isTodayKyiv, sortMatchesByDate } from "../lib/dates";
 import {
@@ -98,6 +99,13 @@ export function MatchesPage({ data, language, t }: MatchesPageProps) {
         />
       ) : (
         <>
+          <LiveUpdateIndicator
+            language={language}
+            lastUpdated={data.tournament.lastUpdated}
+            matches={data.matches}
+            t={t}
+          />
+
           <div className="matches-controls">
             <div className="filter-chips" aria-label="Match filters">
               {matchFilters.map((filter) => (
@@ -172,6 +180,7 @@ export function MatchesPage({ data, language, t }: MatchesPageProps) {
                     homeTeam={resolveTeam(match.homeTeamId, teamsById)}
                     isOpen={openMatchId === match.id}
                     language={language}
+                    lastUpdated={data.tournament.lastUpdated}
                     key={match.id}
                     match={match}
                     onToggle={(matchId) =>
