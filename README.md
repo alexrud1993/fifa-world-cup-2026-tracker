@@ -18,6 +18,7 @@ npm run build
 npm run preview
 npm test
 npm run data:validate
+npm run data:import-fifa
 npm run data:import-public
 npm run data:normalize-public
 ```
@@ -137,6 +138,29 @@ npm run data:normalize-public
 After an import, compare `public/data/imported-worldcup-2026.json` with `public/data/worldcup-2026.json` and manually copy only the updates you trust.
 
 The optional workflow `.github/workflows/import-public-data.yml` can be run manually and also runs once per day. It commits `imported-worldcup-2026.json` only when that file changes.
+
+## FIFA Calendar PR Import
+
+For reviewed near-live score updates, use:
+
+```bash
+npm run data:import-fifa
+npm run data:validate
+```
+
+The importer reads the public no-auth FIFA calendar endpoint by default:
+
+```text
+https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=200
+```
+
+It normalizes the response into the existing local schema and updates only existing `match-###` entries in `public/data/worldcup-2026.json`. It keeps `kickoffUtc`, `venue`, and `city`; it does not add `dateUtc`, `venueId`, API keys, runtime fetches, a backend, or a database.
+
+The workflow `.github/workflows/update-fifa-data-pr.yml` runs manually and every 30 minutes during the tournament window. It creates or updates a review PR instead of pushing directly to `main`. To override the endpoint, set a GitHub Actions repository variable:
+
+```text
+PUBLIC_DATA_URL=https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=200
+```
 
 ## Structure
 

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { GroupTable } from "../components/GroupTable";
+import { KnockoutBracket } from "../components/KnockoutBracket";
 import { MatchCard } from "../components/MatchCard";
 import { formatDateTimeKyiv, sortMatchesByDate } from "../lib/dates";
 import {
@@ -25,6 +27,7 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
   const upcomingMatches = sortMatchesByDate(
     data.matches.filter((match) => match.status === "scheduled")
   ).slice(0, 3);
+  const liveMatches = sortMatchesByDate(data.matches.filter((match) => match.status === "live"));
   const latestFinishedMatches = sortMatchesByDate(
     data.matches.filter((match) => match.status === "finished")
   )
@@ -32,6 +35,9 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
     .slice(0, 3);
   const finishedMatchesCount = data.matches.filter((match) => match.status === "finished").length;
   const nextMatch = upcomingMatches[0];
+  const previewGroups = data.groups.slice(0, 4);
+  const previewMatches = [...liveMatches, ...latestFinishedMatches, ...upcomingMatches].slice(0, 4);
+  const knockoutMatchesCount = data.matches.filter((match) => match.stage !== "group").length;
 
   return (
     <section className="home-dashboard" aria-labelledby="home-title">
@@ -53,80 +59,94 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
           </div>
         </div>
 
-        <div className="home-updated-card">
-          <span>{t("about.lastUpdated")}</span>
-          <strong>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</strong>
-          <p>{data.tournament.note}</p>
+        <div className="home-hero-side" aria-label="Tournament summary">
+          <section className="home-summary-grid">
+            <SummaryCard label={t("stats.teams")} value={String(data.teams.length)} />
+            <SummaryCard label={t("stats.groups")} value={String(data.groups.length)} />
+            <SummaryCard label={t("stats.playedMatches")} value={String(finishedMatchesCount)} />
+            <SummaryCard
+              label={t("stats.nextMatch")}
+              value={nextMatch ? formatDateTimeKyiv(nextMatch.kickoffUtc, language) : "-"}
+            />
+          </section>
+
+          <div className="home-updated-card">
+            <span>{t("about.lastUpdated")}</span>
+            <strong>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</strong>
+            <p>{data.tournament.note}</p>
+          </div>
         </div>
       </section>
 
-      <section className="home-summary-grid" aria-label="Tournament summary">
-        <SummaryCard label={t("stats.teams")} value={String(data.teams.length)} />
-        <SummaryCard label={t("stats.groups")} value={String(data.groups.length)} />
-        <SummaryCard label={t("stats.playedMatches")} value={String(finishedMatchesCount)} />
-        <SummaryCard
-          label={t("stats.nextMatch")}
-          value={nextMatch ? formatDateTimeKyiv(nextMatch.kickoffUtc, language) : "-"}
-        />
-      </section>
+      {previewGroups.length > 0 ? (
+        <section className="home-preview-section" aria-labelledby="home-groups-title">
+          <div className="home-preview-heading">
+            <div>
+              <p className="eyebrow">{t("groups.eyebrow")}</p>
+              <h2 id="home-groups-title">{t("groups.title")}</h2>
+            </div>
+            <button className="home-section-link" onClick={() => onNavigate("groups")} type="button">
+              {t("home.quick.groups")}
+            </button>
+          </div>
+          <div className="home-group-preview-grid">
+            {previewGroups.map((group) => (
+              <GroupTable compact data={data} group={group} key={group.id} language={language} t={t} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      <section className="home-match-sections">
-        <div className="home-match-column">
-          <div className="home-section-heading">
-            <p className="eyebrow">{t("status.upcoming")}</p>
-            <h2>{t("home.upcoming")}</h2>
+      <section className="home-preview-section" aria-labelledby="home-matches-title">
+        <div className="home-preview-heading">
+          <div>
+            <p className="eyebrow">{t("matches.eyebrow")}</p>
+            <h2 id="home-matches-title">{t("matches.title")}</h2>
           </div>
-          <div className="match-stack">
-            {upcomingMatches.length > 0 ? (
-              upcomingMatches.map((match) => (
-                <MatchCard
-                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
-                  groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
-                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
-                  isOpen={openMatchId === match.id}
-                  language={language}
-                  key={match.id}
-                  match={match}
-                  onToggle={(matchId) =>
-                    setOpenMatchId((current) => (current === matchId ? null : matchId))
-                  }
-                  stageLabel={getStageLabel(match.stage, t)}
-                  t={t}
-                />
-              ))
-            ) : (
-              <div className="state-panel state-panel--compact">{t("home.noUpcoming")}</div>
-            )}
-          </div>
+          <button className="home-section-link" onClick={() => onNavigate("matches")} type="button">
+            {t("home.quick.matches")}
+          </button>
         </div>
 
-        <div className="home-match-column">
-          <div className="home-section-heading">
-            <p className="eyebrow">{t("status.finished")}</p>
-            <h2>{t("home.finished")}</h2>
-          </div>
-          <div className="match-stack">
-            {latestFinishedMatches.length > 0 ? (
-              latestFinishedMatches.map((match) => (
-                <MatchCard
-                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
-                  groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
-                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
-                  isOpen={false}
-                  language={language}
-                  key={match.id}
-                  match={match}
-                  onToggle={() => undefined}
-                  stageLabel={getStageLabel(match.stage, t)}
-                  t={t}
-                />
-              ))
-            ) : (
-              <div className="state-panel state-panel--compact">{t("home.noFinished")}</div>
-            )}
-          </div>
+        <div className="home-match-preview-grid">
+          {previewMatches.length > 0 ? (
+            previewMatches.map((match) => (
+              <MatchCard
+                awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
+                groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
+                homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
+                isOpen={openMatchId === match.id}
+                language={language}
+                key={match.id}
+                match={match}
+                onToggle={(matchId) =>
+                  setOpenMatchId((current) => (current === matchId ? null : matchId))
+                }
+                stageLabel={getStageLabel(match.stage, t)}
+                t={t}
+                variant="compact"
+              />
+            ))
+          ) : (
+            <div className="state-panel state-panel--compact">{t("matches.noMatchesTitle")}</div>
+          )}
         </div>
       </section>
+
+      {knockoutMatchesCount > 0 ? (
+        <section className="home-preview-section home-knockout-section" aria-labelledby="home-knockout-title">
+          <div className="home-preview-heading">
+            <div>
+              <p className="eyebrow">{t("knockout.eyebrow")}</p>
+              <h2 id="home-knockout-title">{t("knockout.title")}</h2>
+            </div>
+            <button className="home-section-link" onClick={() => onNavigate("knockout")} type="button">
+              {t("home.quick.knockout")}
+            </button>
+          </div>
+          <KnockoutBracket compact data={data} language={language} t={t} />
+        </section>
+      ) : null}
     </section>
   );
 }
@@ -138,8 +158,9 @@ interface SummaryCardProps {
 
 function SummaryCard({ label, value }: SummaryCardProps) {
   return (
-    <article className="home-summary-card">
-      <span>{label}</span>
+    <article className={value.length > 12 ? "home-summary-card home-summary-card--wide-value" : "home-summary-card"}>
+      <span className="summary-marker" aria-hidden="true" />
+      <span className="summary-label">{label}</span>
       <strong>{value}</strong>
     </article>
   );

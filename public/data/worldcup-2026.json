@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-23T00:16:10Z",
+    "lastUpdated": "2026-06-23T06:10:02.507Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -977,10 +977,13 @@
       "kickoffUtc": "2026-06-23T00:00:00Z",
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "I",
       "homeTeamId": "43961",
-      "awayTeamId": "43879"
+      "awayTeamId": "43879",
+      "homeScore": 3,
+      "awayScore": 2,
+      "winnerTeamId": "43961"
     },
     {
       "id": "match-042",
@@ -988,10 +991,13 @@
       "kickoffUtc": "2026-06-22T21:00:00Z",
       "venue": "Philadelphia Stadium",
       "city": "Philadelphia",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "I",
       "homeTeamId": "43946",
-      "awayTeamId": "43818"
+      "awayTeamId": "43818",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winnerTeamId": "43946"
     },
     {
       "id": "match-043",
@@ -1013,10 +1019,13 @@
       "kickoffUtc": "2026-06-23T03:00:00Z",
       "venue": "San Francisco Bay Area Stadium",
       "city": "San Francisco Bay Area",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "J",
       "homeTeamId": "43820",
-      "awayTeamId": "43843"
+      "awayTeamId": "43843",
+      "homeScore": 1,
+      "awayScore": 2,
+      "winnerTeamId": "43843"
     },
     {
       "id": "match-045",
@@ -1333,8 +1342,8 @@
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "scheduled",
-      "homePlaceholder": "Runner-up Group A",
-      "awayPlaceholder": "Runner-up Group B"
+      "homePlaceholder": "2A",
+      "awayPlaceholder": "2B"
     },
     {
       "id": "match-074",
@@ -1344,7 +1353,7 @@
       "city": "Boston",
       "status": "scheduled",
       "homeTeamId": "43948",
-      "awayPlaceholder": "Best 3rd Group A/B/C/D/F"
+      "awayPlaceholder": "3ABCDF"
     },
     {
       "id": "match-075",
@@ -1353,8 +1362,8 @@
       "venue": "Monterrey Stadium",
       "city": "Monterrey",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group F",
-      "awayPlaceholder": "Runner-up Group C"
+      "homePlaceholder": "1F",
+      "awayPlaceholder": "2C"
     },
     {
       "id": "match-076",
@@ -1363,8 +1372,8 @@
       "venue": "Houston Stadium",
       "city": "Houston",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group C",
-      "awayPlaceholder": "Runner-up Group F"
+      "homePlaceholder": "1C",
+      "awayPlaceholder": "2F"
     },
     {
       "id": "match-077",
@@ -1373,8 +1382,8 @@
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group I",
-      "awayPlaceholder": "Best 3rd Group C/D/F/G/H"
+      "homePlaceholder": "1I",
+      "awayPlaceholder": "3CDFGH"
     },
     {
       "id": "match-078",
@@ -1383,8 +1392,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "homePlaceholder": "Runner-up Group E",
-      "awayPlaceholder": "Runner-up Group I"
+      "homePlaceholder": "2E",
+      "awayPlaceholder": "2I"
     },
     {
       "id": "match-079",
@@ -1394,7 +1403,7 @@
       "city": "Mexico City",
       "status": "scheduled",
       "homeTeamId": "43911",
-      "awayPlaceholder": "Best 3rd Group C/E/F/H/I"
+      "awayPlaceholder": "3CEFHI"
     },
     {
       "id": "match-080",
@@ -1403,8 +1412,8 @@
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group L",
-      "awayPlaceholder": "Best 3rd Group E/H/I/J/K"
+      "homePlaceholder": "1L",
+      "awayPlaceholder": "3EHIJK"
     },
     {
       "id": "match-081",
@@ -1414,7 +1423,7 @@
       "city": "San Francisco Bay Area",
       "status": "scheduled",
       "homeTeamId": "43921",
-      "awayPlaceholder": "Best 3rd Group B/E/F/I/J"
+      "awayPlaceholder": "3BEFIJ"
     },
     {
       "id": "match-082",
@@ -1423,8 +1432,8 @@
       "venue": "Seattle Stadium",
       "city": "Seattle",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group G",
-      "awayPlaceholder": "Best 3rd Group A/E/H/I/J"
+      "homePlaceholder": "1G",
+      "awayPlaceholder": "3AEHIJ"
     },
     {
       "id": "match-083",
@@ -1433,8 +1442,8 @@
       "venue": "Toronto Stadium",
       "city": "Toronto",
       "status": "scheduled",
-      "homePlaceholder": "Runner-up Group K",
-      "awayPlaceholder": "Runner-up Group L"
+      "homePlaceholder": "2K",
+      "awayPlaceholder": "2L"
     },
     {
       "id": "match-084",
@@ -1443,8 +1452,8 @@
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group H",
-      "awayPlaceholder": "Runner-up Group J"
+      "homePlaceholder": "1H",
+      "awayPlaceholder": "2J"
     },
     {
       "id": "match-085",
@@ -1453,8 +1462,8 @@
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group B",
-      "awayPlaceholder": "Best 3rd Group E/F/G/I/J"
+      "homePlaceholder": "1B",
+      "awayPlaceholder": "3EFGIJ"
     },
     {
       "id": "match-086",
@@ -1463,8 +1472,8 @@
       "venue": "Miami Stadium",
       "city": "Miami",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group J",
-      "awayPlaceholder": "Runner-up Group H"
+      "awayPlaceholder": "2H",
+      "homeTeamId": "43922"
     },
     {
       "id": "match-087",
@@ -1473,8 +1482,8 @@
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
       "status": "scheduled",
-      "homePlaceholder": "Winner Group K",
-      "awayPlaceholder": "Best 3rd Group D/E/I/J/L"
+      "homePlaceholder": "1K",
+      "awayPlaceholder": "3DEIJL"
     },
     {
       "id": "match-088",
@@ -1483,8 +1492,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "homePlaceholder": "Runner-up Group D",
-      "awayPlaceholder": "Runner-up Group G"
+      "homePlaceholder": "2D",
+      "awayPlaceholder": "2G"
     },
     {
       "id": "match-089",
@@ -1493,8 +1502,8 @@
       "venue": "Philadelphia Stadium",
       "city": "Philadelphia",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 74",
-      "awayPlaceholder": "Winner Match 77"
+      "homePlaceholder": "W74",
+      "awayPlaceholder": "W77"
     },
     {
       "id": "match-090",
@@ -1503,8 +1512,8 @@
       "venue": "Houston Stadium",
       "city": "Houston",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 73",
-      "awayPlaceholder": "Winner Match 75"
+      "homePlaceholder": "W73",
+      "awayPlaceholder": "W75"
     },
     {
       "id": "match-091",
@@ -1513,8 +1522,8 @@
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 76",
-      "awayPlaceholder": "Winner Match 78"
+      "homePlaceholder": "W76",
+      "awayPlaceholder": "W78"
     },
     {
       "id": "match-092",
@@ -1523,8 +1532,8 @@
       "venue": "Mexico City Stadium",
       "city": "Mexico City",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 79",
-      "awayPlaceholder": "Winner Match 80"
+      "homePlaceholder": "W79",
+      "awayPlaceholder": "W80"
     },
     {
       "id": "match-093",
@@ -1533,8 +1542,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 83",
-      "awayPlaceholder": "Winner Match 84"
+      "homePlaceholder": "W83",
+      "awayPlaceholder": "W84"
     },
     {
       "id": "match-094",
@@ -1543,8 +1552,8 @@
       "venue": "Seattle Stadium",
       "city": "Seattle",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 81",
-      "awayPlaceholder": "Winner Match 82"
+      "homePlaceholder": "W81",
+      "awayPlaceholder": "W82"
     },
     {
       "id": "match-095",
@@ -1553,8 +1562,8 @@
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 86",
-      "awayPlaceholder": "Winner Match 88"
+      "homePlaceholder": "W86",
+      "awayPlaceholder": "W88"
     },
     {
       "id": "match-096",
@@ -1563,8 +1572,8 @@
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 85",
-      "awayPlaceholder": "Winner Match 87"
+      "homePlaceholder": "W85",
+      "awayPlaceholder": "W87"
     },
     {
       "id": "match-097",
@@ -1573,8 +1582,8 @@
       "venue": "Boston Stadium",
       "city": "Boston",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 89",
-      "awayPlaceholder": "Winner Match 90"
+      "homePlaceholder": "W89",
+      "awayPlaceholder": "W90"
     },
     {
       "id": "match-098",
@@ -1583,8 +1592,8 @@
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 93",
-      "awayPlaceholder": "Winner Match 94"
+      "homePlaceholder": "W93",
+      "awayPlaceholder": "W94"
     },
     {
       "id": "match-099",
@@ -1593,8 +1602,8 @@
       "venue": "Miami Stadium",
       "city": "Miami",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 91",
-      "awayPlaceholder": "Winner Match 92"
+      "homePlaceholder": "W91",
+      "awayPlaceholder": "W92"
     },
     {
       "id": "match-100",
@@ -1603,8 +1612,8 @@
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 95",
-      "awayPlaceholder": "Winner Match 96"
+      "homePlaceholder": "W95",
+      "awayPlaceholder": "W96"
     },
     {
       "id": "match-101",
@@ -1613,8 +1622,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 97",
-      "awayPlaceholder": "Winner Match 98"
+      "homePlaceholder": "W97",
+      "awayPlaceholder": "W98"
     },
     {
       "id": "match-102",
@@ -1623,8 +1632,8 @@
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 99",
-      "awayPlaceholder": "Winner Match 100"
+      "homePlaceholder": "W99",
+      "awayPlaceholder": "W100"
     },
     {
       "id": "match-103",
@@ -1633,8 +1642,8 @@
       "venue": "Miami Stadium",
       "city": "Miami",
       "status": "scheduled",
-      "homePlaceholder": "Loser Match 101",
-      "awayPlaceholder": "Loser Match 102"
+      "homePlaceholder": "RU101",
+      "awayPlaceholder": "RU102"
     },
     {
       "id": "match-104",
@@ -1643,8 +1652,8 @@
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
       "status": "scheduled",
-      "homePlaceholder": "Winner Match 101",
-      "awayPlaceholder": "Winner Match 102"
+      "homePlaceholder": "W101",
+      "awayPlaceholder": "W102"
     }
   ]
 }

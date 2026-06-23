@@ -15,18 +15,22 @@ import {
 import type { Match, Team, TournamentData } from "../lib/types";
 
 interface KnockoutBracketProps {
+  compact?: boolean;
   data: TournamentData;
   language: Language;
   t: Translate;
 }
 
-export function KnockoutBracket({ data, language, t }: KnockoutBracketProps) {
+export function KnockoutBracket({ compact = false, data, language, t }: KnockoutBracketProps) {
   const matchesByStage = groupKnockoutMatchesByStage(data);
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
+  const stages = compact
+    ? knockoutStages.filter((stage) => stage !== "third-place")
+    : knockoutStages;
 
   return (
-    <div className="knockout-bracket" aria-label="Knockout bracket">
-      {knockoutStages.map((stage) => (
+    <div className={compact ? "knockout-bracket knockout-bracket--compact" : "knockout-bracket"} aria-label="Knockout bracket">
+      {stages.map((stage) => (
         <section className="knockout-stage" key={stage}>
           <div className="knockout-stage-header">
             <p className="eyebrow">{t("knockout.bracket")}</p>
@@ -35,7 +39,7 @@ export function KnockoutBracket({ data, language, t }: KnockoutBracketProps) {
 
           <div className="knockout-match-list">
             {matchesByStage[stage].length > 0 ? (
-              matchesByStage[stage].map((match) => (
+              matchesByStage[stage].slice(0, compact ? 4 : undefined).map((match) => (
                 <KnockoutMatchCard
                   key={match.id}
                   language={language}

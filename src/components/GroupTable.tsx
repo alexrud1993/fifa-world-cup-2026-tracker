@@ -5,6 +5,7 @@ import { StatusBadge } from "./StatusBadge";
 import { TeamBadge } from "./TeamBadge";
 
 interface GroupTableProps {
+  compact?: boolean;
   data: TournamentData;
   group: Group;
   language: Language;
@@ -23,12 +24,22 @@ const desktopColumns = [
   { key: "points", labelKey: "groups.points", compact: "Pts" }
 ] as const;
 
-export function GroupTable({ data, group, language, t }: GroupTableProps) {
+const compactColumnKeys = new Set<(typeof desktopColumns)[number]["key"]>([
+  "team",
+  "played",
+  "goalDifference",
+  "points"
+]);
+
+export function GroupTable({ compact = false, data, group, language, t }: GroupTableProps) {
   const standings = calculateGroupStandings(data)[group.id] ?? [];
   const teamsById = new Map(data.teams.map((team) => [team.id, team]));
+  const columns = compact
+    ? desktopColumns.filter((column) => compactColumnKeys.has(column.key))
+    : desktopColumns;
 
   return (
-    <article className="group-table-card">
+    <article className={compact ? "group-table-card group-table-card--compact" : "group-table-card"}>
       <div className="group-table-header">
         <div>
           <p className="eyebrow">{t("groups.standings")}</p>
@@ -40,7 +51,7 @@ export function GroupTable({ data, group, language, t }: GroupTableProps) {
         <table className="group-table">
           <thead>
             <tr>
-              {desktopColumns.map((column) => (
+              {columns.map((column) => (
                 <th key={column.key} scope="col">
                   <span className="desktop-label">{t(column.labelKey as TranslationKey)}</span>
                   <span className="mobile-label">{column.compact}</span>
@@ -68,20 +79,20 @@ export function GroupTable({ data, group, language, t }: GroupTableProps) {
                     <div className="team-cell">
                       <span className="team-rank">{row.rank}</span>
                       <TeamBadge team={team} />
-                      {row.qualificationStatus === "qualified-zone" ? (
+                      {!compact && row.qualificationStatus === "qualified-zone" ? (
                         <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
                       ) : null}
-                      {row.qualificationStatus === "third-place-zone" ? (
+                      {!compact && row.qualificationStatus === "third-place-zone" ? (
                         <StatusBadge tone="third" label={t("groups.thirdZone")} />
                       ) : null}
                     </div>
                   </td>
                   <td data-label="P">{row.played}</td>
-                  <td data-label="W">{row.won}</td>
-                  <td data-label="D">{row.drawn}</td>
-                  <td data-label="L">{row.lost}</td>
-                  <td data-label="GF">{row.goalsFor}</td>
-                  <td data-label="GA">{row.goalsAgainst}</td>
+                  {!compact ? <td data-label="W">{row.won}</td> : null}
+                  {!compact ? <td data-label="D">{row.drawn}</td> : null}
+                  {!compact ? <td data-label="L">{row.lost}</td> : null}
+                  {!compact ? <td data-label="GF">{row.goalsFor}</td> : null}
+                  {!compact ? <td data-label="GA">{row.goalsAgainst}</td> : null}
                   <td data-label="GD">{row.goalDifference > 0 ? `+${row.goalDifference}` : row.goalDifference}</td>
                   <td className="points-cell" data-label="Pts">
                     {row.points}
@@ -92,10 +103,12 @@ export function GroupTable({ data, group, language, t }: GroupTableProps) {
           </tbody>
         </table>
       </div>
-      <div className="group-table-legend group-table-legend--footer" aria-label="Qualification legend">
-        <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
-        <StatusBadge tone="third" label={t("groups.thirdZone")} />
-      </div>
+      {!compact ? (
+        <div className="group-table-legend group-table-legend--footer" aria-label="Qualification legend">
+          <StatusBadge tone="qualified" label={t("groups.qualifiedZone")} />
+          <StatusBadge tone="third" label={t("groups.thirdZone")} />
+        </div>
+      ) : null}
     </article>
   );
 }
