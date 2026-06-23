@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { GroupTable } from "../components/GroupTable";
 import { KnockoutBracket } from "../components/KnockoutBracket";
-import { LiveUpdateIndicator } from "../components/LiveUpdateIndicator";
 import { MatchCard } from "../components/MatchCard";
+import { UpdateMonitor } from "../components/UpdateMonitor";
 import { formatDateTimeKyiv, sortMatchesByDate } from "../lib/dates";
 import {
   getStageLabel,
@@ -77,7 +77,7 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
             <p>{data.tournament.note}</p>
           </div>
 
-          <LiveUpdateIndicator
+          <UpdateMonitor
             language={language}
             lastUpdated={data.tournament.lastUpdated}
             matches={data.matches}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { EmptyState } from "../components/EmptyState";
-import { LiveUpdateIndicator } from "../components/LiveUpdateIndicator";
 import { MatchCard } from "../components/MatchCard";
+import { UpdateMonitor } from "../components/UpdateMonitor";
 import { isTodayKyiv, sortMatchesByDate } from "../lib/dates";
 import {
   getStageLabel,
@@ -99,7 +99,7 @@ export function MatchesPage({ data, language, t }: MatchesPageProps) {
         />
       ) : (
         <>
-          <LiveUpdateIndicator
+          <UpdateMonitor
             language={language}
             lastUpdated={data.tournament.lastUpdated}
             matches={data.matches}

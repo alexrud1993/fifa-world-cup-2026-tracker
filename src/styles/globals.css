@@ -302,7 +302,7 @@ button {
 }
 
 .home-hero-copy,
-.live-update-indicator,
+.update-monitor,
 .home-updated-card,
 .home-summary-card {
   border: 1px solid var(--color-border);
@@ -368,29 +368,53 @@ button {
   font-size: 0.78rem;
 }
 
-.live-update-indicator {
+.update-monitor {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 7px;
-  padding: 12px 14px;
+  gap: 14px;
+  padding: 15px;
   overflow: hidden;
-  border-color: rgba(158, 178, 165, 0.18);
+  border-color: rgba(126, 242, 75, 0.24);
   background:
-    radial-gradient(circle at 100% 0, rgba(74, 163, 255, 0.12), transparent 42%),
-    linear-gradient(180deg, rgba(9, 20, 17, 0.88), rgba(4, 10, 8, 0.94));
-  backdrop-filter: blur(12px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at 50% 16%, rgba(126, 242, 75, 0.16), transparent 42%),
+    linear-gradient(180deg, rgba(12, 24, 20, 0.92), rgba(3, 8, 7, 0.96));
+  background-size: 28px 28px, 28px 28px, auto, auto;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-panel), 0 0 0 1px rgba(41, 207, 114, 0.08);
 }
 
-.live-update-indicator--live {
-  border-color: rgba(126, 242, 75, 0.4);
+.update-monitor::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
   background:
-    radial-gradient(circle at 100% 0, rgba(126, 242, 75, 0.2), transparent 42%),
-    linear-gradient(180deg, rgba(14, 35, 22, 0.94), rgba(5, 13, 8, 0.96));
-  box-shadow: var(--shadow-panel), 0 0 0 1px rgba(41, 207, 114, 0.12);
+    linear-gradient(180deg, transparent, rgba(126, 242, 75, 0.08), transparent),
+    radial-gradient(circle at 50% 50%, transparent 0 58%, rgba(41, 207, 114, 0.08) 59%, transparent 62%);
+  opacity: 0.68;
 }
 
-.live-update-topline {
+.update-monitor--live {
+  border-color: rgba(126, 242, 75, 0.48);
+  box-shadow: var(--shadow-panel), 0 0 36px rgba(41, 207, 114, 0.14);
+}
+
+.update-monitor--failed {
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.update-monitor-topline,
+.update-monitor-body,
+.update-monitor-lines,
+.update-monitor-chips {
+  position: relative;
+  z-index: 1;
+}
+
+.update-monitor-topline {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -400,7 +424,7 @@ button {
   text-transform: uppercase;
 }
 
-.live-update-dot,
+.update-monitor-status-dot,
 .match-status-dot {
   display: inline-block;
   width: 8px;
@@ -411,35 +435,196 @@ button {
   box-shadow: 0 0 14px rgba(126, 242, 75, 0.72);
 }
 
-.live-update-indicator--hourly .live-update-dot {
+.update-monitor--waiting .update-monitor-status-dot {
   background: #4aa3ff;
   box-shadow: 0 0 14px rgba(74, 163, 255, 0.46);
 }
 
-.live-update-indicator strong {
-  color: var(--color-text-strong);
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 900;
-  line-height: 1;
+.update-monitor--failed .update-monitor-status-dot {
+  background: #ff6b6b;
+  box-shadow: 0 0 14px rgba(255, 107, 107, 0.46);
 }
 
-.live-update-indicator p,
-.live-update-indicator small {
+.update-monitor-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(132px, 184px);
+  align-items: center;
+  gap: 14px;
+}
+
+.update-monitor-copy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.update-monitor-copy strong {
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.update-monitor-copy p {
   margin: 0;
   color: var(--color-muted);
+  font-size: 0.88rem;
   line-height: 1.35;
 }
 
-.live-update-indicator p {
-  font-size: 0.86rem;
+.update-radar {
+  position: relative;
+  width: min(100%, 184px);
+  aspect-ratio: 1;
+  justify-self: end;
+  border: 1px solid rgba(126, 242, 75, 0.3);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(126, 242, 75, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(41, 207, 114, 0.13), rgba(4, 12, 8, 0.5) 52%, rgba(2, 6, 5, 0.88));
+  box-shadow:
+    inset 0 0 28px rgba(41, 207, 114, 0.16),
+    0 0 30px rgba(41, 207, 114, 0.12);
 }
 
-.live-update-indicator small {
-  font-size: 0.78rem;
+.update-radar-grid,
+.update-radar-ring,
+.update-radar-sweep,
+.update-radar-core,
+.update-radar-blip {
+  position: absolute;
+  pointer-events: none;
 }
 
-.live-update-indicator + .matches-controls {
+.update-radar-grid {
+  inset: 13%;
+  border-radius: inherit;
+  background:
+    linear-gradient(rgba(126, 242, 75, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 242, 75, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle, #000 0 66%, transparent 68%);
+}
+
+.update-radar-ring {
+  inset: var(--ring-inset);
+  border: 1px solid rgba(126, 242, 75, 0.22);
+  border-radius: 999px;
+}
+
+.update-radar-ring--outer {
+  --ring-inset: 12%;
+}
+
+.update-radar-ring--middle {
+  --ring-inset: 28%;
+}
+
+.update-radar-ring--inner {
+  --ring-inset: 43%;
+}
+
+.update-radar-sweep {
+  inset: 9%;
+  border-radius: 999px;
+  background: conic-gradient(from -36deg, rgba(126, 242, 75, 0.42), rgba(126, 242, 75, 0.12) 24deg, transparent 58deg);
+  opacity: 0.72;
+  mask-image: radial-gradient(circle, transparent 0 9%, #000 10% 68%, transparent 69%);
+}
+
+.update-radar-core {
+  inset: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #d7ffd1;
+  box-shadow: 0 0 22px rgba(126, 242, 75, 0.8);
+}
+
+.update-radar-blip {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #7ef24b;
+  box-shadow: 0 0 14px rgba(126, 242, 75, 0.8);
+}
+
+.update-radar-blip--one {
+  top: 24%;
+  left: 58%;
+}
+
+.update-radar-blip--two {
+  top: 46%;
+  left: 74%;
+}
+
+.update-radar-blip--three {
+  top: 64%;
+  left: 34%;
+}
+
+.update-radar-blip--four {
+  top: 33%;
+  left: 30%;
+}
+
+.update-radar-blip--five {
+  top: 73%;
+  left: 62%;
+}
+
+.update-monitor-lines {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+}
+
+.update-monitor-lines div {
+  display: grid;
+  grid-template-columns: minmax(92px, auto) minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+}
+
+.update-monitor-lines dt,
+.update-monitor-lines dd {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.update-monitor-lines dt {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.update-monitor-lines dd {
+  color: var(--color-text-strong);
+  font-weight: 800;
+}
+
+.update-monitor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.update-monitor-chips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 8px;
+  border: 1px solid rgba(126, 242, 75, 0.2);
+  border-radius: 999px;
+  color: #dfffd4;
+  background: rgba(41, 207, 114, 0.08);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.update-monitor + .matches-controls {
   margin-top: 16px;
 }
 
@@ -1981,9 +2166,67 @@ button {
     }
   }
 
-  .live-update-indicator--live .live-update-dot,
+  @keyframes radarSweep {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes radarBlip {
+    0%,
+    100% {
+      opacity: 0.68;
+      transform: scale(0.86);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.22);
+    }
+  }
+
+  @keyframes radarScan {
+    0% {
+      transform: translateY(-45%);
+    }
+
+    100% {
+      transform: translateY(45%);
+    }
+  }
+
+  .update-monitor--live .update-monitor-status-dot,
   .match-status-dot {
     animation: livePulse 1.3s ease-in-out infinite;
+  }
+
+  .update-monitor::before {
+    animation: radarScan 4.8s linear infinite alternate;
+  }
+
+  .update-radar-sweep {
+    animation: radarSweep 9s linear infinite;
+    transform-origin: 50% 50%;
+  }
+
+  .update-radar-blip {
+    animation: radarBlip 2.6s ease-in-out infinite;
+  }
+
+  .update-radar-blip--two {
+    animation-delay: 0.45s;
+  }
+
+  .update-radar-blip--three {
+    animation-delay: 0.9s;
+  }
+
+  .update-radar-blip--four {
+    animation-delay: 1.2s;
+  }
+
+  .update-radar-blip--five {
+    animation-delay: 1.6s;
   }
 
   .match-card,
