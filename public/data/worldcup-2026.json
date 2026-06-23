@@ -3,164 +3,1648 @@
     "name": "FIFA World Cup 2026",
     "year": 2026,
     "timezone": "Europe/Kyiv",
-    "hosts": ["Canada", "Mexico", "United States"],
-    "lastUpdated": "2026-06-22T22:30:00Z",
-    "note": "Demo starter data for publication preview. Scores are not official and should be manually replaced with real tournament data when available."
+    "hosts": [
+      "Canada",
+      "Mexico",
+      "United States"
+    ],
+    "lastUpdated": "2026-06-23T00:16:10Z",
+    "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
-    { "id": "A", "name": "Group A", "teamIds": ["a1", "a2", "a3", "a4"] },
-    { "id": "B", "name": "Group B", "teamIds": ["b1", "b2", "b3", "b4"] }
+    {
+      "id": "A",
+      "name": "Group A",
+      "teamIds": [
+        "43911",
+        "43883",
+        "43822",
+        "43995"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Group B",
+      "teamIds": [
+        "43899",
+        "44037",
+        "43834",
+        "43971"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Group C",
+      "teamIds": [
+        "43908",
+        "43967",
+        "43924",
+        "43872"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Group D",
+      "teamIds": [
+        "43921",
+        "43928",
+        "43976",
+        "43972"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "Group E",
+      "teamIds": [
+        "43854",
+        "43927",
+        "43948",
+        "1895293"
+      ]
+    },
+    {
+      "id": "F",
+      "name": "Group F",
+      "teamIds": [
+        "43960",
+        "43819",
+        "43970",
+        "43888"
+      ]
+    },
+    {
+      "id": "G",
+      "name": "Group G",
+      "teamIds": [
+        "43817",
+        "43978",
+        "43935",
+        "43855"
+      ]
+    },
+    {
+      "id": "H",
+      "name": "Group H",
+      "teamIds": [
+        "43835",
+        "43930",
+        "43969",
+        "43850"
+      ]
+    },
+    {
+      "id": "I",
+      "name": "Group I",
+      "teamIds": [
+        "43946",
+        "43879",
+        "43818",
+        "43961"
+      ]
+    },
+    {
+      "id": "J",
+      "name": "Group J",
+      "teamIds": [
+        "43922",
+        "43843",
+        "43934",
+        "43820"
+      ]
+    },
+    {
+      "id": "K",
+      "name": "Group K",
+      "teamIds": [
+        "43963",
+        "20014",
+        "44005",
+        "43926"
+      ]
+    },
+    {
+      "id": "L",
+      "name": "Group L",
+      "teamIds": [
+        "43860",
+        "43914",
+        "43942",
+        "43938"
+      ]
+    }
   ],
   "teams": [
-    { "id": "a1", "name": "Group A Team 1", "code": "A1", "group": "A" },
-    { "id": "a2", "name": "Group A Team 2", "code": "A2", "group": "A" },
-    { "id": "a3", "name": "Group A Team 3", "code": "A3", "group": "A" },
-    { "id": "a4", "name": "Group A Team 4", "code": "A4", "group": "A" },
-    { "id": "b1", "name": "Group B Team 1", "code": "B1", "group": "B" },
-    { "id": "b2", "name": "Group B Team 2", "code": "B2", "group": "B" },
-    { "id": "b3", "name": "Group B Team 3", "code": "B3", "group": "B" },
-    { "id": "b4", "name": "Group B Team 4", "code": "B4", "group": "B" }
+    {
+      "id": "43995",
+      "name": "Czechia",
+      "code": "CZE",
+      "group": "A"
+    },
+    {
+      "id": "43822",
+      "name": "Korea Republic",
+      "code": "KOR",
+      "group": "A"
+    },
+    {
+      "id": "43911",
+      "name": "Mexico",
+      "code": "MEX",
+      "group": "A"
+    },
+    {
+      "id": "43883",
+      "name": "South Africa",
+      "code": "RSA",
+      "group": "A"
+    },
+    {
+      "id": "44037",
+      "name": "Bosnia and Herzegovina",
+      "code": "BIH",
+      "group": "B"
+    },
+    {
+      "id": "43899",
+      "name": "Canada",
+      "code": "CAN",
+      "group": "B"
+    },
+    {
+      "id": "43834",
+      "name": "Qatar",
+      "code": "QAT",
+      "group": "B"
+    },
+    {
+      "id": "43971",
+      "name": "Switzerland",
+      "code": "SUI",
+      "group": "B"
+    },
+    {
+      "id": "43924",
+      "name": "Brazil",
+      "code": "BRA",
+      "group": "C"
+    },
+    {
+      "id": "43908",
+      "name": "Haiti",
+      "code": "HAI",
+      "group": "C"
+    },
+    {
+      "id": "43872",
+      "name": "Morocco",
+      "code": "MAR",
+      "group": "C"
+    },
+    {
+      "id": "43967",
+      "name": "Scotland",
+      "code": "SCO",
+      "group": "C"
+    },
+    {
+      "id": "43976",
+      "name": "Australia",
+      "code": "AUS",
+      "group": "D"
+    },
+    {
+      "id": "43928",
+      "name": "Paraguay",
+      "code": "PAR",
+      "group": "D"
+    },
+    {
+      "id": "43972",
+      "name": "Turkiye",
+      "code": "TUR",
+      "group": "D"
+    },
+    {
+      "id": "43921",
+      "name": "USA",
+      "code": "USA",
+      "group": "D"
+    },
+    {
+      "id": "43854",
+      "name": "Cote d'Ivoire",
+      "code": "CIV",
+      "group": "E"
+    },
+    {
+      "id": "1895293",
+      "name": "Curacao",
+      "code": "CUW",
+      "group": "E"
+    },
+    {
+      "id": "43927",
+      "name": "Ecuador",
+      "code": "ECU",
+      "group": "E"
+    },
+    {
+      "id": "43948",
+      "name": "Germany",
+      "code": "GER",
+      "group": "E"
+    },
+    {
+      "id": "43819",
+      "name": "Japan",
+      "code": "JPN",
+      "group": "F"
+    },
+    {
+      "id": "43960",
+      "name": "Netherlands",
+      "code": "NED",
+      "group": "F"
+    },
+    {
+      "id": "43970",
+      "name": "Sweden",
+      "code": "SWE",
+      "group": "F"
+    },
+    {
+      "id": "43888",
+      "name": "Tunisia",
+      "code": "TUN",
+      "group": "F"
+    },
+    {
+      "id": "43935",
+      "name": "Belgium",
+      "code": "BEL",
+      "group": "G"
+    },
+    {
+      "id": "43855",
+      "name": "Egypt",
+      "code": "EGY",
+      "group": "G"
+    },
+    {
+      "id": "43817",
+      "name": "IR Iran",
+      "code": "IRN",
+      "group": "G"
+    },
+    {
+      "id": "43978",
+      "name": "New Zealand",
+      "code": "NZL",
+      "group": "G"
+    },
+    {
+      "id": "43850",
+      "name": "Cabo Verde",
+      "code": "CPV",
+      "group": "H"
+    },
+    {
+      "id": "43835",
+      "name": "Saudi Arabia",
+      "code": "KSA",
+      "group": "H"
+    },
+    {
+      "id": "43969",
+      "name": "Spain",
+      "code": "ESP",
+      "group": "H"
+    },
+    {
+      "id": "43930",
+      "name": "Uruguay",
+      "code": "URU",
+      "group": "H"
+    },
+    {
+      "id": "43946",
+      "name": "France",
+      "code": "FRA",
+      "group": "I"
+    },
+    {
+      "id": "43818",
+      "name": "Iraq",
+      "code": "IRQ",
+      "group": "I"
+    },
+    {
+      "id": "43961",
+      "name": "Norway",
+      "code": "NOR",
+      "group": "I"
+    },
+    {
+      "id": "43879",
+      "name": "Senegal",
+      "code": "SEN",
+      "group": "I"
+    },
+    {
+      "id": "43843",
+      "name": "Algeria",
+      "code": "ALG",
+      "group": "J"
+    },
+    {
+      "id": "43922",
+      "name": "Argentina",
+      "code": "ARG",
+      "group": "J"
+    },
+    {
+      "id": "43934",
+      "name": "Austria",
+      "code": "AUT",
+      "group": "J"
+    },
+    {
+      "id": "43820",
+      "name": "Jordan",
+      "code": "JOR",
+      "group": "J"
+    },
+    {
+      "id": "43926",
+      "name": "Colombia",
+      "code": "COL",
+      "group": "K"
+    },
+    {
+      "id": "20014",
+      "name": "Congo DR",
+      "code": "COD",
+      "group": "K"
+    },
+    {
+      "id": "43963",
+      "name": "Portugal",
+      "code": "POR",
+      "group": "K"
+    },
+    {
+      "id": "44005",
+      "name": "Uzbekistan",
+      "code": "UZB",
+      "group": "K"
+    },
+    {
+      "id": "43938",
+      "name": "Croatia",
+      "code": "CRO",
+      "group": "L"
+    },
+    {
+      "id": "43942",
+      "name": "England",
+      "code": "ENG",
+      "group": "L"
+    },
+    {
+      "id": "43860",
+      "name": "Ghana",
+      "code": "GHA",
+      "group": "L"
+    },
+    {
+      "id": "43914",
+      "name": "Panama",
+      "code": "PAN",
+      "group": "L"
+    }
   ],
   "matches": [
     {
-      "id": "group-a-1",
+      "id": "match-001",
       "stage": "group",
-      "groupId": "A",
-      "homeTeamId": "a1",
-      "awayTeamId": "a2",
       "kickoffUtc": "2026-06-11T19:00:00Z",
-      "venue": "Estadio Azteca",
+      "venue": "Mexico City Stadium",
       "city": "Mexico City",
       "status": "finished",
+      "groupId": "A",
+      "homeTeamId": "43911",
+      "awayTeamId": "43883",
       "homeScore": 2,
+      "awayScore": 0,
+      "winnerTeamId": "43911"
+    },
+    {
+      "id": "match-002",
+      "stage": "group",
+      "kickoffUtc": "2026-06-12T02:00:00Z",
+      "venue": "Guadalajara Stadium",
+      "city": "Guadalajara",
+      "status": "finished",
+      "groupId": "A",
+      "homeTeamId": "43822",
+      "awayTeamId": "43995",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winnerTeamId": "43822"
+    },
+    {
+      "id": "match-003",
+      "stage": "group",
+      "kickoffUtc": "2026-06-12T19:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "finished",
+      "groupId": "B",
+      "homeTeamId": "43899",
+      "awayTeamId": "44037",
+      "homeScore": 1,
       "awayScore": 1
     },
     {
-      "id": "group-b-1",
+      "id": "match-004",
       "stage": "group",
-      "groupId": "B",
-      "homeTeamId": "b1",
-      "awayTeamId": "b2",
-      "kickoffUtc": "2026-06-12T01:00:00Z",
-      "venue": "BMO Field",
-      "city": "Toronto",
-      "status": "finished",
-      "homeScore": 0,
-      "awayScore": 0
-    },
-    {
-      "id": "group-a-2",
-      "stage": "group",
-      "groupId": "A",
-      "homeTeamId": "a3",
-      "awayTeamId": "a4",
-      "kickoffUtc": "2026-06-13T20:00:00Z",
-      "venue": "SoFi Stadium",
+      "kickoffUtc": "2026-06-13T01:00:00Z",
+      "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "finished",
-      "homeScore": 1,
-      "awayScore": 3
+      "groupId": "D",
+      "homeTeamId": "43921",
+      "awayTeamId": "43928",
+      "homeScore": 4,
+      "awayScore": 1,
+      "winnerTeamId": "43921"
     },
     {
-      "id": "group-b-2",
+      "id": "match-005",
       "stage": "group",
+      "kickoffUtc": "2026-06-14T01:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "finished",
+      "groupId": "C",
+      "homeTeamId": "43908",
+      "awayTeamId": "43967",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winnerTeamId": "43967"
+    },
+    {
+      "id": "match-006",
+      "stage": "group",
+      "kickoffUtc": "2026-06-14T04:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "finished",
+      "groupId": "D",
+      "homeTeamId": "43976",
+      "awayTeamId": "43972",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winnerTeamId": "43976"
+    },
+    {
+      "id": "match-007",
+      "stage": "group",
+      "kickoffUtc": "2026-06-13T22:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "finished",
+      "groupId": "C",
+      "homeTeamId": "43924",
+      "awayTeamId": "43872",
+      "homeScore": 1,
+      "awayScore": 1
+    },
+    {
+      "id": "match-008",
+      "stage": "group",
+      "kickoffUtc": "2026-06-13T19:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
+      "city": "San Francisco Bay Area",
+      "status": "finished",
       "groupId": "B",
-      "homeTeamId": "b3",
-      "awayTeamId": "b4",
-      "kickoffUtc": "2026-06-14T00:00:00Z",
-      "venue": "AT&T Stadium",
+      "homeTeamId": "43834",
+      "awayTeamId": "43971",
+      "homeScore": 1,
+      "awayScore": 1
+    },
+    {
+      "id": "match-009",
+      "stage": "group",
+      "kickoffUtc": "2026-06-14T23:00:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "finished",
+      "groupId": "E",
+      "homeTeamId": "43854",
+      "awayTeamId": "43927",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winnerTeamId": "43854"
+    },
+    {
+      "id": "match-010",
+      "stage": "group",
+      "kickoffUtc": "2026-06-14T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "finished",
+      "groupId": "E",
+      "homeTeamId": "43948",
+      "awayTeamId": "1895293",
+      "homeScore": 7,
+      "awayScore": 1,
+      "winnerTeamId": "43948"
+    },
+    {
+      "id": "match-011",
+      "stage": "group",
+      "kickoffUtc": "2026-06-14T20:00:00Z",
+      "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "finished",
+      "groupId": "F",
+      "homeTeamId": "43960",
+      "awayTeamId": "43819",
       "homeScore": 2,
       "awayScore": 2
     },
     {
-      "id": "group-a-3",
+      "id": "match-012",
       "stage": "group",
-      "groupId": "A",
-      "homeTeamId": "a1",
-      "awayTeamId": "a3",
-      "kickoffUtc": "2026-06-16T22:00:00Z",
-      "venue": "Lumen Field",
-      "city": "Seattle",
+      "kickoffUtc": "2026-06-15T02:00:00Z",
+      "venue": "Monterrey Stadium",
+      "city": "Monterrey",
       "status": "finished",
+      "groupId": "F",
+      "homeTeamId": "43970",
+      "awayTeamId": "43888",
+      "homeScore": 5,
+      "awayScore": 1,
+      "winnerTeamId": "43970"
+    },
+    {
+      "id": "match-013",
+      "stage": "group",
+      "kickoffUtc": "2026-06-15T22:00:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "finished",
+      "groupId": "H",
+      "homeTeamId": "43835",
+      "awayTeamId": "43930",
       "homeScore": 1,
       "awayScore": 1
     },
     {
-      "id": "group-b-3",
+      "id": "match-014",
       "stage": "group",
-      "groupId": "B",
-      "homeTeamId": "b1",
-      "awayTeamId": "b3",
-      "kickoffUtc": "2026-06-17T19:00:00Z",
-      "venue": "NRG Stadium",
-      "city": "Houston",
+      "kickoffUtc": "2026-06-15T16:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
       "status": "finished",
-      "homeScore": 3,
+      "groupId": "H",
+      "homeTeamId": "43969",
+      "awayTeamId": "43850",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "id": "match-015",
+      "stage": "group",
+      "kickoffUtc": "2026-06-16T01:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "finished",
+      "groupId": "G",
+      "homeTeamId": "43817",
+      "awayTeamId": "43978",
+      "homeScore": 2,
+      "awayScore": 2
+    },
+    {
+      "id": "match-016",
+      "stage": "group",
+      "kickoffUtc": "2026-06-15T19:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "finished",
+      "groupId": "G",
+      "homeTeamId": "43935",
+      "awayTeamId": "43855",
+      "homeScore": 1,
       "awayScore": 1
     },
     {
-      "id": "group-a-4",
+      "id": "match-017",
       "stage": "group",
-      "groupId": "A",
-      "homeTeamId": "a2",
-      "awayTeamId": "a4",
-      "kickoffUtc": "2026-06-20T01:00:00Z",
-      "venue": "BC Place",
-      "city": "Vancouver",
-      "status": "scheduled"
+      "kickoffUtc": "2026-06-16T19:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "finished",
+      "groupId": "I",
+      "homeTeamId": "43946",
+      "awayTeamId": "43879",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winnerTeamId": "43946"
     },
     {
-      "id": "group-b-4",
+      "id": "match-018",
       "stage": "group",
-      "groupId": "B",
-      "homeTeamId": "b2",
-      "awayTeamId": "b4",
-      "kickoffUtc": "2026-06-20T22:00:00Z",
-      "venue": "Levi's Stadium",
+      "kickoffUtc": "2026-06-16T22:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "finished",
+      "groupId": "I",
+      "homeTeamId": "43818",
+      "awayTeamId": "43961",
+      "homeScore": 1,
+      "awayScore": 4,
+      "winnerTeamId": "43961"
+    },
+    {
+      "id": "match-019",
+      "stage": "group",
+      "kickoffUtc": "2026-06-17T01:00:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "finished",
+      "groupId": "J",
+      "homeTeamId": "43922",
+      "awayTeamId": "43843",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winnerTeamId": "43922"
+    },
+    {
+      "id": "match-020",
+      "stage": "group",
+      "kickoffUtc": "2026-06-17T04:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
       "city": "San Francisco Bay Area",
-      "status": "scheduled"
+      "status": "finished",
+      "groupId": "J",
+      "homeTeamId": "43934",
+      "awayTeamId": "43820",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winnerTeamId": "43934"
     },
     {
-      "id": "round-32-1",
-      "stage": "round-of-32",
-      "homePlaceholder": "Winner Group A",
-      "awayPlaceholder": "Best 3rd Group C/D/E",
-      "kickoffUtc": "2026-06-28T20:00:00Z",
-      "venue": "MetLife Stadium",
-      "city": "New York/New Jersey",
-      "status": "scheduled"
+      "id": "match-021",
+      "stage": "group",
+      "kickoffUtc": "2026-06-17T23:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "finished",
+      "groupId": "L",
+      "homeTeamId": "43860",
+      "awayTeamId": "43914",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winnerTeamId": "43860"
     },
     {
-      "id": "round-32-2",
-      "stage": "round-of-32",
-      "homePlaceholder": "Runner-up Group B",
-      "awayPlaceholder": "Winner Group C",
-      "kickoffUtc": "2026-06-29T00:00:00Z",
-      "venue": "Mercedes-Benz Stadium",
+      "id": "match-022",
+      "stage": "group",
+      "kickoffUtc": "2026-06-17T20:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "finished",
+      "groupId": "L",
+      "homeTeamId": "43942",
+      "awayTeamId": "43938",
+      "homeScore": 4,
+      "awayScore": 2,
+      "winnerTeamId": "43942"
+    },
+    {
+      "id": "match-023",
+      "stage": "group",
+      "kickoffUtc": "2026-06-17T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "finished",
+      "groupId": "K",
+      "homeTeamId": "43963",
+      "awayTeamId": "20014",
+      "homeScore": 1,
+      "awayScore": 1
+    },
+    {
+      "id": "match-024",
+      "stage": "group",
+      "kickoffUtc": "2026-06-18T02:00:00Z",
+      "venue": "Mexico City Stadium",
+      "city": "Mexico City",
+      "status": "finished",
+      "groupId": "K",
+      "homeTeamId": "44005",
+      "awayTeamId": "43926",
+      "homeScore": 1,
+      "awayScore": 3,
+      "winnerTeamId": "43926"
+    },
+    {
+      "id": "match-025",
+      "stage": "group",
+      "kickoffUtc": "2026-06-18T16:00:00Z",
+      "venue": "Atlanta Stadium",
       "city": "Atlanta",
-      "status": "scheduled"
+      "status": "finished",
+      "groupId": "A",
+      "homeTeamId": "43995",
+      "awayTeamId": "43883",
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
-      "id": "third-place",
-      "stage": "third-place",
-      "homePlaceholder": "Loser Semi-final 1",
-      "awayPlaceholder": "Loser Semi-final 2",
-      "kickoffUtc": "2026-07-18T20:00:00Z",
-      "venue": "Hard Rock Stadium",
+      "id": "match-026",
+      "stage": "group",
+      "kickoffUtc": "2026-06-18T19:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "finished",
+      "groupId": "B",
+      "homeTeamId": "43971",
+      "awayTeamId": "44037",
+      "homeScore": 4,
+      "awayScore": 1,
+      "winnerTeamId": "43971"
+    },
+    {
+      "id": "match-027",
+      "stage": "group",
+      "kickoffUtc": "2026-06-18T22:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "finished",
+      "groupId": "B",
+      "homeTeamId": "43899",
+      "awayTeamId": "43834",
+      "homeScore": 6,
+      "awayScore": 0,
+      "winnerTeamId": "43899"
+    },
+    {
+      "id": "match-028",
+      "stage": "group",
+      "kickoffUtc": "2026-06-19T01:00:00Z",
+      "venue": "Guadalajara Stadium",
+      "city": "Guadalajara",
+      "status": "finished",
+      "groupId": "A",
+      "homeTeamId": "43911",
+      "awayTeamId": "43822",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winnerTeamId": "43911"
+    },
+    {
+      "id": "match-029",
+      "stage": "group",
+      "kickoffUtc": "2026-06-20T00:30:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "finished",
+      "groupId": "C",
+      "homeTeamId": "43924",
+      "awayTeamId": "43908",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winnerTeamId": "43924"
+    },
+    {
+      "id": "match-030",
+      "stage": "group",
+      "kickoffUtc": "2026-06-19T22:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "finished",
+      "groupId": "C",
+      "homeTeamId": "43967",
+      "awayTeamId": "43872",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winnerTeamId": "43872"
+    },
+    {
+      "id": "match-031",
+      "stage": "group",
+      "kickoffUtc": "2026-06-20T03:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
+      "city": "San Francisco Bay Area",
+      "status": "finished",
+      "groupId": "D",
+      "homeTeamId": "43972",
+      "awayTeamId": "43928",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winnerTeamId": "43928"
+    },
+    {
+      "id": "match-032",
+      "stage": "group",
+      "kickoffUtc": "2026-06-19T19:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "finished",
+      "groupId": "D",
+      "homeTeamId": "43921",
+      "awayTeamId": "43976",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winnerTeamId": "43921"
+    },
+    {
+      "id": "match-033",
+      "stage": "group",
+      "kickoffUtc": "2026-06-20T20:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "finished",
+      "groupId": "E",
+      "homeTeamId": "43948",
+      "awayTeamId": "43854",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winnerTeamId": "43948"
+    },
+    {
+      "id": "match-034",
+      "stage": "group",
+      "kickoffUtc": "2026-06-21T00:00:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "finished",
+      "groupId": "E",
+      "homeTeamId": "43927",
+      "awayTeamId": "1895293",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "id": "match-035",
+      "stage": "group",
+      "kickoffUtc": "2026-06-20T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "finished",
+      "groupId": "F",
+      "homeTeamId": "43960",
+      "awayTeamId": "43970",
+      "homeScore": 5,
+      "awayScore": 1,
+      "winnerTeamId": "43960"
+    },
+    {
+      "id": "match-036",
+      "stage": "group",
+      "kickoffUtc": "2026-06-21T04:00:00Z",
+      "venue": "Monterrey Stadium",
+      "city": "Monterrey",
+      "status": "finished",
+      "groupId": "F",
+      "homeTeamId": "43888",
+      "awayTeamId": "43819",
+      "homeScore": 0,
+      "awayScore": 4,
+      "winnerTeamId": "43819"
+    },
+    {
+      "id": "match-037",
+      "stage": "group",
+      "kickoffUtc": "2026-06-21T22:00:00Z",
+      "venue": "Miami Stadium",
       "city": "Miami",
-      "status": "scheduled"
+      "status": "finished",
+      "groupId": "H",
+      "homeTeamId": "43930",
+      "awayTeamId": "43850",
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
-      "id": "final",
+      "id": "match-038",
+      "stage": "group",
+      "kickoffUtc": "2026-06-21T16:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "finished",
+      "groupId": "H",
+      "homeTeamId": "43969",
+      "awayTeamId": "43835",
+      "homeScore": 4,
+      "awayScore": 0,
+      "winnerTeamId": "43969"
+    },
+    {
+      "id": "match-039",
+      "stage": "group",
+      "kickoffUtc": "2026-06-21T19:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "finished",
+      "groupId": "G",
+      "homeTeamId": "43935",
+      "awayTeamId": "43817",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "id": "match-040",
+      "stage": "group",
+      "kickoffUtc": "2026-06-22T01:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "finished",
+      "groupId": "G",
+      "homeTeamId": "43978",
+      "awayTeamId": "43855",
+      "homeScore": 1,
+      "awayScore": 3,
+      "winnerTeamId": "43855"
+    },
+    {
+      "id": "match-041",
+      "stage": "group",
+      "kickoffUtc": "2026-06-23T00:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "groupId": "I",
+      "homeTeamId": "43961",
+      "awayTeamId": "43879"
+    },
+    {
+      "id": "match-042",
+      "stage": "group",
+      "kickoffUtc": "2026-06-22T21:00:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "scheduled",
+      "groupId": "I",
+      "homeTeamId": "43946",
+      "awayTeamId": "43818"
+    },
+    {
+      "id": "match-043",
+      "stage": "group",
+      "kickoffUtc": "2026-06-22T17:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "finished",
+      "groupId": "J",
+      "homeTeamId": "43922",
+      "awayTeamId": "43934",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winnerTeamId": "43922"
+    },
+    {
+      "id": "match-044",
+      "stage": "group",
+      "kickoffUtc": "2026-06-23T03:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
+      "city": "San Francisco Bay Area",
+      "status": "scheduled",
+      "groupId": "J",
+      "homeTeamId": "43820",
+      "awayTeamId": "43843"
+    },
+    {
+      "id": "match-045",
+      "stage": "group",
+      "kickoffUtc": "2026-06-23T20:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "scheduled",
+      "groupId": "L",
+      "homeTeamId": "43942",
+      "awayTeamId": "43860"
+    },
+    {
+      "id": "match-046",
+      "stage": "group",
+      "kickoffUtc": "2026-06-23T23:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "scheduled",
+      "groupId": "L",
+      "homeTeamId": "43914",
+      "awayTeamId": "43938"
+    },
+    {
+      "id": "match-047",
+      "stage": "group",
+      "kickoffUtc": "2026-06-23T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "scheduled",
+      "groupId": "K",
+      "homeTeamId": "43963",
+      "awayTeamId": "44005"
+    },
+    {
+      "id": "match-048",
+      "stage": "group",
+      "kickoffUtc": "2026-06-24T02:00:00Z",
+      "venue": "Guadalajara Stadium",
+      "city": "Guadalajara",
+      "status": "scheduled",
+      "groupId": "K",
+      "homeTeamId": "43926",
+      "awayTeamId": "20014"
+    },
+    {
+      "id": "match-049",
+      "stage": "group",
+      "kickoffUtc": "2026-06-24T22:00:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "scheduled",
+      "groupId": "C",
+      "homeTeamId": "43967",
+      "awayTeamId": "43924"
+    },
+    {
+      "id": "match-050",
+      "stage": "group",
+      "kickoffUtc": "2026-06-24T22:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "scheduled",
+      "groupId": "C",
+      "homeTeamId": "43872",
+      "awayTeamId": "43908"
+    },
+    {
+      "id": "match-051",
+      "stage": "group",
+      "kickoffUtc": "2026-06-24T19:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "scheduled",
+      "groupId": "B",
+      "homeTeamId": "43971",
+      "awayTeamId": "43899"
+    },
+    {
+      "id": "match-052",
+      "stage": "group",
+      "kickoffUtc": "2026-06-24T19:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "scheduled",
+      "groupId": "B",
+      "homeTeamId": "44037",
+      "awayTeamId": "43834"
+    },
+    {
+      "id": "match-053",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T01:00:00Z",
+      "venue": "Mexico City Stadium",
+      "city": "Mexico City",
+      "status": "scheduled",
+      "groupId": "A",
+      "homeTeamId": "43995",
+      "awayTeamId": "43911"
+    },
+    {
+      "id": "match-054",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T01:00:00Z",
+      "venue": "Monterrey Stadium",
+      "city": "Monterrey",
+      "status": "scheduled",
+      "groupId": "A",
+      "homeTeamId": "43883",
+      "awayTeamId": "43822"
+    },
+    {
+      "id": "match-055",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T20:00:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "scheduled",
+      "groupId": "E",
+      "homeTeamId": "1895293",
+      "awayTeamId": "43854"
+    },
+    {
+      "id": "match-056",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T20:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "groupId": "E",
+      "homeTeamId": "43927",
+      "awayTeamId": "43948"
+    },
+    {
+      "id": "match-057",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T23:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "groupId": "F",
+      "homeTeamId": "43819",
+      "awayTeamId": "43970"
+    },
+    {
+      "id": "match-058",
+      "stage": "group",
+      "kickoffUtc": "2026-06-25T23:00:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "scheduled",
+      "groupId": "F",
+      "homeTeamId": "43888",
+      "awayTeamId": "43960"
+    },
+    {
+      "id": "match-059",
+      "stage": "group",
+      "kickoffUtc": "2026-06-26T02:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "scheduled",
+      "groupId": "D",
+      "homeTeamId": "43972",
+      "awayTeamId": "43921"
+    },
+    {
+      "id": "match-060",
+      "stage": "group",
+      "kickoffUtc": "2026-06-26T02:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
+      "city": "San Francisco Bay Area",
+      "status": "scheduled",
+      "groupId": "D",
+      "homeTeamId": "43928",
+      "awayTeamId": "43976"
+    },
+    {
+      "id": "match-061",
+      "stage": "group",
+      "kickoffUtc": "2026-06-26T19:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "scheduled",
+      "groupId": "I",
+      "homeTeamId": "43961",
+      "awayTeamId": "43946"
+    },
+    {
+      "id": "match-062",
+      "stage": "group",
+      "kickoffUtc": "2026-06-26T19:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "scheduled",
+      "groupId": "I",
+      "homeTeamId": "43879",
+      "awayTeamId": "43818"
+    },
+    {
+      "id": "match-063",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T03:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "scheduled",
+      "groupId": "G",
+      "homeTeamId": "43855",
+      "awayTeamId": "43817"
+    },
+    {
+      "id": "match-064",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T03:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "scheduled",
+      "groupId": "G",
+      "homeTeamId": "43978",
+      "awayTeamId": "43935"
+    },
+    {
+      "id": "match-065",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T00:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "scheduled",
+      "groupId": "H",
+      "homeTeamId": "43850",
+      "awayTeamId": "43835"
+    },
+    {
+      "id": "match-066",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T00:00:00Z",
+      "venue": "Guadalajara Stadium",
+      "city": "Guadalajara",
+      "status": "scheduled",
+      "groupId": "H",
+      "homeTeamId": "43930",
+      "awayTeamId": "43969"
+    },
+    {
+      "id": "match-067",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T21:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "groupId": "L",
+      "homeTeamId": "43914",
+      "awayTeamId": "43942"
+    },
+    {
+      "id": "match-068",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T21:00:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "scheduled",
+      "groupId": "L",
+      "homeTeamId": "43938",
+      "awayTeamId": "43860"
+    },
+    {
+      "id": "match-069",
+      "stage": "group",
+      "kickoffUtc": "2026-06-28T02:00:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "scheduled",
+      "groupId": "J",
+      "homeTeamId": "43843",
+      "awayTeamId": "43934"
+    },
+    {
+      "id": "match-070",
+      "stage": "group",
+      "kickoffUtc": "2026-06-28T02:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "groupId": "J",
+      "homeTeamId": "43820",
+      "awayTeamId": "43922"
+    },
+    {
+      "id": "match-071",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T23:30:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "scheduled",
+      "groupId": "K",
+      "homeTeamId": "43926",
+      "awayTeamId": "43963"
+    },
+    {
+      "id": "match-072",
+      "stage": "group",
+      "kickoffUtc": "2026-06-27T23:30:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "scheduled",
+      "groupId": "K",
+      "homeTeamId": "20014",
+      "awayTeamId": "44005"
+    },
+    {
+      "id": "match-073",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-28T19:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "scheduled",
+      "homePlaceholder": "Runner-up Group A",
+      "awayPlaceholder": "Runner-up Group B"
+    },
+    {
+      "id": "match-074",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-29T20:30:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "scheduled",
+      "homeTeamId": "43948",
+      "awayPlaceholder": "Best 3rd Group A/B/C/D/F"
+    },
+    {
+      "id": "match-075",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-30T01:00:00Z",
+      "venue": "Monterrey Stadium",
+      "city": "Monterrey",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group F",
+      "awayPlaceholder": "Runner-up Group C"
+    },
+    {
+      "id": "match-076",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-29T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group C",
+      "awayPlaceholder": "Runner-up Group F"
+    },
+    {
+      "id": "match-077",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-30T21:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group I",
+      "awayPlaceholder": "Best 3rd Group C/D/F/G/H"
+    },
+    {
+      "id": "match-078",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-06-30T17:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "homePlaceholder": "Runner-up Group E",
+      "awayPlaceholder": "Runner-up Group I"
+    },
+    {
+      "id": "match-079",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-01T01:00:00Z",
+      "venue": "Mexico City Stadium",
+      "city": "Mexico City",
+      "status": "scheduled",
+      "homeTeamId": "43911",
+      "awayPlaceholder": "Best 3rd Group C/E/F/H/I"
+    },
+    {
+      "id": "match-080",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-01T16:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group L",
+      "awayPlaceholder": "Best 3rd Group E/H/I/J/K"
+    },
+    {
+      "id": "match-081",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-02T00:00:00Z",
+      "venue": "San Francisco Bay Area Stadium",
+      "city": "San Francisco Bay Area",
+      "status": "scheduled",
+      "homeTeamId": "43921",
+      "awayPlaceholder": "Best 3rd Group B/E/F/I/J"
+    },
+    {
+      "id": "match-082",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-01T20:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group G",
+      "awayPlaceholder": "Best 3rd Group A/E/H/I/J"
+    },
+    {
+      "id": "match-083",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-02T23:00:00Z",
+      "venue": "Toronto Stadium",
+      "city": "Toronto",
+      "status": "scheduled",
+      "homePlaceholder": "Runner-up Group K",
+      "awayPlaceholder": "Runner-up Group L"
+    },
+    {
+      "id": "match-084",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-02T19:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group H",
+      "awayPlaceholder": "Runner-up Group J"
+    },
+    {
+      "id": "match-085",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-03T03:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group B",
+      "awayPlaceholder": "Best 3rd Group E/F/G/I/J"
+    },
+    {
+      "id": "match-086",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-03T22:00:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group J",
+      "awayPlaceholder": "Runner-up Group H"
+    },
+    {
+      "id": "match-087",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-04T01:30:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Group K",
+      "awayPlaceholder": "Best 3rd Group D/E/I/J/L"
+    },
+    {
+      "id": "match-088",
+      "stage": "round-of-32",
+      "kickoffUtc": "2026-07-03T18:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "homePlaceholder": "Runner-up Group D",
+      "awayPlaceholder": "Runner-up Group G"
+    },
+    {
+      "id": "match-089",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-04T21:00:00Z",
+      "venue": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 74",
+      "awayPlaceholder": "Winner Match 77"
+    },
+    {
+      "id": "match-090",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-04T17:00:00Z",
+      "venue": "Houston Stadium",
+      "city": "Houston",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 73",
+      "awayPlaceholder": "Winner Match 75"
+    },
+    {
+      "id": "match-091",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-05T20:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 76",
+      "awayPlaceholder": "Winner Match 78"
+    },
+    {
+      "id": "match-092",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-06T00:00:00Z",
+      "venue": "Mexico City Stadium",
+      "city": "Mexico City",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 79",
+      "awayPlaceholder": "Winner Match 80"
+    },
+    {
+      "id": "match-093",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-06T19:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 83",
+      "awayPlaceholder": "Winner Match 84"
+    },
+    {
+      "id": "match-094",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-07T00:00:00Z",
+      "venue": "Seattle Stadium",
+      "city": "Seattle",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 81",
+      "awayPlaceholder": "Winner Match 82"
+    },
+    {
+      "id": "match-095",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-07T16:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 86",
+      "awayPlaceholder": "Winner Match 88"
+    },
+    {
+      "id": "match-096",
+      "stage": "round-of-16",
+      "kickoffUtc": "2026-07-07T20:00:00Z",
+      "venue": "BC Place Vancouver",
+      "city": "Vancouver",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 85",
+      "awayPlaceholder": "Winner Match 87"
+    },
+    {
+      "id": "match-097",
+      "stage": "quarter-final",
+      "kickoffUtc": "2026-07-09T20:00:00Z",
+      "venue": "Boston Stadium",
+      "city": "Boston",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 89",
+      "awayPlaceholder": "Winner Match 90"
+    },
+    {
+      "id": "match-098",
+      "stage": "quarter-final",
+      "kickoffUtc": "2026-07-10T19:00:00Z",
+      "venue": "Los Angeles Stadium",
+      "city": "Los Angeles",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 93",
+      "awayPlaceholder": "Winner Match 94"
+    },
+    {
+      "id": "match-099",
+      "stage": "quarter-final",
+      "kickoffUtc": "2026-07-11T21:00:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 91",
+      "awayPlaceholder": "Winner Match 92"
+    },
+    {
+      "id": "match-100",
+      "stage": "quarter-final",
+      "kickoffUtc": "2026-07-12T01:00:00Z",
+      "venue": "Kansas City Stadium",
+      "city": "Kansas City",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 95",
+      "awayPlaceholder": "Winner Match 96"
+    },
+    {
+      "id": "match-101",
+      "stage": "semi-final",
+      "kickoffUtc": "2026-07-14T19:00:00Z",
+      "venue": "Dallas Stadium",
+      "city": "Dallas",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 97",
+      "awayPlaceholder": "Winner Match 98"
+    },
+    {
+      "id": "match-102",
+      "stage": "semi-final",
+      "kickoffUtc": "2026-07-15T19:00:00Z",
+      "venue": "Atlanta Stadium",
+      "city": "Atlanta",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 99",
+      "awayPlaceholder": "Winner Match 100"
+    },
+    {
+      "id": "match-103",
+      "stage": "third-place",
+      "kickoffUtc": "2026-07-18T21:00:00Z",
+      "venue": "Miami Stadium",
+      "city": "Miami",
+      "status": "scheduled",
+      "homePlaceholder": "Loser Match 101",
+      "awayPlaceholder": "Loser Match 102"
+    },
+    {
+      "id": "match-104",
       "stage": "final",
-      "homePlaceholder": "Winner Semi-final 1",
-      "awayPlaceholder": "Winner Semi-final 2",
-      "kickoffUtc": "2026-07-19T22:00:00Z",
-      "venue": "MetLife Stadium",
-      "city": "New York/New Jersey",
-      "status": "scheduled"
+      "kickoffUtc": "2026-07-19T19:00:00Z",
+      "venue": "New York/New Jersey Stadium",
+      "city": "New Jersey",
+      "status": "scheduled",
+      "homePlaceholder": "Winner Match 101",
+      "awayPlaceholder": "Winner Match 102"
     }
   ]
 }
