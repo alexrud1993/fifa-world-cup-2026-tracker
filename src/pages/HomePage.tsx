@@ -71,12 +71,6 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
             />
           </section>
 
-          <div className="home-updated-card">
-            <span>{t("about.lastUpdated")}</span>
-            <strong>{formatDateTimeKyiv(data.tournament.lastUpdated, language)}</strong>
-            <p>{data.tournament.note}</p>
-          </div>
-
           <UpdateMonitor
             language={language}
             lastUpdated={data.tournament.lastUpdated}

@@ -33,6 +33,7 @@ export function UpdateMonitor({ language, lastUpdated, matches, status, t }: Upd
 
         <div className="update-radar" aria-hidden="true">
           <span className="update-radar-grid" />
+          <span className="update-radar-pitch" />
           <span className="update-radar-ring update-radar-ring--outer" />
           <span className="update-radar-ring update-radar-ring--middle" />
           <span className="update-radar-ring update-radar-ring--inner" />
@@ -47,10 +48,6 @@ export function UpdateMonitor({ language, lastUpdated, matches, status, t }: Upd
       </div>
 
       <dl className="update-monitor-lines">
-        <div>
-          <dt>{t("updateMonitor.mode")}</dt>
-          <dd>{t("updateMonitor.modeValue")}</dd>
-        </div>
         <div>
           <dt>{t("updateMonitor.betweenMatches")}</dt>
           <dd>{t("updateMonitor.hourly")}</dd>
