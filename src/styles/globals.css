@@ -447,129 +447,138 @@ button {
   line-height: 1.35;
 }
 
-.update-ball-stage {
+.update-radar {
   position: relative;
   width: min(100%, 320px);
   aspect-ratio: 1;
   justify-self: end;
   display: grid;
   place-items: center;
-  perspective: 760px;
-  filter: drop-shadow(0 0 34px rgba(126, 242, 75, 0.3));
-}
-
-.update-ball-stage::before {
-  position: absolute;
-  inset: -3%;
-  border-radius: 999px;
-  content: "";
-  border: 1px solid rgba(126, 242, 75, 0.42);
-  background: radial-gradient(circle, rgba(126, 242, 75, 0.16), transparent 63%);
-  box-shadow:
-    inset 0 0 28px rgba(126, 242, 75, 0.14),
-    0 0 28px rgba(126, 242, 75, 0.14);
-  transform: rotate(-18deg) scaleY(0.72);
-}
-
-.update-ball-stage::after {
-  position: absolute;
-  inset: 12%;
-  border-top: 1px solid rgba(126, 242, 75, 0.5);
-  border-radius: 999px;
-  content: "";
-  opacity: 0.72;
-  transform: rotate(24deg) scaleY(0.42);
-}
-
-.update-ball-shadow {
-  position: absolute;
-  right: 14%;
-  bottom: 9%;
-  width: 62%;
-  height: 13%;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.48);
-  filter: blur(9px);
-}
-
-.update-football {
-  position: relative;
-  display: block;
-  width: 80%;
-  aspect-ratio: 1;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(126, 242, 75, 0.36);
   border-radius: 999px;
   background:
-    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.95), rgba(225, 235, 226, 0.9) 24%, rgba(130, 145, 136, 0.54) 58%, rgba(20, 29, 24, 0.86) 100%),
-    repeating-conic-gradient(from 18deg, rgba(6, 10, 8, 0.95) 0 16deg, rgba(240, 248, 240, 0.96) 16deg 34deg);
+    radial-gradient(circle at 50% 50%, rgba(215, 255, 209, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, rgba(126, 242, 75, 0.18), transparent 62%),
+    linear-gradient(145deg, rgba(9, 31, 23, 0.9), rgba(2, 8, 7, 0.96));
   box-shadow:
-    inset -24px -28px 34px rgba(0, 0, 0, 0.52),
-    inset 18px 14px 24px rgba(255, 255, 255, 0.34),
-    0 0 38px rgba(126, 242, 75, 0.3);
-  transform: rotateX(10deg) rotateY(-18deg);
-  transform-style: preserve-3d;
+    inset 0 0 34px rgba(41, 207, 114, 0.18),
+    0 0 42px rgba(41, 207, 114, 0.18);
+  filter: drop-shadow(0 0 30px rgba(126, 242, 75, 0.18));
 }
 
-.update-football::before {
+.update-radar::before,
+.update-radar::after {
   position: absolute;
-  inset: 0;
   content: "";
-  background:
-    linear-gradient(55deg, transparent 0 46%, rgba(6, 10, 8, 0.72) 47% 51%, transparent 52%),
-    linear-gradient(125deg, transparent 0 46%, rgba(6, 10, 8, 0.72) 47% 51%, transparent 52%),
-    linear-gradient(15deg, transparent 0 43%, rgba(6, 10, 8, 0.52) 44% 47%, transparent 48%),
-    radial-gradient(circle at 50% 50%, transparent 0 18%, rgba(6, 10, 8, 0.68) 19% 21%, transparent 22%);
-  mix-blend-mode: multiply;
-}
-
-.update-football::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    radial-gradient(circle at 26% 20%, rgba(255, 255, 255, 0.62), transparent 22%),
-    radial-gradient(circle at 74% 78%, rgba(0, 0, 0, 0.34), transparent 34%);
   pointer-events: none;
 }
 
-.football-panel {
+.update-radar::before {
+  inset: 8%;
+  border-radius: 999px;
+  background:
+    linear-gradient(rgba(126, 242, 75, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 242, 75, 0.13) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(circle, #000 0 68%, transparent 70%);
+  opacity: 0.72;
+}
+
+.update-radar::after {
+  inset: 0;
+  background:
+    linear-gradient(transparent 49%, rgba(126, 242, 75, 0.2) 50%, transparent 51%),
+    linear-gradient(90deg, transparent 49%, rgba(126, 242, 75, 0.18) 50%, transparent 51%);
+  opacity: 0.7;
+}
+
+.update-radar-grid,
+.update-radar-ring,
+.update-radar-sweep,
+.update-radar-core,
+.update-radar-blip {
   position: absolute;
-  display: block;
-  width: 26%;
-  aspect-ratio: 1;
-  background: #07100c;
-  clip-path: polygon(50% 0, 96% 35%, 78% 92%, 22% 92%, 4% 35%);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
 }
 
-.football-panel--center {
-  top: 37%;
-  left: 37%;
+.update-radar-grid {
+  inset: 16%;
+  border-radius: 999px;
+  background:
+    linear-gradient(rgba(126, 242, 75, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 242, 75, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(circle, #000 0 62%, transparent 64%);
 }
 
-.football-panel--top {
-  top: 13%;
-  left: 37%;
-  transform: scale(0.74) rotate(180deg);
+.update-radar-ring {
+  inset: var(--ring-inset);
+  border: 1px solid rgba(126, 242, 75, 0.27);
+  border-radius: 999px;
 }
 
-.football-panel--right {
-  top: 38%;
-  right: 12%;
-  transform: scale(0.68) rotate(82deg);
+.update-radar-ring--outer {
+  --ring-inset: 11%;
 }
 
-.football-panel--bottom {
-  bottom: 11%;
-  left: 39%;
-  transform: scale(0.7) rotate(8deg);
+.update-radar-ring--middle {
+  --ring-inset: 27%;
 }
 
-.football-panel--left {
-  top: 40%;
-  left: 12%;
-  transform: scale(0.68) rotate(-82deg);
+.update-radar-ring--inner {
+  --ring-inset: 42%;
+}
+
+.update-radar-sweep {
+  inset: 7%;
+  border-radius: 999px;
+  background: conic-gradient(from -38deg, rgba(126, 242, 75, 0.52), rgba(126, 242, 75, 0.16) 26deg, transparent 62deg);
+  mask-image: radial-gradient(circle, transparent 0 8%, #000 9% 70%, transparent 71%);
+  opacity: 0.78;
+  transform-origin: 50% 50%;
+}
+
+.update-radar-core {
+  inset: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #d7ffd1;
+  box-shadow: 0 0 24px rgba(126, 242, 75, 0.86);
+}
+
+.update-radar-blip {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #7ef24b;
+  box-shadow: 0 0 15px rgba(126, 242, 75, 0.82);
+}
+
+.update-radar-blip--one {
+  top: 24%;
+  left: 58%;
+}
+
+.update-radar-blip--two {
+  top: 46%;
+  left: 74%;
+}
+
+.update-radar-blip--three {
+  top: 64%;
+  left: 34%;
+}
+
+.update-radar-blip--four {
+  top: 33%;
+  left: 30%;
+}
+
+.update-radar-blip--five {
+  top: 73%;
+  left: 62%;
 }
 
 .update-monitor-lines {
@@ -1944,7 +1953,7 @@ button {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .update-ball-stage {
+  .update-radar {
     width: min(76vw, 260px);
     justify-self: center;
   }
@@ -2089,7 +2098,7 @@ button {
     justify-content: flex-start;
   }
 
-  .update-ball-stage {
+  .update-radar {
     width: min(78vw, 220px);
   }
 
@@ -2190,14 +2199,22 @@ button {
     }
   }
 
-  @keyframes footballTurn {
+  @keyframes radarSweep {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes radarBlip {
     0%,
     100% {
-      transform: rotateX(10deg) rotateY(-22deg) rotateZ(-2deg);
+      opacity: 0.68;
+      transform: scale(0.86);
     }
 
     50% {
-      transform: rotateX(10deg) rotateY(22deg) rotateZ(2deg);
+      opacity: 1;
+      transform: scale(1.22);
     }
   }
 
@@ -2220,8 +2237,28 @@ button {
     animation: goalNetDrift 14s linear infinite alternate;
   }
 
-  .update-football {
-    animation: footballTurn 9s ease-in-out infinite;
+  .update-radar-sweep {
+    animation: radarSweep 9s linear infinite;
+  }
+
+  .update-radar-blip {
+    animation: radarBlip 2.6s ease-in-out infinite;
+  }
+
+  .update-radar-blip--two {
+    animation-delay: 0.45s;
+  }
+
+  .update-radar-blip--three {
+    animation-delay: 0.9s;
+  }
+
+  .update-radar-blip--four {
+    animation-delay: 1.2s;
+  }
+
+  .update-radar-blip--five {
+    animation-delay: 1.6s;
   }
 
   .match-card,
