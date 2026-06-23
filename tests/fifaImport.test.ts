@@ -136,6 +136,31 @@ describe("FIFA data import", () => {
     expect(data.matches[1]).not.toHaveProperty("awayTeamId");
   });
 
+  it("updates lastUpdated after a successful sync even when matches are unchanged", () => {
+    const { data, summary } = normalizeFifaData(baseData, {
+      Results: [
+        {
+          MatchNumber: 1,
+          Date: "2026-06-11T19:00:00Z",
+          StageName: [{ Locale: "en-GB", Description: "First Stage" }],
+          GroupName: [{ Locale: "en-GB", Description: "Group A" }],
+          Home: { IdTeam: "43911" },
+          Away: { IdTeam: "43883" },
+          MatchStatus: 1,
+          ResultType: 0,
+          Stadium: {
+            Name: [{ Locale: "en-GB", Description: "Old venue" }],
+            CityName: [{ Locale: "en-GB", Description: "Old city" }]
+          }
+        }
+      ]
+    }, "2026-06-11T20:00:00Z");
+
+    expect(summary.updatedMatches).toBe(0);
+    expect(summary.unchangedMatches).toBe(1);
+    expect(data.tournament.lastUpdated).toBe("2026-06-11T20:00:00Z");
+  });
+
   it("maps scheduled, finished, live, and unknown statuses", () => {
     expect(mapFifaStatus({ MatchStatus: 1, ResultType: 0 }, "finished")).toBe("scheduled");
     expect(mapFifaStatus({ MatchStatus: 0, ResultType: 1 }, "scheduled")).toBe("finished");

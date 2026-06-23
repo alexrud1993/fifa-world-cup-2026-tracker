@@ -66,7 +66,7 @@ export function normalizeFifaData(
       ...currentData,
       tournament: {
         ...currentData.tournament,
-        lastUpdated: updatedMatches > 0 ? nowIso : currentData.tournament.lastUpdated
+        lastUpdated: updatedMatches + unchangedMatches > 0 ? nowIso : currentData.tournament.lastUpdated
       },
       matches: nextMatches
     },
