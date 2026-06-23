@@ -156,7 +156,14 @@ https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=2
 
 It normalizes the response into the existing local schema and updates only existing `match-###` entries in `public/data/worldcup-2026.json`. It keeps `kickoffUtc`, `venue`, and `city`; it does not add `dateUtc`, `venueId`, API keys, runtime fetches, a backend, or a database.
 
-The workflow `.github/workflows/update-fifa-data-pr.yml` runs manually and every 30 minutes during the tournament window. It creates or updates a review PR instead of pushing directly to `main`. To override the endpoint, set a GitHub Actions repository variable:
+The workflow `.github/workflows/update-fifa-data-pr.yml` runs in hybrid mode during the tournament window:
+
+- hourly updates create or update a review PR;
+- live-window updates run every 5 minutes and may commit validated `public/data/worldcup-2026.json` changes directly to `main` so GitHub Pages can refresh the live site;
+- live-window polling only runs from 15 minutes before kickoff until 150 minutes after kickoff, or while a local match is already marked `live`;
+- if the imported data does not change the local JSON, the workflow exits without committing.
+
+To override the endpoint, set a GitHub Actions repository variable:
 
 ```text
 PUBLIC_DATA_URL=https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=200
@@ -173,10 +180,15 @@ src/
   styles/
 
 public/
+  flags/
   data/
 
 tests/
 ```
+
+## Local Assets
+
+Country flags in `public/flags/` are a local subset of the open-source `flag-icons` SVG set. They are served as static GitHub Pages assets and are not fetched from an external football API at runtime.
 
 ## GitHub Pages Deployment
 

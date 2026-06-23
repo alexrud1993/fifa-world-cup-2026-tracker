@@ -94,6 +94,10 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
               <GroupTable compact data={data} group={group} key={group.id} language={language} t={t} />
             ))}
           </div>
+          <div className="home-group-legend">
+            <span><i className="legend-dot legend-dot--green" />{t("groups.qualifiedZone")}</span>
+            <span><i className="legend-dot legend-dot--muted" />{t("groups.thirdZone")}</span>
+          </div>
         </section>
       ) : null}
 
@@ -111,11 +115,13 @@ export function HomePage({ data, language, onNavigate, t }: HomePageProps) {
         <div className="home-match-preview-grid">
           {previewMatches.length > 0 ? (
             previewMatches.map((match) => (
-              <MatchCard
-                awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
-                groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
-                homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
-                isOpen={openMatchId === match.id}
+                <MatchCard
+                  awayLabel={resolveTeamLabel(match.awayTeamId, match.awayPlaceholder, teamsById, language)}
+                  awayTeam={resolveTeam(match.awayTeamId, teamsById)}
+                  groupLabel={resolveGroupLabel(match, groupsById, teamsById, language)}
+                  homeLabel={resolveTeamLabel(match.homeTeamId, match.homePlaceholder, teamsById, language)}
+                  homeTeam={resolveTeam(match.homeTeamId, teamsById)}
+                  isOpen={openMatchId === match.id}
                 language={language}
                 key={match.id}
                 match={match}
@@ -176,6 +182,10 @@ function resolveTeamLabel(
   }
 
   return translatePlaceholderLabel(placeholder, language);
+}
+
+function resolveTeam(teamId: string | undefined, teamsById: Map<string, Team>) {
+  return teamId ? teamsById.get(teamId) ?? null : null;
 }
 
 function resolveGroupLabel(

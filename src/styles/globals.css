@@ -12,20 +12,13 @@ body {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 50% -10%, rgba(41, 207, 114, 0.18), transparent 28%),
-    radial-gradient(circle at 12% 16%, rgba(201, 255, 120, 0.08), transparent 24%),
-    linear-gradient(rgba(5, 8, 6, 0.94), rgba(5, 8, 6, 0.98)),
-    repeating-linear-gradient(
-      90deg,
-      rgba(41, 207, 114, 0.055) 0,
-      rgba(41, 207, 114, 0.055) 78px,
-      rgba(255, 255, 255, 0.018) 78px,
-      rgba(255, 255, 255, 0.018) 156px
-    );
+    radial-gradient(circle at 50% -10%, rgba(43, 143, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 18%, rgba(41, 207, 114, 0.12), transparent 32%),
+    linear-gradient(180deg, #070b0d 0%, #030807 56%, #020403 100%);
 }
 
 a {
@@ -57,8 +50,8 @@ button {
 .app-shell {
   min-height: 100vh;
   background:
-    linear-gradient(90deg, transparent 49.8%, rgba(201, 255, 120, 0.08) 50%, transparent 50.2%),
-    radial-gradient(ellipse at center top, transparent 0 34%, rgba(255, 255, 255, 0.035) 35%, transparent 36%);
+    linear-gradient(90deg, transparent 49.9%, rgba(115, 255, 87, 0.06) 50%, transparent 50.1%),
+    radial-gradient(ellipse at center 18%, rgba(33, 108, 177, 0.16), transparent 42%);
 }
 
 .site-header {
@@ -94,13 +87,13 @@ button {
   position: relative;
   width: 34px;
   height: 34px;
-  border: 2px solid var(--color-pitch);
+  border: 2px solid rgba(255, 255, 255, 0.92);
   border-radius: 50%;
   background:
-    linear-gradient(90deg, transparent 46%, var(--color-pitch) 46%, var(--color-pitch) 54%, transparent 54%),
-    linear-gradient(0deg, transparent 46%, var(--color-pitch) 46%, var(--color-pitch) 54%, transparent 54%),
-    radial-gradient(circle, transparent 28%, rgba(33, 195, 107, 0.4) 29%, transparent 34%);
-  box-shadow: 0 0 24px rgba(35, 201, 107, 0.24);
+    linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.9) 46%, rgba(255, 255, 255, 0.9) 54%, transparent 54%),
+    linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.9) 46%, rgba(255, 255, 255, 0.9) 54%, transparent 54%),
+    radial-gradient(circle, #0a0d0d 0 30%, #ffffff 31% 35%, #0a0d0d 36% 100%);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.12);
   flex: 0 0 34px;
 }
 
@@ -108,7 +101,7 @@ button {
 .brand-mark::after {
   position: absolute;
   inset: 7px;
-  border: 1px solid rgba(201, 255, 120, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   content: "";
 }
@@ -137,7 +130,8 @@ button {
 
 .brand strong {
   color: var(--color-text-strong);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
+  font-weight: 900;
   line-height: 1.15;
 }
 
@@ -167,7 +161,7 @@ button {
   border: 0;
   border-radius: 0;
   color: var(--color-muted);
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   font-weight: 800;
 }
 
@@ -238,7 +232,7 @@ button {
 .page-shell {
   width: min(calc(100% - 32px), var(--container));
   margin: 0 auto;
-  padding: 28px 0 64px;
+  padding: 0 0 64px;
 }
 
 .dashboard-grid {
@@ -249,7 +243,10 @@ button {
 
 .home-dashboard {
   display: grid;
-  gap: 24px;
+  gap: 0;
+  border: 1px solid rgba(75, 118, 103, 0.24);
+  border-top: 0;
+  background: rgba(2, 8, 8, 0.54);
 }
 
 .home-hero {
@@ -257,28 +254,31 @@ button {
   display: grid;
   grid-template-columns: minmax(310px, 0.78fr) minmax(560px, 1.22fr);
   gap: clamp(22px, 4vw, 46px);
-  min-height: 420px;
-  padding: clamp(28px, 4.5vw, 56px);
+  min-height: 320px;
+  padding: clamp(30px, 4vw, 50px);
   overflow: hidden;
-  border: 1px solid rgba(72, 163, 111, 0.42);
-  border-radius: var(--radius);
+  border: 0;
+  border-bottom: 1px solid rgba(72, 163, 111, 0.24);
+  border-radius: 0;
   background:
-    radial-gradient(ellipse at 72% 2%, rgba(201, 255, 120, 0.28), transparent 28%),
-    radial-gradient(ellipse at 18% 0%, rgba(255, 255, 255, 0.12), transparent 24%),
-    radial-gradient(ellipse at 50% 112%, rgba(35, 201, 107, 0.34), transparent 48%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(135deg, rgba(18, 66, 43, 0.98), rgba(4, 9, 7, 0.99) 72%);
-  background-size: auto, auto, auto, 92px 100%, auto;
+    radial-gradient(circle at 23% 12%, rgba(255, 255, 255, 0.75), transparent 1.2%, transparent 3%),
+    radial-gradient(circle at 30% 12%, rgba(255, 255, 255, 0.72), transparent 1.1%, transparent 3%),
+    radial-gradient(circle at 82% 10%, rgba(255, 255, 255, 0.68), transparent 1.2%, transparent 4%),
+    radial-gradient(circle at 90% 9%, rgba(255, 255, 255, 0.64), transparent 1.1%, transparent 4%),
+    linear-gradient(180deg, rgba(8, 23, 34, 0.88) 0%, rgba(5, 12, 15, 0.5) 42%, rgba(26, 88, 21, 0.76) 100%),
+    repeating-linear-gradient(0deg, rgba(87, 166, 50, 0.22) 0 34px, rgba(22, 75, 26, 0.22) 34px 68px),
+    linear-gradient(115deg, #071117, #020706 78%);
+  background-size: auto;
   box-shadow: var(--shadow-panel);
 }
 
 .home-hero::before {
   position: absolute;
   right: clamp(24px, 7vw, 110px);
-  bottom: -170px;
+  bottom: -144px;
   width: min(72vw, 760px);
   aspect-ratio: 1 / 0.52;
-  border: 1px solid rgba(201, 255, 120, 0.2);
+  border: 1px solid rgba(221, 255, 215, 0.24);
   border-radius: 50% 50% 0 0;
   content: "";
   box-shadow: inset 0 0 0 1px rgba(35, 201, 107, 0.14);
@@ -287,15 +287,15 @@ button {
 .home-hero::after {
   position: absolute;
   inset: auto 0 0;
-  height: 42%;
+  height: 54%;
   content: "";
   background:
     repeating-linear-gradient(
       90deg,
-      rgba(35, 201, 107, 0.08) 0,
-      rgba(35, 201, 107, 0.08) 64px,
-      rgba(255, 255, 255, 0.025) 64px,
-      rgba(255, 255, 255, 0.025) 128px
+      rgba(152, 255, 91, 0.08) 0,
+      rgba(152, 255, 91, 0.08) 88px,
+      rgba(255, 255, 255, 0.025) 88px,
+      rgba(255, 255, 255, 0.025) 176px
     );
   mask-image: linear-gradient(transparent, #000 34%);
   pointer-events: none;
@@ -314,7 +314,7 @@ button {
   z-index: 1;
   display: grid;
   align-content: center;
-  min-height: 320px;
+  min-height: 250px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -326,7 +326,7 @@ button {
   z-index: 1;
   display: grid;
   align-content: center;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
 }
 
@@ -338,7 +338,7 @@ button {
   align-items: center;
   gap: 8px 18px;
   min-height: 0;
-  padding: 16px 18px;
+  padding: 11px 14px;
   border-color: rgba(201, 255, 120, 0.2);
   background:
     radial-gradient(circle at 100% 0, rgba(201, 255, 120, 0.14), transparent 36%),
@@ -364,7 +364,7 @@ button {
   margin: 0;
   color: var(--color-muted);
   line-height: 1.45;
-  font-size: 0.92rem;
+  font-size: 0.78rem;
 }
 
 .home-summary-grid {
@@ -376,21 +376,22 @@ button {
 .home-summary-card {
   position: relative;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 12px;
-  min-height: 190px;
-  padding: 20px 18px;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+  min-height: 166px;
+  padding: 18px 16px;
   overflow: hidden;
   border-color: rgba(72, 163, 111, 0.34);
   background:
-    radial-gradient(circle at 100% 0, rgba(201, 255, 120, 0.16), transparent 34%),
-    linear-gradient(90deg, rgba(35, 201, 107, 0.16), transparent 2px),
-    linear-gradient(180deg, rgba(18, 34, 27, 0.98), rgba(9, 17, 13, 0.98));
+    radial-gradient(circle at 50% 0, rgba(87, 255, 54, 0.14), transparent 48%),
+    linear-gradient(180deg, rgba(18, 28, 29, 0.94), rgba(6, 10, 11, 0.96));
 }
 
 .home-summary-card strong {
-  color: var(--color-pitch-soft);
-  font-size: clamp(2.35rem, 4.2vw, 3.3rem);
+  color: var(--color-text-strong);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.4vw, 3.55rem);
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -400,15 +401,24 @@ button {
 }
 
 .summary-marker {
-  width: 34px;
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-pitch), var(--color-pitch-soft));
-  box-shadow: 0 0 22px rgba(35, 201, 107, 0.36);
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(64, 210, 40, 0.16);
+  box-shadow: 0 0 22px rgba(86, 220, 39, 0.18);
+}
+
+.summary-marker::before {
+  color: #62d626;
+  content: "●";
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .summary-label {
-  align-self: end;
+  align-self: start;
 }
 
 .home-quick-actions {
@@ -493,7 +503,9 @@ button {
 
 .home-preview-section {
   display: grid;
-  gap: 16px;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(158, 178, 165, 0.12);
 }
 
 .home-preview-heading {
@@ -530,13 +542,41 @@ button {
 .home-group-preview-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .home-match-preview-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
+}
+
+.home-group-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+
+.home-group-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot--green {
+  background: #55c738;
+}
+
+.legend-dot--muted {
+  background: #9da7a3;
 }
 
 .home-match-preview-grid:has(.match-tooltip) {
@@ -544,9 +584,10 @@ button {
 }
 
 .home-knockout-section {
-  padding: 20px;
-  border: 1px solid rgba(72, 163, 111, 0.28);
-  border-radius: var(--radius);
+  padding: 20px 24px 32px;
+  border: 0;
+  border-bottom: 1px solid rgba(72, 163, 111, 0.18);
+  border-radius: 0;
   background:
     radial-gradient(circle at 86% 8%, rgba(201, 255, 120, 0.12), transparent 26%),
     linear-gradient(180deg, rgba(11, 24, 17, 0.78), rgba(5, 10, 8, 0.86));
@@ -590,13 +631,15 @@ button {
   margin: 8px 0;
   color: var(--color-text-strong);
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 7vw, 5.6rem);
-  line-height: 0.95;
+  font-size: clamp(2.4rem, 5.6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
 .home-hero-copy h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  max-width: 520px;
+  font-size: clamp(2.8rem, 5.1vw, 4.2rem);
 }
 
 .hero-copy {
@@ -882,38 +925,52 @@ button {
 
 .group-table-card {
   min-width: 0;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(117, 139, 135, 0.34);
   border-radius: var(--radius);
   background:
-    linear-gradient(180deg, rgba(19, 37, 29, 0.98), rgba(11, 22, 17, 0.98)),
-    linear-gradient(90deg, rgba(33, 195, 107, 0.06), transparent 30%);
+    radial-gradient(circle at 50% 0, rgba(79, 164, 183, 0.09), transparent 46%),
+    linear-gradient(180deg, rgba(10, 19, 20, 0.96), rgba(5, 10, 10, 0.98));
   box-shadow: var(--shadow-panel);
   overflow: hidden;
 }
 
 .group-table-card--compact .group-table-header {
-  padding: 14px 14px 0;
+  padding: 13px 13px 0;
 }
 
 .group-table-card--compact .group-table-wrap {
-  padding: 12px 14px 14px;
+  padding: 10px 13px 12px;
 }
 
 .group-table-card--compact .group-table {
   min-width: 0;
+  table-layout: fixed;
 }
 
 .group-table-card--compact .group-table th,
 .group-table-card--compact .group-table td {
-  padding: 9px 6px;
-  font-size: 0.84rem;
+  padding: 6px 4px;
+  font-size: 0.68rem;
+}
+
+.group-table-card--compact .group-table th:first-child,
+.group-table-card--compact .group-table td:first-child {
+  width: 39%;
+}
+
+.group-table-card--compact .desktop-label {
+  display: none;
+}
+
+.group-table-card--compact .mobile-label {
+  display: inline;
 }
 
 .group-table-card--compact .team-rank,
 .group-table-card--compact .team-flag {
-  width: 28px;
-  height: 28px;
-  flex-basis: 28px;
+  width: 20px;
+  height: 15px;
+  flex-basis: 20px;
 }
 
 .group-table-card--compact .team-copy small {
@@ -921,7 +978,7 @@ button {
 }
 
 .group-table-card--compact .team-copy strong {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 .group-table-header {
@@ -934,7 +991,7 @@ button {
 
 .group-table-header h2 {
   margin: 8px 0 0;
-  font-size: 1.35rem;
+  font-size: 1.08rem;
 }
 
 .group-table-legend {
@@ -950,7 +1007,7 @@ button {
 .group-table-wrap {
   min-width: 0;
   overflow-x: auto;
-  padding: 18px 20px 20px;
+  padding: 14px 18px 18px;
   scrollbar-width: thin;
   scrollbar-color: rgba(41, 207, 114, 0.34) transparent;
 }
@@ -963,7 +1020,7 @@ button {
 
 .group-table th,
 .group-table td {
-  padding: 14px 12px;
+  padding: 11px 10px;
   border-bottom: 1px solid rgba(158, 178, 165, 0.14);
   text-align: center;
   vertical-align: middle;
@@ -990,8 +1047,8 @@ button {
 }
 
 .group-row--qualified {
-  box-shadow: inset 4px 0 0 rgba(35, 201, 107, 0.7);
-  background: linear-gradient(90deg, rgba(35, 201, 107, 0.18), rgba(35, 201, 107, 0.03));
+  box-shadow: inset 4px 0 0 rgba(71, 199, 45, 0.9);
+  background: linear-gradient(90deg, rgba(64, 169, 36, 0.6), rgba(33, 113, 38, 0.26));
 }
 
 .group-row--third {
@@ -1002,15 +1059,15 @@ button {
 .team-cell {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .team-rank {
   display: inline-grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   border: 1px solid rgba(158, 178, 165, 0.25);
   border-radius: 999px;
   color: var(--color-muted);
@@ -1021,22 +1078,32 @@ button {
 .team-badge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
   min-width: 0;
 }
 
+.team-badge--code {
+  gap: 6px;
+}
+
 .team-flag {
+  display: block;
+  width: 30px;
+  height: 22px;
+  flex: 0 0 30px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 2px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+
+.team-flag--fallback {
   display: inline-grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-  border: 1px solid rgba(33, 195, 107, 0.35);
-  border-radius: 50%;
   color: var(--color-pitch-soft);
-  background: rgba(33, 195, 107, 0.1);
-  font-size: 0.76rem;
-  font-weight: 800;
+  font-size: 0.68rem;
+  font-weight: 900;
 }
 
 .team-copy {
@@ -1053,7 +1120,12 @@ button {
 }
 
 .team-copy strong {
-  font-size: 1rem;
+  font-size: 0.88rem;
+}
+
+.team-badge--code .team-copy strong {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .team-copy small {
@@ -1122,19 +1194,18 @@ button {
   display: grid;
   gap: 16px;
   width: 100%;
-  min-height: 204px;
-  border-color: rgba(72, 163, 111, 0.32);
+  min-height: 184px;
+  border-color: rgba(117, 139, 135, 0.34);
   background:
-    radial-gradient(circle at 50% 100%, rgba(35, 201, 107, 0.16), transparent 38%),
-    linear-gradient(90deg, rgba(35, 201, 107, 0.13), transparent 3px),
-    linear-gradient(180deg, rgba(18, 34, 27, 0.98), rgba(8, 15, 12, 0.98));
+    radial-gradient(circle at 50% 100%, rgba(35, 201, 107, 0.12), transparent 38%),
+    linear-gradient(180deg, rgba(11, 20, 21, 0.97), rgba(5, 9, 10, 0.98));
   text-align: left;
   overflow: visible;
 }
 
 .match-card--compact {
-  min-height: 168px;
-  padding: 16px;
+  min-height: 154px;
+  padding: 14px;
   gap: 12px;
 }
 
@@ -1143,9 +1214,11 @@ button {
 }
 
 .match-card--compact .match-score {
-  min-width: 82px;
-  min-height: 50px;
-  font-size: 1.35rem;
+  min-width: 74px;
+  min-height: 44px;
+  font-size: 1.55rem;
+  border: 0;
+  background: transparent;
 }
 
 .match-card--compact .match-tooltip {
@@ -1228,12 +1301,39 @@ button {
 
 .select-filter select {
   min-height: var(--touch-target);
-  padding: 10px 12px;
-  border: 1px solid rgba(158, 178, 165, 0.18);
+  padding: 10px 36px 10px 12px;
+  border: 1px solid rgba(158, 178, 165, 0.24);
   border-radius: 8px;
   color: var(--color-text-strong);
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    linear-gradient(180deg, rgba(22, 37, 30, 0.98), rgba(10, 18, 15, 0.98));
+  color-scheme: dark;
   font: inherit;
+  font-weight: 700;
+}
+
+.select-filter select:hover {
+  border-color: rgba(41, 207, 114, 0.42);
+  background:
+    linear-gradient(180deg, rgba(26, 48, 38, 0.98), rgba(12, 24, 18, 0.98));
+}
+
+.select-filter select:focus-visible {
+  border-color: rgba(126, 242, 75, 0.68);
+  outline: 2px solid rgba(41, 207, 114, 0.26);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(41, 207, 114, 0.1);
+}
+
+.select-filter select option {
+  color: #f5fff6;
+  background: #08120e;
+  font-weight: 700;
+}
+
+.select-filter select option:checked {
+  color: #f7fff5;
+  background: #176b32;
 }
 
 .match-card-topline,
@@ -1277,15 +1377,15 @@ button {
 }
 
 .match-status-badge--scheduled {
-  border: 1px solid rgba(33, 195, 107, 0.28);
-  color: #d8ffe7;
-  background: rgba(33, 195, 107, 0.12);
+  border: 1px solid rgba(74, 163, 255, 0.35);
+  color: #dcefff;
+  background: rgba(38, 123, 224, 0.72);
 }
 
 .match-status-badge--finished {
-  border: 1px solid rgba(158, 178, 165, 0.22);
-  color: #eef7f0;
-  background: rgba(158, 178, 165, 0.08);
+  border: 1px solid rgba(92, 205, 66, 0.35);
+  color: #ecffe8;
+  background: rgba(48, 137, 35, 0.72);
 }
 
 .match-status-badge--live {
@@ -1305,7 +1405,7 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .match-side {
@@ -1313,19 +1413,27 @@ button {
   align-items: center;
   gap: 8px;
   min-width: 0;
+  max-width: 100%;
 }
 
 .match-side strong {
   display: block;
+  width: 100%;
+  max-width: 11ch;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 1.04rem;
+  font-size: 0.88rem;
 }
 
 .match-side--away {
   justify-items: end;
   text-align: right;
+}
+
+.match-card--compact .match-side strong {
+  max-width: 9ch;
 }
 
 .match-team-token {
@@ -1342,6 +1450,17 @@ button {
   font-weight: 900;
 }
 
+.match-team-flag {
+  display: block;
+  width: 48px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.32);
+}
+
 .match-score-block {
   display: grid;
   justify-items: center;
@@ -1352,8 +1471,8 @@ button {
 .match-score {
   display: inline-grid;
   place-items: center;
-  min-width: 106px;
-  min-height: 62px;
+  min-width: 92px;
+  min-height: 54px;
   padding: 0 12px;
   border-radius: 8px;
   color: var(--color-text-strong);
@@ -1361,7 +1480,8 @@ button {
   background:
     radial-gradient(circle at 50% 0, rgba(201, 255, 120, 0.16), transparent 54%),
     rgba(255, 255, 255, 0.075);
-  font-size: 1.55rem;
+  font-family: var(--font-display);
+  font-size: 1.95rem;
   font-weight: 900;
 }
 
