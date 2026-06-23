@@ -1,0 +1,77 @@
+name: Update FIFA data PR
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_DATA_URL: ${{ vars.PUBLIC_DATA_URL || 'https://api.fifa.com/api/v3/calendar/matches?idSeason=285023&language=en&count=200' }}
+    steps:
+      - name: Check tournament update window
+        id: window
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          today="$(date -u +%Y-%m-%d)"
+          if [[ "$today" < "2026-06-11" || "$today" > "2026-07-20" ]]; then
+            echo "Outside tournament window; skipping scheduled import."
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        if: steps.window.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        if: steps.window.outputs.should_run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.window.outputs.should_run == 'true'
+        run: npm ci
+
+      - name: Import FIFA data
+        if: steps.window.outputs.should_run == 'true'
+        run: npm run data:import-fifa
+
+      - name: Validate local data
+        if: steps.window.outputs.should_run == 'true'
+        run: npm run data:validate
+
+      - name: Test
+        if: steps.window.outputs.should_run == 'true'
+        run: npm test
+
+      - name: Create or update pull request
+        if: steps.window.outputs.should_run == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/update-fifa-data
+          delete-branch: true
+          title: Update World Cup 2026 data from FIFA API
+          commit-message: Update World Cup 2026 data from FIFA API
+          body: |
+            Automated FIFA calendar import.
+
+            Source:
+            `${{ env.PUBLIC_DATA_URL }}`
+
+            The app still uses local JSON as the source of truth. Review this PR before merging.

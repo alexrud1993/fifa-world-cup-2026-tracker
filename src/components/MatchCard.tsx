@@ -4,6 +4,7 @@ import { getStatusLabel, type Language, type Translate } from "../lib/i18n";
 import { MatchTooltip } from "./MatchTooltip";
 
 interface MatchCardProps {
+  variant?: "default" | "compact";
   isOpen: boolean;
   language: Language;
   match: Match;
@@ -16,6 +17,7 @@ interface MatchCardProps {
 }
 
 export function MatchCard({
+  variant = "default",
   isOpen,
   language,
   match,
@@ -26,7 +28,15 @@ export function MatchCard({
   stageLabel,
   t
 }: MatchCardProps) {
-  const isScheduled = match.status === "scheduled";
+  const isInteractive = match.status === "scheduled" || match.status === "live";
+  const hasScore = typeof match.homeScore === "number" && typeof match.awayScore === "number";
+  const className = [
+    "match-card",
+    isInteractive ? "match-card--interactive" : "match-card--static",
+    variant === "compact" ? "match-card--compact" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
   const content = (
     <>
       <div className="match-card-topline">
@@ -41,21 +51,21 @@ export function MatchCard({
 
       <div className="match-card-main">
         <div className="match-side">
+          <span className="match-team-token" aria-hidden="true">{getTeamInitials(homeLabel)}</span>
           <strong>{homeLabel}</strong>
         </div>
         <div className="match-score-block">
           <span className="match-score">
-            {match.status === "finished" &&
-            typeof match.homeScore === "number" &&
-            typeof match.awayScore === "number"
+            {(match.status === "finished" || match.status === "live") && hasScore
               ? `${match.homeScore} : ${match.awayScore}`
-              : "vs"}
+              : formatTimeKyiv(match.kickoffUtc, language)}
           </span>
           <small>
             {formatDateCardKyiv(match.kickoffUtc, language)} | {formatTimeKyiv(match.kickoffUtc, language)}
           </small>
         </div>
         <div className="match-side match-side--away">
+          <span className="match-team-token" aria-hidden="true">{getTeamInitials(awayLabel)}</span>
           <strong>{awayLabel}</strong>
         </div>
       </div>
@@ -66,10 +76,10 @@ export function MatchCard({
         ) : (
           <span>{t("matches.venueTbc")}</span>
         )}
-        {isScheduled ? <span className="match-card-action">{t("matches.tapDetails")}</span> : null}
+        {isInteractive ? <span className="match-card-action">{t("matches.tapDetails")}</span> : null}
       </div>
 
-      {isScheduled && isOpen ? (
+      {isInteractive && isOpen ? (
         <MatchTooltip
           groupLabel={groupLabel}
           language={language}
@@ -81,18 +91,39 @@ export function MatchCard({
     </>
   );
 
-  if (!isScheduled) {
-    return <article className="match-card match-card--static">{content}</article>;
+  if (!isInteractive) {
+    return <article className={className}>{content}</article>;
   }
 
   return (
     <button
       aria-expanded={isOpen}
-      className="match-card match-card--interactive"
+      className={className}
       onClick={() => onToggle(match.id)}
       type="button"
     >
       {content}
     </button>
   );
+}
+
+function getTeamInitials(label: string) {
+  const words = label
+    .replace(/[()]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (words.length === 0) {
+    return "TBD";
+  }
+
+  if (words.length === 1) {
+    return words[0].slice(0, 3).toUpperCase();
+  }
+
+  return words
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
 }

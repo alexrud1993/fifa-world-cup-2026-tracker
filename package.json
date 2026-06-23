@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "data:validate": "node --experimental-strip-types scripts/validate-data.ts",
+    "data:import-fifa": "node --experimental-strip-types scripts/import-fifa-data.ts",
     "data:import-public": "node --experimental-strip-types scripts/import-public-data.ts",
     "data:normalize-public": "node --experimental-strip-types scripts/normalize-public-data.ts"
   },

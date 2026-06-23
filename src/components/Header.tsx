@@ -9,12 +9,12 @@ interface HeaderProps {
   t: Translate;
 }
 
-const navItems: Array<{ id: ViewId; labelKey: Parameters<Translate>[0] }> = [
-  { id: "home", labelKey: "nav.home" },
-  { id: "groups", labelKey: "nav.groups" },
-  { id: "matches", labelKey: "nav.matches" },
-  { id: "knockout", labelKey: "nav.knockout" },
-  { id: "about", labelKey: "nav.about" }
+const navItems: Array<{ id: ViewId; labelKey: Parameters<Translate>[0]; icon: string }> = [
+  { id: "home", labelKey: "nav.home", icon: "⌂" },
+  { id: "groups", labelKey: "nav.groups", icon: "▦" },
+  { id: "matches", labelKey: "nav.matches", icon: "●" },
+  { id: "knockout", labelKey: "nav.knockout", icon: "♕" },
+  { id: "about", labelKey: "nav.about", icon: "i" }
 ];
 
 export function Header({ activeView, language, onNavigate, onLanguageChange, t }: HeaderProps) {
@@ -23,9 +23,9 @@ export function Header({ activeView, language, onNavigate, onLanguageChange, t }
       <div className="site-header-inner">
         <a className="brand" href="#home" onClick={() => onNavigate("home")}>
           <span className="brand-mark" aria-hidden="true" />
-          <span>
+          <span className="brand-copy">
             <strong>{t("brand.title")}</strong>
-            <small>WC26</small>
+            <small>{t("hero.eyebrow")}</small>
           </span>
         </a>
 
@@ -37,6 +37,7 @@ export function Header({ activeView, language, onNavigate, onLanguageChange, t }
               key={item.id}
               onClick={() => onNavigate(item.id)}
             >
+              <span className="nav-icon" aria-hidden="true">{item.icon}</span>
               {t(item.labelKey)}
             </a>
           ))}
