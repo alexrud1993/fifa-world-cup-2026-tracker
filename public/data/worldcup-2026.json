@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-23T06:10:02.507Z",
+    "lastUpdated": "2026-06-24T20:38:31.716Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1033,10 +1033,12 @@
       "kickoffUtc": "2026-06-23T20:00:00Z",
       "venue": "Boston Stadium",
       "city": "Boston",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "L",
       "homeTeamId": "43942",
-      "awayTeamId": "43860"
+      "awayTeamId": "43860",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-046",
@@ -1044,10 +1046,13 @@
       "kickoffUtc": "2026-06-23T23:00:00Z",
       "venue": "Toronto Stadium",
       "city": "Toronto",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "L",
       "homeTeamId": "43914",
-      "awayTeamId": "43938"
+      "awayTeamId": "43938",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winnerTeamId": "43938"
     },
     {
       "id": "match-047",
@@ -1055,10 +1060,13 @@
       "kickoffUtc": "2026-06-23T17:00:00Z",
       "venue": "Houston Stadium",
       "city": "Houston",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "K",
       "homeTeamId": "43963",
-      "awayTeamId": "44005"
+      "awayTeamId": "44005",
+      "homeScore": 5,
+      "awayScore": 0,
+      "winnerTeamId": "43963"
     },
     {
       "id": "match-048",
@@ -1066,10 +1074,13 @@
       "kickoffUtc": "2026-06-24T02:00:00Z",
       "venue": "Guadalajara Stadium",
       "city": "Guadalajara",
-      "status": "scheduled",
+      "status": "finished",
       "groupId": "K",
       "homeTeamId": "43926",
-      "awayTeamId": "20014"
+      "awayTeamId": "20014",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winnerTeamId": "43926"
     },
     {
       "id": "match-049",
@@ -1099,10 +1110,12 @@
       "kickoffUtc": "2026-06-24T19:00:00Z",
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "B",
       "homeTeamId": "43971",
-      "awayTeamId": "43899"
+      "awayTeamId": "43899",
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": "match-052",
@@ -1110,10 +1123,12 @@
       "kickoffUtc": "2026-06-24T19:00:00Z",
       "venue": "Seattle Stadium",
       "city": "Seattle",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "B",
       "homeTeamId": "44037",
-      "awayTeamId": "43834"
+      "awayTeamId": "43834",
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": "match-053",
