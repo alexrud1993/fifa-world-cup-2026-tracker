@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-24T20:42:36.141Z",
+    "lastUpdated": "2026-06-24T20:58:54.644Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1110,12 +1110,13 @@
       "kickoffUtc": "2026-06-24T19:00:00Z",
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
-      "status": "live",
+      "status": "finished",
       "groupId": "B",
       "homeTeamId": "43971",
       "awayTeamId": "43899",
       "homeScore": 2,
-      "awayScore": 1
+      "awayScore": 1,
+      "winnerTeamId": "43971"
     },
     {
       "id": "match-052",
@@ -1127,7 +1128,7 @@
       "groupId": "B",
       "homeTeamId": "44037",
       "awayTeamId": "43834",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 1
     },
     {
@@ -1477,8 +1478,8 @@
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
       "status": "scheduled",
-      "homePlaceholder": "1B",
-      "awayPlaceholder": "3EFGIJ"
+      "awayPlaceholder": "3EFGIJ",
+      "homeTeamId": "43971"
     },
     {
       "id": "match-086",
