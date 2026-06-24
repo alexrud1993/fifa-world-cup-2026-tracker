@@ -17,6 +17,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: fifa-data-update
@@ -107,3 +109,23 @@ jobs:
           git add public/data/worldcup-2026.json
           git commit -m "Update World Cup 2026 data"
           git push
+
+      - name: Configure Pages
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Build for GitHub Pages
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+        run: npm run build
+
+      - name: Upload Pages artifact
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy Pages
+        if: steps.window.outputs.should_run == 'true' && steps.live_window.outputs.should_run == 'true'
+        uses: actions/deploy-pages@v4
