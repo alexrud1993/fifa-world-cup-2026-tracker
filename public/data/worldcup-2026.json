@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-24T00:11:45.737Z",
+    "lastUpdated": "2026-06-24T01:26:59.453Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1046,12 +1046,13 @@
       "kickoffUtc": "2026-06-23T23:00:00Z",
       "venue": "Toronto Stadium",
       "city": "Toronto",
-      "status": "live",
+      "status": "finished",
       "groupId": "L",
       "homeTeamId": "43914",
       "awayTeamId": "43938",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1,
+      "winnerTeamId": "43938"
     },
     {
       "id": "match-047",
