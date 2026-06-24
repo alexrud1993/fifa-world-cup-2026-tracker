@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-24T21:45:44.188Z",
+    "lastUpdated": "2026-06-24T22:14:43.103Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1088,10 +1088,12 @@
       "kickoffUtc": "2026-06-24T22:00:00Z",
       "venue": "Miami Stadium",
       "city": "Miami",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "C",
       "homeTeamId": "43967",
-      "awayTeamId": "43924"
+      "awayTeamId": "43924",
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": "match-050",
@@ -1099,10 +1101,12 @@
       "kickoffUtc": "2026-06-24T22:00:00Z",
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "C",
       "homeTeamId": "43872",
-      "awayTeamId": "43908"
+      "awayTeamId": "43908",
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": "match-051",
