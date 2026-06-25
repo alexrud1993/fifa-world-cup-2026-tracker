@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-25T22:45:29.912Z",
+    "lastUpdated": "2026-06-25T23:09:56.766Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1200,10 +1200,12 @@
       "kickoffUtc": "2026-06-25T23:00:00Z",
       "venue": "Dallas Stadium",
       "city": "Dallas",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "F",
       "homeTeamId": "43819",
-      "awayTeamId": "43970"
+      "awayTeamId": "43970",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-058",
@@ -1211,10 +1213,12 @@
       "kickoffUtc": "2026-06-25T23:00:00Z",
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "F",
       "homeTeamId": "43888",
-      "awayTeamId": "43960"
+      "awayTeamId": "43960",
+      "homeScore": 0,
+      "awayScore": 2
     },
     {
       "id": "match-059",
