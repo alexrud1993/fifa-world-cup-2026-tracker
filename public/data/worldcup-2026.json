@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-24T23:34:10.831Z",
+    "lastUpdated": "2026-06-25T01:33:42.346Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1088,12 +1088,13 @@
       "kickoffUtc": "2026-06-24T22:00:00Z",
       "venue": "Miami Stadium",
       "city": "Miami",
-      "status": "live",
+      "status": "finished",
       "groupId": "C",
       "homeTeamId": "43967",
       "awayTeamId": "43924",
       "homeScore": 0,
-      "awayScore": 3
+      "awayScore": 3,
+      "winnerTeamId": "43924"
     },
     {
       "id": "match-050",
@@ -1101,12 +1102,13 @@
       "kickoffUtc": "2026-06-24T22:00:00Z",
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
-      "status": "live",
+      "status": "finished",
       "groupId": "C",
       "homeTeamId": "43872",
       "awayTeamId": "43908",
-      "homeScore": 2,
-      "awayScore": 2
+      "homeScore": 4,
+      "awayScore": 2,
+      "winnerTeamId": "43872"
     },
     {
       "id": "match-051",
@@ -1142,10 +1144,12 @@
       "kickoffUtc": "2026-06-25T01:00:00Z",
       "venue": "Mexico City Stadium",
       "city": "Mexico City",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "A",
       "homeTeamId": "43995",
-      "awayTeamId": "43911"
+      "awayTeamId": "43911",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-054",
@@ -1153,10 +1157,12 @@
       "kickoffUtc": "2026-06-25T01:00:00Z",
       "venue": "Monterrey Stadium",
       "city": "Monterrey",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "A",
       "homeTeamId": "43883",
-      "awayTeamId": "43822"
+      "awayTeamId": "43822",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-055",
@@ -1384,7 +1390,7 @@
       "city": "Monterrey",
       "status": "scheduled",
       "homePlaceholder": "1F",
-      "awayPlaceholder": "2C"
+      "awayTeamId": "43872"
     },
     {
       "id": "match-076",
@@ -1393,8 +1399,8 @@
       "venue": "Houston Stadium",
       "city": "Houston",
       "status": "scheduled",
-      "homePlaceholder": "1C",
-      "awayPlaceholder": "2F"
+      "awayPlaceholder": "2F",
+      "homeTeamId": "43924"
     },
     {
       "id": "match-077",
