@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-26T20:58:27.687Z",
+    "lastUpdated": "2026-06-26T21:55:43.033Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1254,12 +1254,13 @@
       "kickoffUtc": "2026-06-26T19:00:00Z",
       "venue": "Boston Stadium",
       "city": "Boston",
-      "status": "live",
+      "status": "finished",
       "groupId": "I",
       "homeTeamId": "43961",
       "awayTeamId": "43946",
       "homeScore": 1,
-      "awayScore": 4
+      "awayScore": 4,
+      "winnerTeamId": "43946"
     },
     {
       "id": "match-062",
@@ -1267,12 +1268,13 @@
       "kickoffUtc": "2026-06-26T19:00:00Z",
       "venue": "Toronto Stadium",
       "city": "Toronto",
-      "status": "live",
+      "status": "finished",
       "groupId": "I",
       "homeTeamId": "43879",
       "awayTeamId": "43818",
       "homeScore": 5,
-      "awayScore": 0
+      "awayScore": 0,
+      "winnerTeamId": "43879"
     },
     {
       "id": "match-063",
@@ -1431,8 +1433,8 @@
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
       "status": "scheduled",
-      "homePlaceholder": "1I",
-      "awayPlaceholder": "3CDFGH"
+      "awayPlaceholder": "3CDFGH",
+      "homeTeamId": "43946"
     },
     {
       "id": "match-078",
@@ -1441,8 +1443,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "awayPlaceholder": "2I",
-      "homeTeamId": "43854"
+      "homeTeamId": "43854",
+      "awayTeamId": "43961"
     },
     {
       "id": "match-079",
