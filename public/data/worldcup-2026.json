@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-26T16:28:03.510Z",
+    "lastUpdated": "2026-06-26T19:03:33.453Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1254,10 +1254,12 @@
       "kickoffUtc": "2026-06-26T19:00:00Z",
       "venue": "Boston Stadium",
       "city": "Boston",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "I",
       "homeTeamId": "43961",
-      "awayTeamId": "43946"
+      "awayTeamId": "43946",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-062",
@@ -1265,10 +1267,12 @@
       "kickoffUtc": "2026-06-26T19:00:00Z",
       "venue": "Toronto Stadium",
       "city": "Toronto",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "I",
       "homeTeamId": "43879",
-      "awayTeamId": "43818"
+      "awayTeamId": "43818",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-063",
