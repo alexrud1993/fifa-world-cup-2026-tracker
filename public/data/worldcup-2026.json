@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-27T00:20:20.514Z",
+    "lastUpdated": "2026-06-27T02:52:16.340Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1304,7 +1304,7 @@
       "kickoffUtc": "2026-06-27T00:00:00Z",
       "venue": "Houston Stadium",
       "city": "Houston",
-      "status": "live",
+      "status": "finished",
       "groupId": "H",
       "homeTeamId": "43850",
       "awayTeamId": "43835",
@@ -1317,12 +1317,13 @@
       "kickoffUtc": "2026-06-27T00:00:00Z",
       "venue": "Guadalajara Stadium",
       "city": "Guadalajara",
-      "status": "live",
+      "status": "finished",
       "groupId": "H",
       "homeTeamId": "43930",
       "awayTeamId": "43969",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1,
+      "winnerTeamId": "43969"
     },
     {
       "id": "match-067",
@@ -1408,7 +1409,7 @@
       "city": "Boston",
       "status": "scheduled",
       "homeTeamId": "43948",
-      "awayPlaceholder": "3ABCDF"
+      "awayTeamId": "43928"
     },
     {
       "id": "match-075",
@@ -1437,8 +1438,8 @@
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
       "status": "scheduled",
-      "awayPlaceholder": "3CDFGH",
-      "homeTeamId": "43946"
+      "homeTeamId": "43946",
+      "awayTeamId": "43970"
     },
     {
       "id": "match-078",
@@ -1507,8 +1508,8 @@
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "scheduled",
-      "homePlaceholder": "1H",
-      "awayPlaceholder": "2J"
+      "awayPlaceholder": "2J",
+      "homeTeamId": "43969"
     },
     {
       "id": "match-085",
@@ -1527,8 +1528,8 @@
       "venue": "Miami Stadium",
       "city": "Miami",
       "status": "scheduled",
-      "awayPlaceholder": "2H",
-      "homeTeamId": "43922"
+      "homeTeamId": "43922",
+      "awayTeamId": "43850"
     },
     {
       "id": "match-087",
