@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-27T22:58:40.986Z",
+    "lastUpdated": "2026-06-27T23:18:20.057Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1350,12 +1350,13 @@
       "kickoffUtc": "2026-06-27T21:00:00Z",
       "venue": "Philadelphia Stadium",
       "city": "Philadelphia",
-      "status": "live",
+      "status": "finished",
       "groupId": "L",
       "homeTeamId": "43938",
       "awayTeamId": "43860",
       "homeScore": 2,
-      "awayScore": 1
+      "awayScore": 1,
+      "winnerTeamId": "43938"
     },
     {
       "id": "match-069",
@@ -1469,7 +1470,7 @@
       "city": "Mexico City",
       "status": "scheduled",
       "homeTeamId": "43911",
-      "awayPlaceholder": "3CEFHI"
+      "awayTeamId": "43927"
     },
     {
       "id": "match-080",
@@ -1478,8 +1479,8 @@
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
       "status": "scheduled",
-      "homePlaceholder": "1L",
-      "awayPlaceholder": "3EHIJK"
+      "awayPlaceholder": "3EHIJK",
+      "homeTeamId": "43942"
     },
     {
       "id": "match-081",
@@ -1509,7 +1510,7 @@
       "city": "Toronto",
       "status": "scheduled",
       "homePlaceholder": "2K",
-      "awayPlaceholder": "2L"
+      "awayTeamId": "43938"
     },
     {
       "id": "match-084",
@@ -1549,7 +1550,7 @@
       "city": "Kansas City",
       "status": "scheduled",
       "homePlaceholder": "1K",
-      "awayPlaceholder": "3DEIJL"
+      "awayTeamId": "43860"
     },
     {
       "id": "match-088",
