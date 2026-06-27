@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-27T22:15:58.842Z",
+    "lastUpdated": "2026-06-27T22:58:40.986Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1336,12 +1336,13 @@
       "kickoffUtc": "2026-06-27T21:00:00Z",
       "venue": "New York/New Jersey Stadium",
       "city": "New Jersey",
-      "status": "live",
+      "status": "finished",
       "groupId": "L",
       "homeTeamId": "43914",
       "awayTeamId": "43942",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 2,
+      "winnerTeamId": "43942"
     },
     {
       "id": "match-068",
@@ -1353,8 +1354,8 @@
       "groupId": "L",
       "homeTeamId": "43938",
       "awayTeamId": "43860",
-      "homeScore": 1,
-      "awayScore": 0
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": "match-069",
