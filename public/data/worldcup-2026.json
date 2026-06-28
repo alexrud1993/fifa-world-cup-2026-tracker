@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-28T03:26:51.445Z",
+    "lastUpdated": "2026-06-28T04:50:01.811Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1364,12 +1364,12 @@
       "kickoffUtc": "2026-06-28T02:00:00Z",
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
-      "status": "live",
+      "status": "finished",
       "groupId": "J",
       "homeTeamId": "43843",
       "awayTeamId": "43934",
-      "homeScore": 2,
-      "awayScore": 2
+      "homeScore": 3,
+      "awayScore": 3
     },
     {
       "id": "match-070",
@@ -1377,12 +1377,13 @@
       "kickoffUtc": "2026-06-28T02:00:00Z",
       "venue": "Dallas Stadium",
       "city": "Dallas",
-      "status": "live",
+      "status": "finished",
       "groupId": "J",
       "homeTeamId": "43820",
       "awayTeamId": "43922",
       "homeScore": 1,
-      "awayScore": 2
+      "awayScore": 3,
+      "winnerTeamId": "43922"
     },
     {
       "id": "match-071",
@@ -1528,8 +1529,8 @@
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
       "status": "scheduled",
-      "awayPlaceholder": "2J",
-      "homeTeamId": "43969"
+      "homeTeamId": "43969",
+      "awayTeamId": "43934"
     },
     {
       "id": "match-085",
@@ -1538,8 +1539,8 @@
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
       "status": "scheduled",
-      "awayPlaceholder": "3EFGIJ",
-      "homeTeamId": "43971"
+      "homeTeamId": "43971",
+      "awayTeamId": "43843"
     },
     {
       "id": "match-086",
