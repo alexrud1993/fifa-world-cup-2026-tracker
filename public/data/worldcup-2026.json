@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-27T23:58:42.477Z",
+    "lastUpdated": "2026-06-28T03:26:51.445Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1364,10 +1364,12 @@
       "kickoffUtc": "2026-06-28T02:00:00Z",
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "J",
       "homeTeamId": "43843",
-      "awayTeamId": "43934"
+      "awayTeamId": "43934",
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
       "id": "match-070",
@@ -1375,10 +1377,12 @@
       "kickoffUtc": "2026-06-28T02:00:00Z",
       "venue": "Dallas Stadium",
       "city": "Dallas",
-      "status": "scheduled",
+      "status": "live",
       "groupId": "J",
       "homeTeamId": "43820",
-      "awayTeamId": "43922"
+      "awayTeamId": "43922",
+      "homeScore": 1,
+      "awayScore": 2
     },
     {
       "id": "match-071",
@@ -1386,7 +1390,7 @@
       "kickoffUtc": "2026-06-27T23:30:00Z",
       "venue": "Miami Stadium",
       "city": "Miami",
-      "status": "live",
+      "status": "finished",
       "groupId": "K",
       "homeTeamId": "43926",
       "awayTeamId": "43963",
@@ -1399,12 +1403,13 @@
       "kickoffUtc": "2026-06-27T23:30:00Z",
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
-      "status": "live",
+      "status": "finished",
       "groupId": "K",
       "homeTeamId": "20014",
       "awayTeamId": "44005",
-      "homeScore": 0,
-      "awayScore": 1
+      "homeScore": 3,
+      "awayScore": 1,
+      "winnerTeamId": "20014"
     },
     {
       "id": "match-073",
@@ -1483,8 +1488,8 @@
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
       "status": "scheduled",
-      "awayPlaceholder": "3EHIJK",
-      "homeTeamId": "43942"
+      "homeTeamId": "43942",
+      "awayTeamId": "20014"
     },
     {
       "id": "match-081",
@@ -1503,8 +1508,8 @@
       "venue": "Seattle Stadium",
       "city": "Seattle",
       "status": "scheduled",
-      "awayPlaceholder": "3AEHIJ",
-      "homeTeamId": "43935"
+      "homeTeamId": "43935",
+      "awayTeamId": "43879"
     },
     {
       "id": "match-083",
@@ -1513,8 +1518,8 @@
       "venue": "Toronto Stadium",
       "city": "Toronto",
       "status": "scheduled",
-      "homePlaceholder": "2K",
-      "awayTeamId": "43938"
+      "awayTeamId": "43938",
+      "homeTeamId": "43963"
     },
     {
       "id": "match-084",
@@ -1553,8 +1558,8 @@
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
       "status": "scheduled",
-      "homePlaceholder": "1K",
-      "awayTeamId": "43860"
+      "awayTeamId": "43860",
+      "homeTeamId": "43926"
     },
     {
       "id": "match-088",
