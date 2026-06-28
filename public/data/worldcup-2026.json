@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-28T18:17:35.048Z",
+    "lastUpdated": "2026-06-28T19:56:41.176Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1418,9 +1418,11 @@
       "kickoffUtc": "2026-06-28T19:00:00Z",
       "venue": "Los Angeles Stadium",
       "city": "Los Angeles",
-      "status": "scheduled",
+      "status": "live",
       "awayTeamId": "43899",
-      "homeTeamId": "43883"
+      "homeTeamId": "43883",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-074",
