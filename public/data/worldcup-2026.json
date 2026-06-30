@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-30T01:26:51.250Z",
+    "lastUpdated": "2026-06-30T04:35:59.905Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1446,8 +1446,8 @@
       "status": "live",
       "awayTeamId": "43872",
       "homeTeamId": "43960",
-      "homeScore": 0,
-      "awayScore": 0
+      "homeScore": 1,
+      "awayScore": 1
     },
     {
       "id": "match-076",
@@ -1599,8 +1599,8 @@
       "venue": "Houston Stadium",
       "city": "Houston",
       "status": "scheduled",
-      "awayPlaceholder": "W75",
-      "homeTeamId": "43899"
+      "homeTeamId": "43899",
+      "awayTeamId": "43872"
     },
     {
       "id": "match-091",
