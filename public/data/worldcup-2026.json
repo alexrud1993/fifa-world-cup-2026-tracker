@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-30T22:24:18.481Z",
+    "lastUpdated": "2026-06-30T22:39:34.550Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1471,7 +1471,7 @@
       "status": "live",
       "homeTeamId": "43946",
       "awayTeamId": "43970",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 0
     },
     {
