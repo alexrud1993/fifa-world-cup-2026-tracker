@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-06-30T00:17:52.890Z",
+    "lastUpdated": "2026-06-30T01:26:51.250Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1443,9 +1443,11 @@
       "kickoffUtc": "2026-06-30T01:00:00Z",
       "venue": "Monterrey Stadium",
       "city": "Monterrey",
-      "status": "scheduled",
+      "status": "live",
       "awayTeamId": "43872",
-      "homeTeamId": "43960"
+      "homeTeamId": "43960",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-076",
