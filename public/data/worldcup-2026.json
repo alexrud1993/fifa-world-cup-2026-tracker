@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-01T22:09:43.135Z",
+    "lastUpdated": "2026-07-01T23:39:49.943Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1533,7 +1533,7 @@
       "status": "live",
       "homeTeamId": "43935",
       "awayTeamId": "43879",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 2
     },
     {
@@ -1654,7 +1654,7 @@
       "city": "Seattle",
       "status": "scheduled",
       "homePlaceholder": "W81",
-      "awayPlaceholder": "W82"
+      "awayTeamId": "43935"
     },
     {
       "id": "match-095",
