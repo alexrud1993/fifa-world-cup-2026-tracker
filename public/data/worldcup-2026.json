@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-01T19:16:39.705Z",
+    "lastUpdated": "2026-07-01T20:17:03.676Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1530,9 +1530,11 @@
       "kickoffUtc": "2026-07-01T20:00:00Z",
       "venue": "Seattle Stadium",
       "city": "Seattle",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43935",
-      "awayTeamId": "43879"
+      "awayTeamId": "43879",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-083",
