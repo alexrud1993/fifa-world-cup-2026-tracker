@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-02T01:35:37.248Z",
+    "lastUpdated": "2026-07-02T04:21:16.350Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1520,11 +1520,12 @@
       "kickoffUtc": "2026-07-02T00:00:00Z",
       "venue": "San Francisco Bay Area Stadium",
       "city": "San Francisco Bay Area",
-      "status": "live",
+      "status": "finished",
       "homeTeamId": "43921",
       "awayTeamId": "44037",
-      "homeScore": 1,
-      "awayScore": 0
+      "homeScore": 2,
+      "awayScore": 0,
+      "winnerTeamId": "43921"
     },
     {
       "id": "match-082",
@@ -1655,8 +1656,8 @@
       "venue": "Seattle Stadium",
       "city": "Seattle",
       "status": "scheduled",
-      "homePlaceholder": "W81",
-      "awayTeamId": "43935"
+      "awayTeamId": "43935",
+      "homeTeamId": "43921"
     },
     {
       "id": "match-095",
