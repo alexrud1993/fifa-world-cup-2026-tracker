@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-03T21:18:01.305Z",
+    "lastUpdated": "2026-07-03T22:16:15.794Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1584,9 +1584,11 @@
       "kickoffUtc": "2026-07-03T22:00:00Z",
       "venue": "Miami Stadium",
       "city": "Miami",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43922",
-      "awayTeamId": "43850"
+      "awayTeamId": "43850",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-087",
