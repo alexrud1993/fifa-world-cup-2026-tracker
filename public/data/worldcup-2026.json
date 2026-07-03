@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-03T04:56:50.288Z",
+    "lastUpdated": "2026-07-03T07:53:53.521Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1685,8 +1685,8 @@
       "venue": "BC Place Vancouver",
       "city": "Vancouver",
       "status": "scheduled",
-      "homePlaceholder": "W85",
-      "awayPlaceholder": "W87"
+      "awayPlaceholder": "W87",
+      "homeTeamId": "43971"
     },
     {
       "id": "match-097",
