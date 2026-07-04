@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-04T20:38:49.059Z",
+    "lastUpdated": "2026-07-04T21:13:31.639Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1621,9 +1621,11 @@
       "kickoffUtc": "2026-07-04T21:00:00Z",
       "venue": "Philadelphia Stadium",
       "city": "Philadelphia",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43928",
-      "awayTeamId": "43946"
+      "awayTeamId": "43946",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-090",
