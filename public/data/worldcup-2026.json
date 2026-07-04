@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-04T18:41:20.497Z",
+    "lastUpdated": "2026-07-04T19:36:16.606Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1631,11 +1631,12 @@
       "kickoffUtc": "2026-07-04T17:00:00Z",
       "venue": "Houston Stadium",
       "city": "Houston",
-      "status": "live",
+      "status": "finished",
       "homeTeamId": "43899",
       "awayTeamId": "43872",
       "homeScore": 0,
-      "awayScore": 1
+      "awayScore": 3,
+      "winnerTeamId": "43872"
     },
     {
       "id": "match-091",
@@ -1705,7 +1706,7 @@
       "city": "Boston",
       "status": "scheduled",
       "homePlaceholder": "W89",
-      "awayPlaceholder": "W90"
+      "awayTeamId": "43872"
     },
     {
       "id": "match-098",
