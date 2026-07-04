@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-04T22:32:33.069Z",
+    "lastUpdated": "2026-07-04T23:12:38.809Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1621,11 +1621,12 @@
       "kickoffUtc": "2026-07-04T21:00:00Z",
       "venue": "Philadelphia Stadium",
       "city": "Philadelphia",
-      "status": "live",
+      "status": "finished",
       "homeTeamId": "43928",
       "awayTeamId": "43946",
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1,
+      "winnerTeamId": "43946"
     },
     {
       "id": "match-090",
@@ -1707,8 +1708,8 @@
       "venue": "Boston Stadium",
       "city": "Boston",
       "status": "scheduled",
-      "homePlaceholder": "W89",
-      "awayTeamId": "43872"
+      "awayTeamId": "43872",
+      "homeTeamId": "43946"
     },
     {
       "id": "match-098",
