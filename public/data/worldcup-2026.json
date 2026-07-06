@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-05T23:40:43.937Z",
+    "lastUpdated": "2026-07-06T01:21:13.920Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1657,12 +1657,14 @@
     {
       "id": "match-092",
       "stage": "round-of-16",
-      "kickoffUtc": "2026-07-06T00:00:00Z",
+      "kickoffUtc": "2026-07-06T01:00:00Z",
       "venue": "Mexico City Stadium",
       "city": "Mexico City",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43911",
-      "awayTeamId": "43942"
+      "awayTeamId": "43942",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-093",
