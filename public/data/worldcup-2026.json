@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-07T22:41:25.955Z",
+    "lastUpdated": "2026-07-07T23:14:36.332Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1755,8 +1755,8 @@
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
       "status": "scheduled",
-      "awayPlaceholder": "W96",
-      "homeTeamId": "43922"
+      "homeTeamId": "43922",
+      "awayTeamId": "43971"
     },
     {
       "id": "match-101",
