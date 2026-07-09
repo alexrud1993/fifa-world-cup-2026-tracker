@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-09T21:43:47.995Z",
+    "lastUpdated": "2026-07-09T22:52:40.419Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1724,11 +1724,12 @@
       "kickoffUtc": "2026-07-09T20:00:00Z",
       "venue": "Boston Stadium",
       "city": "Boston",
-      "status": "live",
+      "status": "finished",
       "awayTeamId": "43872",
       "homeTeamId": "43946",
       "homeScore": 2,
-      "awayScore": 0
+      "awayScore": 0,
+      "winnerTeamId": "43946"
     },
     {
       "id": "match-098",
@@ -1767,8 +1768,8 @@
       "venue": "Dallas Stadium",
       "city": "Dallas",
       "status": "scheduled",
-      "homePlaceholder": "W97",
-      "awayPlaceholder": "W98"
+      "awayPlaceholder": "W98",
+      "homeTeamId": "43946"
     },
     {
       "id": "match-102",
