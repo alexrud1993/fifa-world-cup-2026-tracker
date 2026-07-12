@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-12T00:10:47.255Z",
+    "lastUpdated": "2026-07-12T01:14:56.711Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1762,9 +1762,11 @@
       "kickoffUtc": "2026-07-12T01:00:00Z",
       "venue": "Kansas City Stadium",
       "city": "Kansas City",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43922",
-      "awayTeamId": "43971"
+      "awayTeamId": "43971",
+      "homeScore": 2,
+      "awayScore": 0
     },
     {
       "id": "match-101",
