@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-14T18:50:32.615Z",
+    "lastUpdated": "2026-07-14T19:45:48.303Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1774,9 +1774,11 @@
       "kickoffUtc": "2026-07-14T19:00:00Z",
       "venue": "Dallas Stadium",
       "city": "Dallas",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43946",
-      "awayTeamId": "43969"
+      "awayTeamId": "43969",
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": "match-102",
