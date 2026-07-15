@@ -8,7 +8,7 @@
       "Mexico",
       "United States"
     ],
-    "lastUpdated": "2026-07-15T18:41:02.824Z",
+    "lastUpdated": "2026-07-15T19:36:08.199Z",
     "note": "Data snapshot manually updated from public official tournament sources. No API keys are used."
   },
   "groups": [
@@ -1787,9 +1787,11 @@
       "kickoffUtc": "2026-07-15T19:00:00Z",
       "venue": "Atlanta Stadium",
       "city": "Atlanta",
-      "status": "scheduled",
+      "status": "live",
       "homeTeamId": "43942",
-      "awayTeamId": "43922"
+      "awayTeamId": "43922",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": "match-103",
